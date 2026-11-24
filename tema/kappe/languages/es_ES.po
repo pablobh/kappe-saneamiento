@@ -1,0 +1,556 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pablo Bustamante <pablobh@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+
+#. Text in function
+#: loop.php:166
+msgid "% Comments"
+msgstr "% Comentarios"
+
+#. Text in function
+#: helper-functions.php:328
+msgid "%1$s at %2$s"
+msgstr ""
+
+#. Text in function
+#: widgets.php:429
+msgid "%s ago"
+msgstr ""
+
+#. Text in function
+#: helper-functions.php:329
+msgid "(Edit)"
+msgstr "(Editar)"
+
+#. Text in echo
+#: loop.php:30
+msgid "+"
+msgstr ""
+
+#. Text in function
+#: loop.php:166
+msgid "0 Comments"
+msgstr "0 Comentarios"
+
+#. Text in function
+#: loop.php:166
+msgid "1 Comment"
+msgstr "1 Comentarios"
+
+#. Text in function
+#: comments.php:20
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr ""
+
+#. Text in function
+#: widgets.php:479
+msgid "@Follow Me"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:516
+msgid "Access Token"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:520
+msgid "Access Token Secret"
+msgstr ""
+
+#. Text in echo
+#: comments.php:75
+msgid "Add Comment"
+msgstr "Agregar comentario"
+
+#. Text in echo
+#: header.php:71
+msgid "All Works"
+msgstr "Todos los trabajos"
+
+#. Text in echo
+#: widgets.php:854
+msgid "Alternative website"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:131
+msgid "Bitbucket:"
+msgstr ""
+
+#. Text in function
+#: post-types.php:1
+msgid "Categories"
+msgstr "Categor&iacute;as"
+
+#. Text in function
+#: post-types.php:1
+msgid "Category"
+msgstr "Categor&iacute;a"
+
+#. Text in echo
+#: widgets.php:653
+msgid "Category (Leave Blank to show from all categories)"
+msgstr ""
+
+#. Text in echo
+#: comments.php:74
+msgid "Comment"
+msgstr "Comentario"
+
+#. Text in echo
+#: comments.php:33
+msgid "Comments are closed."
+msgstr "Los comentarios est&aacute;n cerrados"
+
+#. Text in echo
+#: widgets.php:508
+msgid "Consumer Key"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:512
+msgid "Consumer Secret"
+msgstr ""
+
+#. Text in function
+#: widgets.php:859
+msgid "Contact Us"
+msgstr "Contáctenos"
+
+#. Text in function
+#: widgets.php:859
+msgid "Contact widget"
+msgstr ""
+
+#. Text in echo
+#: under-construction.php:64
+msgid "Days"
+msgstr "Días"
+
+#. Text in function
+#: widgets.php:859
+msgid "Display images from flickr"
+msgstr ""
+
+#. Text in function
+#: widgets.php:859
+msgid "Display latest blog posts"
+msgstr ""
+
+#. Text in function
+#: widgets.php:859
+msgid "Display latest works (Portoflio)"
+msgstr ""
+
+#. Text in function
+#: widgets.php:758
+msgid "Display post info"
+msgstr ""
+
+#. Text in function
+#: widgets.php:758
+msgid "Display social links"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:135
+msgid "Dribbble:"
+msgstr ""
+
+#. Text in echo
+#: contact-template.php:61
+msgid "E-mail"
+msgstr "Correo"
+
+#. Text in echo
+#: contact-template.php:125
+msgid "E-mail address should contain at least 6 characters"
+msgstr "Tu correo debe tener por lo menos 6 caracteres"
+
+#. Text in echo
+#: contact-template.php:125
+msgid "E-mail is required"
+msgstr "Necesitas llenar este espacio"
+
+#. Text in function
+#: post-types.php:1
+msgid "Edit Work"
+msgstr ""
+
+#. Text in echo
+#: comments.php:64 widgets.php:706
+msgid "Email"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:750
+msgid "Email Address:<br />"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:139
+msgid "Facebook:"
+msgstr ""
+
+#. Text in echo
+#: header.php:69
+msgid "Filter"
+msgstr "Categor&iacute;as"
+
+#. Text in echo
+#: widgets.php:357
+msgid "Flickr ID:"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:143
+msgid "Flickr:"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:147
+msgid "Github:"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:151
+msgid "Google+:"
+msgstr ""
+
+#. Text in function
+#: the_breadcrumb.php:1
+msgid "Home"
+msgstr "Inicio"
+
+#. Text in echo
+#: under-construction.php:67
+msgid "Hours"
+msgstr "Horas"
+
+#. Text in echo
+#: widgets.php:155
+msgid "Instagram:"
+msgstr ""
+
+#. Text in function
+#: widgets.php:859
+msgid "Kappe - Contact Form"
+msgstr ""
+
+#. Text in function
+#: widgets.php:859
+msgid "Kappe - Flickr images"
+msgstr ""
+
+#. Text in function
+#: widgets.php:859
+msgid "Kappe - Latest Works"
+msgstr ""
+
+#. Text in function
+#: widgets.php:758
+msgid "Kappe - Social links"
+msgstr ""
+
+#. Text in function
+#: widgets.php:859
+msgid "Kappe Blog Posts"
+msgstr ""
+
+#. Text in function
+#: widgets.php:758
+msgid "Kappe Post Info"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:159
+msgid "LinkedIn:"
+msgstr ""
+
+#. Text in echo
+#: blog-template.php:19
+msgid "Load More"
+msgstr "Cargar m&aacute;s"
+
+#. Text in echo
+#: comments.php:54
+msgid "Log out"
+msgstr ""
+
+#. Text in echo
+#: comments.php:52
+msgid "Logged in as"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:711 contact-template.php:72
+msgid "Message"
+msgstr "Mensaje"
+
+#. Text in echo
+#: contact-template.php:126
+msgid "Message is required"
+msgstr "Necesitas llenar este espacio"
+
+#. Text in echo
+#: under-construction.php:70
+msgid "Minutes"
+msgstr "Minutos"
+
+#. Text in echo
+#: comments.php:60 widgets.php:703 contact-template.php:55
+msgid "Name"
+msgstr "Nombre"
+
+#. Text in echo
+#: contact-template.php:124
+msgid "Name is required"
+msgstr "Necesitas llenar este espacio"
+
+#. Text in function
+#: comments.php:21
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:233
+msgid "No Image"
+msgstr ""
+
+#. Text in echo
+#: portfolio_template.php:38
+msgid ""
+"No categories selected. To fix this, please login to your WP Admin area and "
+"se"
+msgstr ""
+
+#. Text in echo
+#: page-head.php:77
+msgid ""
+"No slider items were found in the selected slider. Please make sure to "
+"create some via \"Slider\" section in your admin panel."
+msgstr ""
+
+#. Text in echo
+#: search.php:18
+msgid "Nothing Found"
+msgstr "No encontramos nada"
+
+#. Text in echo
+#: widgets.php:648
+msgid "Number of Posts to show"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:528
+msgid "Number of Tweets to show"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:362
+msgid "Number of photos:"
+msgstr ""
+
+#. Text in echo
+#: 404.php:5
+msgid "Page not found"
+msgstr "P&aacute;gina no encontrada"
+
+#. Text in function
+#: single-portfolio.php:34 single.php:70
+msgid "Pages:"
+msgstr "P&aacute;ginas:"
+
+#. Text in echo
+#: widgets.php:163
+msgid "Pinterest:"
+msgstr ""
+
+#. Text in echo
+#: contact-template.php:125
+msgid "Please provide a valid e-mail"
+msgstr "Por favor, escribe un correo v&aacute;lido"
+
+#. Text in function
+#: functions.php:1
+msgid "Primary Navigation"
+msgstr ""
+
+#. Text in function
+#: functions.php:1
+msgid "Primary Widget Area"
+msgstr ""
+
+#. Text in echo
+#: 404.php:25
+msgid "Return to previous page"
+msgstr ""
+
+#. Text in echo
+#: searchform.php:2
+msgid "Search here..."
+msgstr "Buscar..."
+
+#. Text in echo
+#: under-construction.php:73
+msgid "Seconds"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:713
+msgid "Send"
+msgstr "Enviar"
+
+#. Text in echo
+#: contact-template.php:74
+msgid "Send Now"
+msgstr "Enviar"
+
+#. Text in echo
+#: contact-template.php:50
+msgid "Send us a message"
+msgstr "D&eacute;janos tu mensaje"
+
+#. Text in echo
+#: taxonomy-portfolio_category.php:66
+msgid "Show All"
+msgstr "Mostrar todas"
+
+#. Text in echo
+#: widgets.php:846
+msgid "Show Date"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:839
+msgid "Show author"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:265
+msgid "Show only featured posts"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:658
+msgid "Show thumbnails"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:167
+msgid "Skype:"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:429
+msgid "Sorry , Twitter seems down or responds slowly."
+msgstr ""
+
+#. Text in echo
+#: search.php:20
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr ""
+"Lo sentimos, no encontramos resultados para tu b&uacute;squeda. Por favor, "
+"int&eacute;ntalo de nuevo con otros t&eacute;reinos."
+
+#. Text in echo
+#: widgets.php:754
+msgid "Success Message:<br />"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:123
+msgid "Target window:"
+msgstr ""
+
+#. Text in function
+#: widgets.php:859
+msgid "Thank you, e-mail sent."
+msgstr "Gracias por tu mensaje"
+
+#. Text in function
+#: functions.php:1
+msgid "The Primary widget area"
+msgstr ""
+
+#. Text in echo
+#: 404.php:23
+msgid ""
+"The page you are looking for seems to be missing.Go back, or return to "
+"yourcompany.com to choose a new direction.Please report any broken links to "
+"our team."
+msgstr ""
+"La p&aacute;gina que est&aacute;s buscando no existe. Por favor, regresa al "
+"inicio y escoge una nueva. Si consideras que esto es un error, por favor "
+"ponte en contacto con nosotros."
+
+#. Text in echo
+#: comments.php:8
+msgid ""
+"This post is password protected. Enter the password to view any comments."
+msgstr ""
+
+#. Text in echo
+#: widgets.php:834 widgets.php:524
+msgid "Title"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:352
+msgid "Title:"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:746
+msgid "Title:<br />"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:171
+msgid "Twitter:"
+msgstr ""
+
+#. Text in function
+#: admin-functions.php:531
+msgid "Use this image"
+msgstr ""
+
+#. Text in echo
+#: widgets.php:504
+msgid "Username"
+msgstr ""
+
+#. Text in echo
+#: comments.php:68 contact-template.php:66
+msgid "Website"
+msgstr "Sitio web"
+
+#. Text in echo
+#: under-construction.php:61
+msgid "Weeks"
+msgstr "Semanas"
+
+#. Text in echo
+#: 404.php:7 taxonomy-portfolio_category.php:55
+msgid "You are here:"
+msgstr ""
+
+#. Text in echo
+#: helper-functions.php:334
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#. Text in echo
+#: widgets.php:175
+msgid "Youtube:"
+msgstr ""
