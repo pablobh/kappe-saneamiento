@@ -15,7 +15,7 @@
 // Constants for the theme name, folder and remote XML url
 define( 'NOTIFIER_THEME_NAME', 'Kappe' ); // The theme name
 define( 'NOTIFIER_THEME_FOLDER_NAME', 'Kappe' ); // The theme folder name
-define( 'NOTIFIER_XML_FILE', 'http://www.weblusive-themes.com/Kappe/notifier.xml' ); // The remote notifier XML file containing the latest version of the theme and changelog
+define( 'NOTIFIER_XML_FILE', 'http://premiumlayers.net/_themes/Kappe/notifier.xml' ); // The remote notifier XML file containing the latest version of the theme and changelog
 define( 'NOTIFIER_CACHE_INTERVAL', 21600 ); // The time interval for the remote XML cache in the database (21600 seconds = 6 hours)
 
 

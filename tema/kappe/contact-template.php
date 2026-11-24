@@ -52,7 +52,7 @@ jQuery(function(){
 				<div class="contact-box">
 					<?php the_content(); ?>
 					<form method="POST" class="contactForm" id="contact-form">
-						<h1><?php _e('Send us a message', 'Kappe'); ?></h1>
+						<h1><?php _e('Send a message', 'Kappe'); ?></h1>
 						<div id="status"></div>
 						<div class="text-fields">
 							<div id="error-name"></div>
@@ -118,14 +118,14 @@ jQuery(document).ready(function(){
 	{
 		contactname: {required: true},
 		contactemail: {required: true, minlength: 6,maxlength: 50, email:true},
-		contactmessage: {required: true, minlength: 6}
+		contactmessage: {required: false, minlength: 6}
 	},
 	
 	messages: 
 	{
 		contactname: {required: "<?php _e( 'Name is required', 'Kappe' ); ?>"},
-		contactemail: {required: "<?php _e( 'E-mail is required', 'Kappe' ); ?>", email: "<?php _e( 'Please provide a valid e-mail', 'Kappe' ); ?>", minlength:"<?php _e( 'E-mail address should contain at least 6 characters', 'Kappe' ); ?>"},
-		contactmessage: {required: "<?php _e( 'Message is required', 'Kappe' ); ?>"}
+		contactemail: {required: "<?php _e( 'E-mail is required', 'Kappe' ); ?>", email: "<?php _e( 'Please provide a valid e-mail', 'Kappe' ); ?>", minlength:"<?php _e( 'E-mail address should contain at least 611 characters', 'Kappe' ); ?>"},
+		contactmessage: {required: "<?php _e( 'Message is required', 'Kappe' ); ?>", minlength:"<?php _e( 'Please enter at least 6 characters.', 'Kappe' ); ?>"}
 	},
         errorPlacement: function(error, element) 
 	{

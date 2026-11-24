@@ -37,8 +37,8 @@ $showcategory = weblusive_get_option('blog_show_category');
 						?>		
 						<?php if($mediatype== 'image' && !empty($thumbnail)):?>
 							<a class="blog-image" href="<?php the_permalink()?>"><?php the_post_thumbnail('blog-list'); ?></a>
-						<?php elseif ( $mediatype == "youtube" && $videoId):?>
-							<iframe  src="http://www.youtube.com/embed/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="vid iframe-youtube"></iframe>
+<!--						--><?php //elseif ( $mediatype == "youtube" && $videoId):?>
+<!--							<iframe  src="http://www.youtube.com/embed/--><?php //echo $videoId?><!--?autoplay=--><?php //echo $autoplay?><!--" class="vid iframe-youtube"></iframe>-->
 						<?php elseif ( $mediatype == "vimeo" && $videoId):?>
 							<iframe  src="http://player.vimeo.com/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="vid iframe-vimeo"></iframe>
 						<?php elseif ( $mediatype == "dailymotion" && $videoId):?>

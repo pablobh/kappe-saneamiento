@@ -694,7 +694,11 @@ $save='
 				"id" => "contact_success",
 				"type" => "text",
 				"help" => "The message to display if the e-mail is sent succesfully."));
-
+				
+				weblusive_options(
+				array(	"name" => "Google API Key",
+				"id" => "google_api",
+				"type" => "text",));
 				?>
 			</div>
 

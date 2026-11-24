@@ -2,7 +2,8 @@
 
 get_header();
 $catid = get_query_var('cat');
-$cat = &get_category($catid);
+/* $cat = &get_category($catid); */
+$cat = get_category($catid);
 
 $get_meta = get_post_custom($post->ID);
 $size = weblusive_get_option('sidebar_size');

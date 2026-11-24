@@ -1,37 +1,37 @@
-<?php /*** The loop that displays posts.***/ 
+<?php /*** The loop that displays posts.***/
 
 //$get_meta = get_post_custom($post->ID);
-$showdate = weblusive_get_option('blog_show_date'); 
-$showcomments = weblusive_get_option('blog_show_comments'); 
-$showcategory = weblusive_get_option('blog_show_category'); 
-$showrmtext = weblusive_get_option('blog_show_rmtext'); 
+$showdate = weblusive_get_option('blog_show_date');
+$showcomments = weblusive_get_option('blog_show_comments');
+$showcategory = weblusive_get_option('blog_show_category');
+$showrmtext = weblusive_get_option('blog_show_rmtext');
 ?>
 
 <?php if ( ! have_posts() ) : ?>
 	<style type="text/css">#load-more{display:none}</style>
 <?php else:?>
-	<?php while ( have_posts() ) : the_post(); 
+	<?php while ( have_posts() ) : the_post();
 		$get_meta = get_post_custom($post->ID);
-		
+
 		$mediatype = isset($get_meta["_blog_mediatype"]) ? $get_meta["_blog_mediatype"][0] : 'image';
-		$videoId = isset($get_meta["_blog_video"]) ? $get_meta["_blog_video"][0] : ''; 
+		$videoId = isset($get_meta["_blog_video"]) ? $get_meta["_blog_video"][0] : '';
 		$autoplay =  isset($get_meta["_blog_videoap"]) ? $get_meta["_blog_videoap"][0] : '0';
 		$thumbnail = get_the_post_thumbnail($post->ID, 'blog-list');
 		?>
         <!-------------POST FORMAT IMAGE-------------------->
-        <?php if ( ( function_exists( 'get_post_format' ) && 'image' == get_post_format( $post->ID ) )  ) : ?> 
+        <?php if ( ( function_exists( 'get_post_format' ) && 'image' == get_post_format( $post->ID ) )  ) : ?>
         <div <?php post_class('blog-post photo-post'); ?>>
             <div class="inner-post">
                 <?php the_post_thumbnail('blog-list'); ?>
-                <?php 
-                    $full_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full', false); 
+                <?php
+                    $full_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full', false);
                     $link = $full_image[0];
                 ?>
                 <a  class="zoom" href="<?php echo $link ?>"><?php  _e( '+', 'Kappe' ); ?></a>
             </div>
         </div>
         <!-------------POST FORMAT LINK-------------------->
-        <?php elseif( ( function_exists( 'get_post_format' ) && 'link' == get_post_format( $post->ID ) )  ) : ?> 
+        <?php elseif( ( function_exists( 'get_post_format' ) && 'link' == get_post_format( $post->ID ) )  ) : ?>
         <div <?php post_class('blog-post link-post'); ?>>
             <div class="inner-post">
                 <div class="post-content">
@@ -40,7 +40,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
             </div>
         </div>
         <!-------------POST FORMAT ASIDE-------------------->
-        <?php elseif( ( function_exists( 'get_post_format' ) && 'aside' == get_post_format( $post->ID ) )  ) : ?> 
+        <?php elseif( ( function_exists( 'get_post_format' ) && 'aside' == get_post_format( $post->ID ) )  ) : ?>
         <div <?php post_class('blog-post aside-post'); ?>>
             <div class="inner-post">
                 <div class="post-content">
@@ -50,7 +50,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
             </div>
         </div>
         <!-------------POST FORMAT QUOTE-------------------->
-        <?php elseif( ( function_exists( 'get_post_format' ) && 'quote' == get_post_format( $post->ID ) )  ) : ?> 
+        <?php elseif( ( function_exists( 'get_post_format' ) && 'quote' == get_post_format( $post->ID ) )  ) : ?>
         <div <?php post_class('blog-post quote-post'); ?>>
             <div class="inner-post">
                 <div class="post-content">
@@ -59,11 +59,11 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
             </div>
         </div>
         <!-------------POST FORMAT VIDEO-------------------->
-        <?php elseif( ( function_exists( 'get_post_format' ) && 'video' == get_post_format( $post->ID ) )  ) : ?> 
+        <?php elseif( ( function_exists( 'get_post_format' ) && 'video' == get_post_format( $post->ID ) )  ) : ?>
         <div <?php post_class('blog-post video-post'); ?>>
             <div class="inner-post">
                 <?php if ( $mediatype == "youtube" && $videoId):?>
-                    <iframe src="http://www.youtube.com/embed/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed"></iframe>
+                    <iframe src="http://www.youtube.com/embed/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed" allowfullscreen></iframe>
                 <?php elseif ( $mediatype == "vimeo" && $videoId):?>
                     <iframe src="http://player.vimeo.com/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed"></iframe>
 				<?php elseif ( $mediatype == "dailymotion" && $videoId):?>
@@ -73,7 +73,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
 				<?php elseif ( $mediatype == "bliptv" && $videoId):?>
                     <iframe  src="http://a.blip.tv/scripts/shoggplayer.html#file=http://blip.tv/rss/flash/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed"></iframe>
 				<?php elseif ( $mediatype == "viddler" && $videoId):?>
-                    <iframe  src="http://www.viddler.com/embed/<?php echo $videoId?>e/?f=1&offset=0&autoplay=<?php echo $autoplay?>" class="videoembed"></iframe>
+                    <iframe  src="http://www.viddler.com/embed/<?php echo $videoId?>e/?f=1&offset=0&autoplay=<?php echo $autoplay?>" class="videoembed" ></iframe>
                 <?php endif;?>
                 <div class="post-content">
                     <h2><a href="<?php the_permalink()?>"><?php the_title()?></a></h2>
@@ -85,8 +85,8 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
                     <?php endif?>
                      <?php if( 'open' == $post->comment_status && $showcomments) : ?>
                      <li>
-                         <i class="fa fa-comment"></i>                
-                         <?php comments_popup_link( __( '0 Comments', 'Kappe' ), __( '1 Comment', 'Kappe' ), __( '% Comments', 'Kappe' )); ?>                              
+                         <i class="fa fa-comment"></i>
+                         <?php comments_popup_link( __( '0 Comments', 'Kappe' ), __( '1 Comment', 'Kappe' ), __( '% Comments', 'Kappe' )); ?>
                      </li>
                      <?php endif?>
                     <?php if($showdate): ?>
@@ -96,11 +96,11 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
             </div>
         </div>
          <!-------------POST FORMAT GALLERY-------------------->
-        <?php elseif( ( function_exists( 'get_post_format' ) && 'gallery' == get_post_format( $post->ID ) )  ) : ?> 
+        <?php elseif( ( function_exists( 'get_post_format' ) && 'gallery' == get_post_format( $post->ID ) )  ) : ?>
         <div <?php post_class('blog-post gallery-post'); ?>>
             <div class="inner-post">
                 <?php
-                $full_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full', false); 
+                $full_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full', false);
 				$argsThumb = array(
                     'order'          => 'ASC',
                     'posts_per_page'  => 99,
@@ -113,7 +113,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
 				?>
                 <div class="flexslider">
                     <ul class="slides">
-						<?php 
+						<?php
 						$attachments = get_posts($argsThumb);
 						if ($attachments) {
                             foreach ($attachments as $attachment) {
@@ -133,8 +133,8 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
                     <?php endif?>
                      <?php if( 'open' == $post->comment_status && $showcomments) : ?>
                      <li>
-                         <i class="fa fa-comment"></i>                
-                         <?php comments_popup_link( __( '0 Comments', 'Kappe' ), __( '1 Comment', 'Kappe' ), __( '% Comments', 'Kappe' )); ?>                              
+                         <i class="fa fa-comment"></i>
+                         <?php comments_popup_link( __( '0 Comments', 'Kappe' ), __( '1 Comment', 'Kappe' ), __( '% Comments', 'Kappe' )); ?>
                      </li>
                      <?php endif?>
                     <?php if($showdate): ?>
@@ -162,8 +162,8 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
                     <?php endif?>
                      <?php if( 'open' == $post->comment_status && $showcomments) : ?>
                      <li>
-                         <i class="fa fa-comment"></i>                
-                         <?php comments_popup_link( __( '0 Comments', 'Kappe' ), __( '1 Comment', 'Kappe' ), __( '% Comments', 'Kappe' )); ?>                              
+                         <i class="fa fa-comment"></i>
+                         <?php comments_popup_link( __( '0 Comments', 'Kappe' ), __( '1 Comment', 'Kappe' ), __( '% Comments', 'Kappe' )); ?>
                      </li>
                      <?php endif?>
                     <?php if($showdate): ?>

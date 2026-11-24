@@ -11,7 +11,7 @@ $(document).ready(function($) {
 	} catch(err) {
 		alert(err);
 	}
-	
+
 $(function () {
    "use strict";
    if ($("#ajax-load-more").length) {
@@ -306,8 +306,8 @@ var sliderBanner = $('#banner .bxslider');
 	});
 	$("a[rel^='prettyPhoto']").prettyPhoto({
 		//hook: 'data-rel', 
-		default_width: 500,
-		default_height: 344,
+		default_width: 853,
+		default_height: 480,
 		social_tools: '',
 		theme: 'light_square',
 		inline_markup: '<div class="pp_inline clearfix inline-markup">{content}</div>',

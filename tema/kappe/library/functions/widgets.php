@@ -12,7 +12,7 @@
 class alc_social_widget extends WP_Widget {
 
 	// Widget setup.
-	function alc_social_widget() {
+	function __construct() {
 
 		// Widget settings.
 		$widget_ops = array(
@@ -26,7 +26,7 @@ class alc_social_widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget('alc-social-widget', __('Kappe - Social links', 'Kappe') , $widget_ops, $control_ops);
+		parent::__construct('alc-social-widget', __('Kappe - Social links', 'Kappe') , $widget_ops, $control_ops);
 	}
 
 	// Display the widget on the screen.
@@ -122,8 +122,8 @@ class alc_social_widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id('social_target'); ?>"><?php _e('Target window:', 'Kappe'); ?></label>
 			<select id="<?php echo $this->get_field_id('social_target'); ?>" name="<?php echo $this->get_field_name('featured'); ?>" class="widefat">
-				<option value="0" <?php if( $instance['social_target'] == 0):?>selected="selected"<?php endif?>>Same window</option> 
-				<option value="1" <?php if( $instance['social_target'] == 1):?>selected="selected"<?php endif?>>New window</option> 
+				<option value="0" <?php if( $instance['social_target'] == 0):?>selected="selected"<?php endif?>>Same window</option>
+				<option value="1" <?php if( $instance['social_target'] == 1):?>selected="selected"<?php endif?>>New window</option>
 			</select>
 		</p>
         
@@ -191,7 +191,7 @@ register_widget('alc_social_widget');
 class alc_works_widget extends WP_Widget {
 
 	// Widget setup.
-	function alc_works_widget() {
+	function __construct() {
 
 		// Widget settings.
 		$widget_ops = array(
@@ -200,7 +200,7 @@ class alc_works_widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget('alc-works-widget', __('Kappe - Latest Works', 'Kappe') , $widget_ops);
+		parent::__construct('alc-works-widget', __('Kappe - Latest Works', 'Kappe') , $widget_ops);
 	}
 
 	// Display the widget on the screen.
@@ -291,7 +291,7 @@ register_widget('alc_works_widget');
 class alc_flickr_widget extends WP_Widget {
 
 	// Widget setup.
-	function alc_flickr_widget() {
+	function __construct() {
 
 		// Widget settings.
 		$widget_ops = array(
@@ -305,7 +305,7 @@ class alc_flickr_widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget('alc-flickr-widget', __('Kappe - Flickr images', 'Kappe') , $widget_ops, $control_ops);
+		parent::__construct('alc-flickr-widget', __('Kappe - Flickr images', 'Kappe') , $widget_ops, $control_ops);
 	}
 
 	// Display the widget on the screen.
@@ -383,10 +383,10 @@ function latest_tweet_widget() {
 }
 class Latest_Tweets extends WP_Widget {
 
-	function Latest_Tweets() {
+	function __construct() {
 		$widget_ops = array( 'classname' => 'twitter-widget'  );
 		$control_ops = array( 'width' => 250, 'height' => 350, 'id_base' => 'latest-tweets-widget' );
-		$this->WP_Widget( 'latest-tweets-widget','Kappe - Latest Tweets', $widget_ops, $control_ops );
+		parent::__construct( 'latest-tweets-widget','Kappe - Latest Tweets', $widget_ops, $control_ops );
 	}
 	
 	function widget( $args, $instance ) {
@@ -564,7 +564,7 @@ class Latest_Tweets extends WP_Widget {
 class alc_blogposts_widget extends WP_Widget {
 
 	// Widget setup.
-	function alc_blogposts_widget() {
+	function __construct() {
 
 		// Widget settings.
 		$widget_ops = array(
@@ -573,7 +573,7 @@ class alc_blogposts_widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget('alc-blogposts-widget', __('Kappe Blog Posts', 'Kappe') , $widget_ops);
+		parent::__construct('alc-blogposts-widget', __('Kappe Blog Posts', 'Kappe') , $widget_ops);
 	}
 
 	// Display the widget on the screen.
@@ -682,9 +682,9 @@ register_widget('alc_blogposts_widget');
  */
 class alc_Contact_Form extends WP_Widget {
 	
-	function alc_Contact_Form() {
+	function __construct() {
 		$widget_ops = array('classname' => 'alc_contact_form_entries', 'description' => __("Contact widget", 'Kappe') );
-		$this->WP_Widget('alc_Contact_Form', __('Kappe - Contact Form', 'Kappe'), $widget_ops);
+		parent::__construct('alc_Contact_Form', __('Kappe - Contact Form', 'Kappe'), $widget_ops);
 	}
 
 	function widget($args, $instance) {
@@ -770,7 +770,7 @@ register_widget('alc_Contact_Form');
 class alc_postinfo_widget extends WP_Widget {
 
 	// Widget setup.
-	function alc_postinfo_widget() {
+	function __construct() {
 
 		// Widget settings.
 		$widget_ops = array(
@@ -779,7 +779,7 @@ class alc_postinfo_widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		$this->WP_Widget('alc-postinfo-widget', __('Kappe Post Info', 'Kappe') , $widget_ops);
+		parent::__construct('alc-postinfo-widget', __('Kappe Post Info', 'Kappe') , $widget_ops);
 	}
 
 	// Display the widget on the screen.

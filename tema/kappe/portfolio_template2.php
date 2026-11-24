@@ -57,7 +57,7 @@ $loop = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => $item
 						<?php else: ?>		
 							<?php 
 								// If the user hasn't set a number of items per page, then use JavaScript filtering
-								if( $items_per_page[0] == 777 ) : endif; 
+								if( $items_per_page[0] == 777 ) : endif;
 								$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 								//  query the posts in selected terms
 								$portfolio_posts_to_query = get_objects_in_term( explode( ",", $cats ), 'portfolio_category');

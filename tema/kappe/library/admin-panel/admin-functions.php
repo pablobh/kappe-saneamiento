@@ -178,7 +178,6 @@ function weblusive_add_admin() {
 	add_menu_page(theme_name.' Settings', theme_name ,'switch_themes', 'panel' , 'panel_options', $icon  );
 	$theme_page = add_submenu_page('panel',theme_name.' Settings', theme_name.' Settings','switch_themes', 'panel' , 'panel_options');
 	add_submenu_page('panel', theme_name, 'Pricing Tables', 'switch_themes', 'pricing_tables', 'pricing_tables');
-	add_submenu_page('panel',theme_name.' Documentation', 'Documentation','switch_themes', 'docs' , 'redirect_docs');
 	function redirect_docs(){
 		global $docs_url;
 		echo "<script type='text/javascript'>window.location='".$docs_url."';</script>";

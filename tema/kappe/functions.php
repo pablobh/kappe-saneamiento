@@ -26,7 +26,7 @@ require_once ($incPath . 'OAuth.php');
 require_once ($incPath . 'twitteroauth.php');
 require_once ($incPath . 'portfolio_walker.php');
 require_once ($funcPath . 'post-types.php');
-// require_once ($funcPath . 'widgets.php');
+require_once ($funcPath . 'widgets.php');
 require_once ($funcPath . '/shortcodes/shortcode.php');
 
 include (get_template_directory() . '/library/admin-panel/admin-ui.php');
@@ -42,7 +42,7 @@ include (get_template_directory() . '/library/admin-panel/custom-slider.php');
 /*********** LOAD ALL REQUIRED SCRIPTS AND STYLES ***********/
 function kappe_load_styles() {           
 	wp_enqueue_style('bootstrap',  get_template_directory_uri().'/css/bootstrap.css');
-	wp_enqueue_style('main-styles', get_stylesheet_directory_uri().'/style.css');
+	wp_enqueue_style('main-styles', get_template_directory_uri().'/style.css');
 	wp_enqueue_style('responsive-styles',  get_template_directory_uri().'/responsive.css');
 	wp_enqueue_style('flex-slider-styles',  get_template_directory_uri().'/css/flexslider.css');
 	wp_enqueue_style('bx-slider-styles',  get_template_directory_uri().'/css/jquery.bxslider.css');
@@ -75,11 +75,13 @@ function kappe_load_scripts() {
 	wp_enqueue_script('custom-scripts', get_template_directory_uri() .'/js/script.js', array('jquery'), '3.2', true);
 		
 	if (is_page_template('contact-template.php')){
+		$map_api = "";
+		$map_api = weblusive_get_option('google_api');
 		$address = weblusive_get_option('contact_address');
-		if (!empty($address))
+		if (!empty($address && $map_api))
 		{
-			wp_enqueue_script('Google-map-api',  'http://maps.google.com/maps/api/js?sensor=false');
-			wp_enqueue_script('Google-map',  get_template_directory_uri().'/js/gmap3.min.js', array('jquery'), '3.2', true);
+			wp_enqueue_script('google-map-api',  'http://maps.google.com/maps/api/js?key='. $map_api );	
+			wp_enqueue_script('google-map',  get_template_directory_uri().'/js/gmap3.min.js', array('jquery'), '3.2', true);
 		}			
 	}		
 	if (is_page_template('under-construction.php'))

@@ -2,7 +2,7 @@
 class the_breadcrumb{
 	var $options;
 	
-function the_breadcrumb(){
+function __construct(){
 	
 	$this->options = array( 	
 	'before' => '',
