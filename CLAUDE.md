@@ -32,3 +32,13 @@ o si toca seguridad o datos guardados. Haiku solo en las tareas marcadas. Cambia
 ## Copia local
 - Prefijo de tablas `p1x3l4d0s_`. Desactivados en local: wordfence, wp-cloudflare-page-cache, google-site-kit, worker.
 - Ejecuta WP-CLI y PHP desde la shell del sitio de Local.
+- `~/Projects/wp-load.php` es un puente solo para local que necesita `ajax-load-more.php` mientras exista; se borra al terminar E2.B1.
+
+## Decisiones de Pablo
+- El blog no se usa (entradas de hace más de 10 años, fuera del menú principal): que funcione no es prioridad.
+- Las entradas se editan con el editor clásico: no quitar los botones de TinyMCE del tema.
+- Al empaquetar, `style.css` debe decir `Version: 3.0` (la última versión del desarrollador fue la 2.1).
+- `ajax-load-more.php` se elimina (E2.B1) y la paginación del blog pasa a la nativa de WordPress.
+- La carpeta del tema se llama `kappe` también en producción (se sobrescribe en su sitio tras el respaldo).
+- Al desplegar, los archivos eliminados en la versión saneada se borran del servidor con `rsync --delete`, siempre con simulación previa (`-n -i`) revisada por Pablo.
+- Staging solo en local: no se crean copias del sitio en DreamHost.

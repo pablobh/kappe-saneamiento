@@ -1,13 +1,13 @@
-# ESTADO — Saneamiento de Kappe / 4topixel.com (actualizado 24-nov-2026)
- 
-**EN PAUSA.** Es un proyecto grande que Pablo retomará más adelante, después de cerrar los pendientes cortos de los briefs (ver briefs/estado-y-traspaso-2026-11-20.md).
- 
+# ESTADO — Saneamiento de Kappe / 4topixel.com (actualizado 24-nov-2026, 14:00)
+
+**EN CURSO — Etapa 1.** Pablo retomó el proyecto el 24-nov-2026. Todo el desarrollo lo hace con Claude Code, en local.
+
 **Plan vigente: `PLAN-3-ETAPAS.md`** (aprobado 24-nov-2026): 1) revisión general y plan, 2) desarrollo por componente, 3) pruebas en local. Trae el modelo recomendado por tarea y cuándo cambiarlo. Manda sobre `TAREAS.md` y `SPECS.md` §10 en etapas, ramas, pruebas, despliegue y modelo. `SPECS.md` sigue siendo el alcance y las decisiones; `TAREAS.md`, el detalle de cada tarea.
- 
+
 ## Hecho
 - Auditoría del tema; producción es **Kappe 1.6** (no 2.1). Base del saneamiento: 2.1 solo si es compatible con datos y configuración de producción (SPECS §2.1, §5).
 - CSS original (altura del sidebar, margen superior, color de créditos) resuelto antes.
-- **Fase 0 completa** (Pablo borró los archivos expuestos; verificado 404 en Chrome). Excepción intencional: `ajax-load-more.php` (200, lo usa "Cargar más"; se endurece en E2.B1 / T2.2). Caché de Cloudflare purgada.
+- **Fase 0 completa** (Pablo borró los archivos expuestos; verificado 404 en Chrome). Excepción intencional: `ajax-load-more.php` (200, lo usa "Cargar más"; se elimina en E2.B1). Caché de Cloudflare purgada.
 - **Cloudflare (plan gratis), 21-nov:**
   - Regla de rate limiting "Limitar intentos de login WordPress": POST a `/wp-login.php`, 5 req/10 s por IP, Block 10 s, activa.
   - Borradas las 5 reglas de acceso por IP "Allow" que Pablo no reconocía. Lista vacía.
@@ -15,19 +15,36 @@
   - La regla de caché la gestiona el plugin WP Super Page Cache: no editarla a mano.
   - Bot Fight Mode apagado (decisión aplazada). Panel "Zone Lockdown" da error de carga de la interfaz: ignorar.
 - 24-nov: Pablo aprobó el plan en 3 etapas con modelo por tarea (`PLAN-3-ETAPAS.md`).
+- **24-nov, etapa 1 en marcha:**
+  - Repo `kappe-saneamiento` en `~/Projects` y en GitHub (privado, `pablobh/kappe-saneamiento`). Ramas `main` y `desarrollo`; tags `prod-1.6` (tema de producción) y `base-2.1` (2.1 + `es_ES`). `CLAUDE.md`, `README.md`, `CHANGELOG.md` y `LICENSE.md` creados (el tema declara "GNU General Public License" en `style.css`, sin versión).
+  - Copia local en LocalWP: sitio `4topixel` (https://4topixel.local, PHP 8.4), con la BD y `wp-content` de producción. Desactivados en local: wordfence, wp-cloudflare-page-cache, google-site-kit y worker. Prefijo de tablas `p1x3l4d0s_`. La verificación con WP-CLI coincide con producción (mismo contenido); local sirve la 2.1 y producción la 1.6. Quedan 12 tablas `wp_*` sobrantes de la instalación vacía de Local (opcional borrarlas).
+  - Línea base con la 1.6 en curso (worktree `~/Projects/kappe-prod16` y enlace de Local apuntando a él): capturas hechas; Lighthouse corriendo. Al terminar, volver el enlace a `~/Projects/kappe-saneamiento/tema/kappe`.
+  - Hallazgo: `ajax-load-more.php` carga `../../../wp-load.php` con ruta relativa y el enlace simbólico la rompe. Solución solo local: puente `~/Projects/wp-load.php` (se borra al terminar E2.B1).
+
 ## Decisiones del 24-nov
 - **El despliegue final lo hace Pablo.** Claude solo desarrolla y prueba en local y entrega el paquete con instrucciones (E3.5).
 - **Cloudflare y SEO se revisan después del despliegue final**, no antes (xmlrpc, DNS que exponen la IP, Bot Fight Mode, Wordfence vs Cloudflare, S.1–S.4).
-## Pendiente (cuando se retome)
-1. **Etapa 1** (E1.1–E1.10): LocalWP, Git, diferencias sin revisar (`script.js`, `prettyPhoto.js`, `addons/paginajax`, `es_ES.po`), causa de la caída de la 2.1, `INVENTARIO.md` con lectura única, compatibilidad 1.6→2.1, línea base Lighthouse, staging y plan final aprobado por Pablo.
+- **E1.9 (SPECS §9):** el blog no se usa (entradas de hace más de 10 años, fuera del menú principal): que funcione no es prioridad. Las entradas se editan con el **editor clásico** (no quitar los botones de TinyMCE del tema).
+- **E2.B1:** se elimina `ajax-load-more.php` (y su llamada en `js/script.js` y el botón "Cargar más") y se reemplaza por la paginación nativa de WordPress en `blog-template.php`. Modelo: Sonnet. Al terminar se borra el puente `~/Projects/wp-load.php`.
+- **Carpeta en producción:** se mantiene el nombre `kappe` y se sobrescribe en su sitio tras el respaldo (WordPress guarda menú asignado, CSS adicional y ajustes del Personalizador por nombre de carpeta, `theme_mods_kappe`).
+- **Staging solo en local.** No se crean más copias del sitio en DreamHost: E1.8 queda cancelada. El TTFB real y el efecto de Wordfence se miden después del despliegue.
+- **E3.5:** solo se sube a producción la versión saneada. El repo conserva ambas versiones (1.6 y la saneada). Al empaquetar, `style.css` debe decir **`Version: 3.0`** (la última del desarrollador fue la 2.1).
+
+## Verificación de E1.1 (24-nov, cerrada)
+- `wp-content` local = producción, salvo los datos en vivo de WP Super Page Cache (caché y configuración; el plugin está inactivo en local).
+- El tema del tag `prod-1.6` es idéntico, por checksum, al que corre en producción. En producción existe además una carpeta vacía `addons/paginajax/` que Git no guarda.
+- Sin pendientes de Pablo en esta verificación.
+
+## Pendiente (siguiente)
+1. **Etapa 1:** terminar línea base (Lighthouse, commit de `pruebas/`), luego E1.3 a E1.5 en Claude Code (diferencias sin revisar, causa de la caída de la 2.1, `INVENTARIO.md` con lectura única), E1.6 compatibilidad 1.6→2.1 y plan final E1.10 aprobado por Pablo.
 2. **Etapa 2:** componentes A (código muerto, incluye quitar el `include` de `pricing-tables.php` en `functions.php:33` y el submenú en `admin-functions.php:180`), B (seguridad), C (compatibilidad), D (rendimiento), E (SEO HTML).
 3. **Etapa 3:** pruebas en local y paquete de despliegue.
 4. **Después del despliegue:** Cloudflare y SEO (ver `PLAN-3-ETAPAS.md`).
 5. Más adelante: MCP de WordPress (aplazado); tema de bloques (feb-2027, SPECS §8).
+
 ## Reglas de trabajo
 - Preguntar todo lo necesario antes de actuar; cambios pequeños sin pedir permiso, el resto se aprueba primero.
 - Nunca tocar producción sin respaldo. Conservar los colores de créditos de Pablo (#F5F8E3 texto, #34B7AE enlaces) y no cambiar tamaños de fuente.
 - Navegador: Claude in Chrome ya conectado; avisar a Claude cuando Pablo esté logueado en el sitio o en Cloudflare.
 - Tareas de herramientas en el navegador: hacerlas en lotes (`browser_batch`) para gastar menos.
 - No leer el tema completo: usar `INVENTARIO.md` (cuando exista) y abrir solo los archivos de la tarea.
- 

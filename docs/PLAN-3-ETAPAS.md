@@ -1,6 +1,6 @@
 # PLAN EN 3 ETAPAS — Saneamiento de Kappe (con modelo por tarea)
  
-> Aprobado por Pablo el 24-nov-2026. Estado: **EN PAUSA** hasta que Pablo retome el proyecto.
+> Aprobado por Pablo el 24-nov-2026. Estado: **EN CURSO — etapa 1** (ver `ESTADO.md`).
 > **Precedencia:** este documento manda sobre `TAREAS.md` y `SPECS.md` §10 en lo que toca a etapas, ramas, pruebas, despliegue y modelo. `TAREAS.md` sigue siendo el catálogo con el detalle y los criterios de cada tarea (IDs T…); `SPECS.md`, el alcance y los datos que no se renombran.
  
 ---
@@ -13,6 +13,8 @@
 4. Cada etapa termina con una **puerta**: no se pasa a la siguiente sin la aprobación de Pablo.
 5. Etapa 2: **una rama Git por componente**. Al cerrar cada componente: verificación mínima (las 6 páginas cargan, `debug.log` vacío) y entrada en `CHANGELOG.md`.
 6. Cloudflare y SEO se revisan **después** del despliegue final (ver el último apartado).
+7. Staging **solo en local**: no se crean copias del sitio en DreamHost.
+
 ---
  
 ## Cuándo cambiar de modelo
@@ -22,6 +24,7 @@
 - **Haiku** solo en las tareas marcadas (mecánicas y muy acotadas). Si falla una vez, repetir con Sonnet.
 - **Cuándo cambiar:** al empezar la tarea, con `/model`, y haciendo `/clear` entre componentes. Evitar cambiar de modelo a mitad de una conversación larga: se pierde la caché y se vuelve a procesar todo el contexto.
 - Volver a Sonnet al terminar la tarea de Opus.
+
 ---
  
 ## Cómo leer el tema una sola vez (E1.5 → `INVENTARIO.md`)
@@ -33,14 +36,16 @@ Objetivo: que ninguna sesión posterior tenga que leer el tema completo (~550 KB
 - `grep` de `add_action`, `add_filter`, `add_shortcode`, `register_*`, `weblusive_get_option`, `get_post_meta`, `update_post_meta`, `wp_ajax`, `$wpdb` → `archivo:línea:coincidencia`.
 - Resultados de `php -l` y de PHPCompatibilityWP por archivo.
 - Consultas WP-CLI/SQL de T1.4 (shortcodes en `post_content`, widgets activos, CPT `weblusive_slider`, plantillas, metas, claves de `weblusive_options`).
+
 **Paso 2 — Una sola pasada de lectura.** Modelo: **Sonnet**, en una sola sesión. Lee únicamente los archivos que se conservan, en orden. No lee el código que se elimina ni las librerías minificadas o de terceros (Isotope, prettyPhoto, Bootstrap…): de esas solo anota la versión. Después de leer cada archivo escribe de inmediato su entrada en `INVENTARIO.md`, para no tener que releerlo:
  
 `ruta · propósito (1 línea) · hooks, shortcodes y opciones que usa · riesgos · tareas que lo tocan (IDs) · se conserva / se elimina`
  
 **Paso 3 — Cerrar y proteger el ahorro.**
 - Commit de `INVENTARIO.md` en el repo.
-- Añadir a `CLAUDE.md` del repo: "No leas el tema completo. Lee primero `INVENTARIO.md` y abre solo los archivos listados para la tarea. Si descubres un dato nuevo, actualiza la entrada correspondiente."
+- `CLAUDE.md` ya contiene la regla: "No leas el tema completo. Lee primero `INVENTARIO.md` y abre solo los archivos listados para la tarea. Si descubres un dato nuevo, actualiza la entrada correspondiente."
 - `/clear`.
+
 **Paso 4 — Quien planifica lee poco.** E1.10 (Opus) lee solo `INVENTARIO.md`, `SPECS.md` y `TAREAS.md`.
  
 **Por qué Sonnet y no Opus:** el paso 2 es comprensión y resumen de mucho texto, no razonamiento difícil; ahí Opus gastaría más sin aportar. Opus entra en E1.10, que es corto y de alto criterio. **Por qué no Haiku:** el resumen de código con riesgos necesita más criterio que un `grep`.
@@ -53,16 +58,16 @@ La Fase 0 ya está hecha (archivos expuestos borrados, Cloudflare con rate limit
  
 | ☐ | ID | Tarea | Antes | Modelo |
 |---|---|---|---|---|
-| ☐ | E1.1 | LocalWP con BD y uploads de producción, PHP 8.4 y 8.5 | T1.1 | Sonnet |
-| ☐ | E1.2 | Repo Git (commit 1 = tema 1.6 de producción; commit 2 = base 2.1 + `es_ES`) y `CAMBIOS-PRODUCCION.md` | T1.2 | Sonnet |
+| ☐ | E1.1 | LocalWP con BD y uploads de producción, PHP 8.4 y 8.5 (PHP 8.4 listo y verificado el 24-nov: `wp-content`, tema y WP-CLI coinciden con producción; falta PHP 8.5) | T1.1 | Sonnet |
+| ☐ | E1.2 | Repo Git (commit 1 = tema 1.6 de producción; commit 2 = base 2.1 + `es_ES`) y `CAMBIOS-PRODUCCION.md` (repo y GitHub listos; falta `CAMBIOS-PRODUCCION.md`) | T1.2 | Sonnet |
 | ☐ | E1.3 | Revisar las diferencias producción-vs-2.1 pendientes: `script.js`, `prettyPhoto.js`, `addons/paginajax`, `es_ES.po` | ESTADO #4 | Sonnet |
 | ☐ | E1.4 | Confirmar la causa de la caída de la 2.1 (`table_process.php:99`) | T1.3 | Sonnet |
 | ☐ | E1.5a | Scripts de extracción (paso 1 de `INVENTARIO.md`) | T1.4 | Sonnet |
 | ☐ | E1.5b | Lectura única y `INVENTARIO.md` (pasos 2 y 3) | T1.4 | Sonnet |
 | ☐ | E1.6 | Compatibilidad 1.6→2.1 con capturas a 1440 px y 390 px. Si algo no es compatible, parar y avisar a Pablo | T1.5 | Sonnet; **Opus** solo si aparece una incompatibilidad |
-| ☐ | E1.7 | Lighthouse de línea base (móvil y escritorio, 6 páginas, sin caché de página) | T1.6 | Haiku |
-| ☐ | E1.8 | Staging medible en DreamHost (contraseña y `noindex`); TTFB y Lighthouse con y sin Wordfence | T1.7 | Sonnet |
-| ☐ | E1.9 | Decisiones de Pablo pendientes de SPECS §9 que afectan al tema (editor clásico o de bloques, widgets activos) | SPECS §9 | Sonnet, en el chat |
+| ☐ | E1.7 | Lighthouse de línea base (móvil y escritorio, 6 páginas, sin caché de página). En curso: capturas hechas, Lighthouse corriendo | T1.6 | Haiku |
+| ✗ | E1.8 | ~~Staging medible en DreamHost~~ **Cancelada 24-nov:** no habrá copias del sitio en DreamHost; el staging es solo local. El TTFB real y el efecto de Wordfence se miden después del despliegue | T1.7 | — |
+| ☑ | E1.9 | Decisiones de Pablo de SPECS §9 que afectan al tema. **Resueltas 24-nov:** el blog no se usa (no es prioridad); editor clásico (no quitar botones de TinyMCE). Los widgets activos los saca el inventario | SPECS §9 | Sonnet, en el chat |
 | ☐ | E1.10 | **Plan final:** componentes, orden, dependencias y estimación recalculada. Lee solo `INVENTARIO.md`, `SPECS.md` y `TAREAS.md` | nuevo | **Opus** (una vez, salida corta) |
  
 **Puerta 1:** Pablo aprueba el plan final de E1.10 antes de programar.
@@ -79,7 +84,7 @@ Orden: A → B → C → D → E. D2 y D4 van después de C1 porque dependen de 
 | ☐ | E2.A1 | Quitar `sendmail`, `contact-form`, PHPMailer, notificador, pricing tables, `table_wizard`, archivos sueltos, el `include` de `pricing-tables.php` y el submenú "Pricing Tables" | T2.1, T2.6 | Sonnet |
 | ☐ | E2.A2 | Constructor del breadcrumb (`__construct`) | T2.8 | Haiku |
 | | | **B · Seguridad** (rama `componente/b-seguridad`) | | |
-| ☐ | E2.B1 | Endurecer "Cargar más" (REST o `wp_ajax_nopriv_`, lista blanca, `per_page` ≤ 24) | T2.2 | **Opus** |
+| ☐ | E2.B1 | Eliminar `ajax-load-more.php`, su llamada en `js/script.js` y el botón "Cargar más"; reemplazar por la paginación nativa de WordPress (`paginate_links()` con `paged`) en `blog-template.php`. Decidido 24-nov: el blog no se usa, así que no se endurece. Al terminar, borrar el puente `~/Projects/wp-load.php` | T2.2 | Sonnet |
 | ☐ | E2.B2 | Meta boxes: nonce, capacidades, autosave; `save_slide()` no borra metas | T2.4 | **Opus** |
 | ☐ | E2.B3 | Importar/exportar opciones en JSON con `current_user_can` | T2.3 | Sonnet |
 | ☐ | E2.B4 | Consultas SQL de `helper-functions.php` a APIs de WP | T2.5 | Sonnet |
@@ -109,10 +114,10 @@ Orden: A → B → C → D → E. D2 y D4 van después de C1 porque dependen de 
 | ☐ | ID | Tarea | Antes | Modelo |
 |---|---|---|---|---|
 | ☐ | E3.1 | PHPCompatibilityWP en 0 errores y `debug.log` vacío en PHP 8.4 y 8.5 | T2.10, T4.1 | Haiku para ejecutar; Sonnet para corregir lo que falle |
-| ☐ | E3.2 | Pruebas funcionales: las 6 páginas, paginación del blog hasta el final, guardar una página y un proyecto conserva sus opciones, el panel del tema guarda e importa | "Cómo probar" | Sonnet |
+| ☐ | E3.2 | Pruebas funcionales: las 6 páginas, paginación nativa del blog hasta el final (E2.B1), guardar una página y un proyecto conserva sus opciones, el panel del tema guarda e importa | "Cómo probar" | Sonnet |
 | ☐ | E3.3 | Comparación visual contra las capturas de E1.6 (1440 px y 390 px); solo se aceptan diferencias que sean mejoras acordadas | T4.2 | Sonnet |
 | ☐ | E3.4 | Lighthouse después contra E1.7 y prueba de teclado en el home y el blog | T4.3 | Haiku (medición); Sonnet (análisis) |
-| ☐ | E3.5 | Paquete para el despliegue: carpeta `kappe-saneado`, instrucciones paso a paso (respaldo, subir, activar, purgar Cloudflare, qué revisar), cómo volver atrás y el retiro del CSS adicional del Personalizador. **El despliegue lo hace Pablo** | T4.4, T4.5 | Sonnet |
+| ☐ | E3.5 | Paquete para el despliegue: `style.css` con **`Version: 3.0`**; el repo conserva ambas versiones (tag `prod-1.6` y la saneada) y solo se sube la saneada; la carpeta se llama `kappe`, igual que en producción, y se sobrescribe en su sitio tras el respaldo (así se conservan menú, CSS adicional y ajustes del Personalizador); **los archivos que la versión saneada elimina (p. ej. `ajax-load-more.php`) se borran del servidor con `rsync --delete`: primero simulación con `-n -i` y revisión de la lista por Pablo, y solo después la subida real**; instrucciones paso a paso (respaldo, subir, activar, purgar Cloudflare, qué revisar), cómo volver atrás y el retiro del CSS adicional del Personalizador. **El despliegue lo hace Pablo** | T4.4, T4.5 | Sonnet |
  
 **Puerta 3:** Pablo da por buena la etapa 3 y despliega.
  
@@ -122,7 +127,7 @@ Orden: A → B → C → D → E. D2 y D4 van después de C1 porque dependen de 
  
 Se retoma con Pablo una vez desplegado el tema saneado. Modelo sugerido: Sonnet, en el chat, con Claude in Chrome para el panel de Cloudflare.
  
-- ☐ **Cloudflare:** decidir `xmlrpc.php` (Pablo cree que no se usa: bloquear con regla personalizada y observar); registros DNS "DNS only" que exponen la IP de origen; Bot Fight Mode vs protección anti-bots de DreamHost; Wordfence vs Cloudflare (S.5).
+- ☐ **Cloudflare:** decidir `xmlrpc.php` (Pablo cree que no se usa: bloquear con regla personalizada y observar); registros DNS "DNS only" que exponen la IP de origen; Bot Fight Mode vs protección anti-bots de DreamHost; Wordfence vs Cloudflare (S.5), midiendo el TTFB real en producción con y sin Wordfence.
 - ☐ **SEO:** `/works/` caso por caso con datos de Search Console (S.1); sitemap de Yoast y `robots.txt` (S.2); 6 enlaces 404 y 3 redirecciones (S.3); Yoast → The SEO Framework con respaldo y comparación antes/después (S.4).
 - Recordar **purgar la caché de Cloudflare** tras cada cambio de HTML.
  
