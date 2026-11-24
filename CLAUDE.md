@@ -1,0 +1,5 @@
+- Leer primero docs/ESTADO.md y docs/PLAN-3-ETAPAS.md.
+- No leer el tema completo: abrir solo los archivos listados en INVENTARIO.md para la tarea.
+- Trabajar solo en local y confirmar con Pablo antes de cambios que no sean pequeños.
+- Usar el modelo indicado en el plan para cada tarea.
+- Seguir las convenciones de ramas y commits de abajo.

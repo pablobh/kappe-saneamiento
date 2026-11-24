@@ -1,0 +1,5 @@
+.DS_Store
+respaldos/
+despliegue/*.zip
+inventario/raw/*.sql
+pruebas/capturas/despues/
