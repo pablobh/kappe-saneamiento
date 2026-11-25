@@ -115,6 +115,45 @@ function weblusive_clean_options(&$value) {
   $value = htmlspecialchars(stripslashes($value));
 }
 
+// E2.B3: para importar. El JSON exportado ya trae el formato guardado (htmlspecialchars):
+// se escapa lo que venga sin escapar, pero sin volver a escapar las entidades.
+function weblusive_clean_imported_options(&$value) {
+  $value = is_scalar( $value ) ? htmlspecialchars( (string) $value, ENT_QUOTES | ENT_SUBSTITUTE | ENT_HTML401, 'UTF-8', false ) : '';
+}
+
+/*-----------------------------------------------------------------------------------*/
+# E2.B3: colores. Un color que no sea hexadecimal válido no se guarda (antes se guardaban
+# avisos de PHP con la ruta del servidor, que luego salían en dynamic-styles.php).
+/*-----------------------------------------------------------------------------------*/
+function weblusive_color_option_ids() {
+	return array(
+		'global_color', 'links_color', 'links_color_hover', 'topbar_links_color', 'topbar_links_color_hover',
+		'topbar_color', 'sub_nav_background', 'sub_nav_color', 'nav_links_color', 'nav_shadow_color',
+		'nav_links_color_hover', 'nav_shadow_color_hover', 'nav_current_links_color', 'nav_current_bg',
+		'nav_current_shadow_color', 'nav_separator', 'footer_title_color', 'footer_links_color', 'footer_links_color_hover',
+	);
+}
+
+function weblusive_valid_color( $color ) {
+	return ( is_string( $color ) && sanitize_hex_color( $color ) ) ? $color : '';
+}
+
+function weblusive_sanitize_option_colors( $options ) {
+	if ( ! is_array( $options ) )
+		return $options;
+	foreach ( $options as $id => $option ) {
+		if ( is_array( $option ) && array_key_exists( 'color', $option ) ) {
+			// Campos "background" y "typography": se quita el color no válido, como hace el
+			// formulario con los campos vacíos.
+			if ( '' === weblusive_valid_color( $option['color'] ) )
+				unset( $options[ $id ]['color'] );
+		} elseif ( in_array( $id, weblusive_color_option_ids(), true ) && '' === weblusive_valid_color( $option ) ) {
+			unset( $options[ $id ] );
+		}
+	}
+	return $options;
+}
+
 	
 /*-----------------------------------------------------------------------------------*/
 # Options Array
@@ -129,12 +168,14 @@ $array_options =
 /*-----------------------------------------------------------------------------------*/
 # Save Theme Settings
 /*-----------------------------------------------------------------------------------*/	
-function weblusive_save_settings ( $data , $refresh = 0 ) {
+function weblusive_save_settings ( $data , $refresh = 0 , $clean = 'weblusive_clean_options' ) {
 	global $array_options ;
 		
 	foreach( $array_options as $option ){
 		if( isset( $data[$option] )){
-			array_walk_recursive( $data[$option] , 'weblusive_clean_options');
+			array_walk_recursive( $data[$option] , $clean);
+			if ( 'weblusive_options' === $option )
+				$data[$option] = weblusive_sanitize_option_colors( $data[$option] );
 			update_option( $option ,  $data[$option]   );
 		}
 		elseif( !isset( $data[$option] ) && $option != 'weblusive_options' ){
@@ -154,15 +195,26 @@ add_action('wp_ajax_test_theme_data_save', 'weblusive_save_ajax');
 function weblusive_save_ajax() {
 	
 	check_ajax_referer('test-theme-data', 'security');
-	$data = $_POST;
-	$refresh = 1;
+	// E2.B3: misma capacidad que el menú del panel.
+	if ( ! current_user_can( 'switch_themes' ) )
+		die( '-1' );
 
+	$data = $_POST;
+
+	// E2.B3: importar en JSON (antes unserialize(base64_decode()): inyección de objetos).
 	if( isset($data['weblusive_import']) ){
-		$refresh = 2;
-		$data = unserialize(base64_decode( $data['weblusive_import'] ));
+		global $array_options;
+		$import = json_decode( wp_unslash( $data['weblusive_import'] ), true );
+		if ( ! is_array( $import ) || ! isset( $import['weblusive_options'] ) || ! is_array( $import['weblusive_options'] ) )
+			die( '0' );
+		foreach ( $import as $key => $value ) {
+			if ( ! in_array( $key, $array_options, true ) || ! is_array( $value ) )
+				die( '0' );
+		}
+		weblusive_save_settings( $import , 2 , 'weblusive_clean_imported_options' );
 	}
 	
-	weblusive_save_settings ($data , $refresh );
+	weblusive_save_settings ($data , 1 );
 	
 }
 
@@ -171,8 +223,6 @@ function weblusive_save_ajax() {
 # Add Panel Page
 /*-----------------------------------------------------------------------------------*/
 function weblusive_add_admin() {
-
-	$current_page = isset( $_REQUEST['page'] ) ? $_REQUEST['page'] : '';
 
 	$icon = get_template_directory_uri().'/library/admin-panel/images/weblusive_logo.png';
 	add_menu_page(theme_name.' Settings', theme_name ,'switch_themes', 'panel' , 'panel_options', $icon  );
@@ -239,14 +289,6 @@ function weblusive_add_admin() {
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
 		do_action('admin_print_styles');
-	}
-	if( isset( $_REQUEST['action'] ) ){
-		if( 'reset' == $_REQUEST['action']  && $current_page == 'panel' && check_admin_referer('reset-action-code' , 'resetnonce') ) {
-			global $default_data;
-			weblusive_save_settings( $default_data );
-			header("Location: admin.php?page=panel&reset=true");
-			die;
-		}
 	}
 }
 
@@ -448,11 +490,13 @@ function weblusive_options($value){
 		
 		case 'typography':
 			$current_value = weblusive_get_option($value['id']);
+			if ( ! is_array( $current_value ) ) $current_value = array();
+			$current_color = weblusive_valid_color( isset( $current_value['color'] ) ? $current_value['color'] : '' );
 		?>
 				<div style="clear:both;"></div>
 				<div style="clear:both; padding:10px 14px; margin:0 -15px;">
-					<div id="<?php echo $value['id']; ?>colorSelector" class="color-pic"><div style="background-color:<?php echo $current_value['color'] ; ?>"></div></div>
-					<input style="width:80px; margin-right:5px;"  name="weblusive_options[<?php echo $value['id']; ?>][color]" id="<?php  echo $value['id']; ?>color" type="text" value="<?php echo $current_value['color'] ; ?>" />
+					<div id="<?php echo $value['id']; ?>colorSelector" class="color-pic"><div style="background-color:<?php echo esc_attr( $current_color ) ; ?>"></div></div>
+					<input style="width:80px; margin-right:5px;"  name="weblusive_options[<?php echo $value['id']; ?>][color]" id="<?php  echo $value['id']; ?>color" type="text" value="<?php echo esc_attr( $current_color ) ; ?>" />
 					
 					<select name="weblusive_options[<?php echo $value['id']; ?>][size]" id="<?php echo $value['id']; ?>[size]" style="width:55px;">
 						<option value="" <?php if (isset($current_value['size']) && !$current_value['size'] ) { echo ' selected="selected"' ; } ?>></option>
@@ -499,7 +543,7 @@ function weblusive_options($value){
 					
 				<script>
 				jQuery('#<?php echo $value['id']; ?>colorSelector').ColorPicker({
-					color: '#<?php echo $current_value['color'] ; ?>',
+					color: '<?php echo esc_js( $current_color ) ; ?>',
 					onShow: function (colpkr) {
 						jQuery(colpkr).fadeIn(500);
 						return false;

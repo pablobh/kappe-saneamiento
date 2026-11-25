@@ -91,7 +91,7 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
 | | | **B · Seguridad** (rama `componente/b-seguridad`) | | | |
 | ☑ | E2.B1 | Eliminar `ajax-load-more.php`, su llamada en `js/script.js` y el botón "Cargar más"; reemplazar por la paginación nativa de WordPress (`paginate_links()` con `paged`) en `blog-template.php`. Decidido 24-nov: el blog no se usa, así que no se endurece. Al terminar, borrar el puente `~/Projects/wp-load.php` | T2.2 | Sonnet | 1 (hecho 24-nov) |
 | ☑ | E2.B2 | Meta boxes: nonce, capacidades, autosave; `save_slide()` no borra metas. **E1.10:** también `portfolio_update_post_order` (`post-types.php`) con nonce y `current_user_can`, y el nonce en su llamada de `main.js` | T2.4 | **Opus** | 1,5–2 (hecho 24-nov) |
-| ☐ | E2.B3 | Importar/exportar opciones en JSON con `current_user_can`. **E1.10:** también `current_user_can` en `weblusive_save_ajax` y en "reset"; conservar el formato guardado (`htmlspecialchars`, SPECS §5) | T2.3 | **Opus** (decisión de Pablo: seguridad y datos guardados) | 1 |
+| ☑ | E2.B3 | Importar/exportar opciones en JSON con `current_user_can`. **E1.10:** también `current_user_can` en `weblusive_save_ajax` y en "reset"; conservar el formato guardado (`htmlspecialchars`, SPECS §5) | T2.3 | **Opus** (decisión de Pablo: seguridad y datos guardados) | 1 |
 | ☐ | E2.B4 | Consultas SQL de `helper-functions.php` a APIs de WP (tras A1 quedan solo `get_page_ID_by_page_template` y `getPageContent`) | T2.5 | Sonnet | 0,3–0,5 |
 | ☐ | E2.B5 | Escapar el título de prettyPhoto; iframes de `single.php` por `https` y `youtube-nocookie.com` | T2.9 | Sonnet | 0,5 |
 | | | **C · Compatibilidad PHP/WordPress** (rama `componente/c-compatibilidad`) | | | |
