@@ -74,7 +74,7 @@ if(isset( $get_meta['_weblusive_post_head'][0]) && $get_meta['_weblusive_post_he
 			</div>
 		<?php 
 		else:
-			?><p class="warning"><i class="icon-warning-sign"></i><?php _e('No slider items were found in the selected slider. Please make sure to create some via "Slider" section in your admin panel.', 'Kappe');?></p><?php
+			?><p class="warning"><i class="icon-warning-sign"></i><?php _e('No slider items were found in the selected slider. Please make sure to create some via "Slider" section in your admin panel.', 'kappe');?></p><?php
 		endif;
 	endwhile; ?>
 <?php }

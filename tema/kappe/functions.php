@@ -7,9 +7,34 @@ $themefolder = "kappe";
 define ('theme_name', $themename );
 define ('theme_ver' , 1 );
 
-/***************** ADD POST FORMAT SUPPORT *******************/
-add_theme_support('post-formats', array( 'aside','gallery','link','image','quote','video') );
+/******************* THEME SETUP (after_setup_theme) ********************/
 
+add_action( 'after_setup_theme', 'kappe_setup' );
+function kappe_setup() {
+	// Localization
+	load_theme_textdomain( 'kappe', get_template_directory() . '/languages' );
+	$locale_file = get_template_directory() . '/languages/' . get_locale() . '.php';
+	if ( is_readable( $locale_file ) )
+		require_once( $locale_file );
+
+	// Post formats, menus, thumbnails, feeds
+	add_theme_support( 'post-formats', array( 'aside','gallery','link','image','quote','video') );
+	add_theme_support( 'menus' );
+	add_theme_support( 'post-thumbnails' );
+	add_theme_support( 'automatic-feed-links' );
+
+	// Navigations
+	register_nav_menus( array(
+		'primary_nav' => __( 'Primary Navigation', 'kappe' ),
+	) );
+
+	// Thumbnail sizes
+	add_image_size( 'portfolio', 405, 311, true );
+	add_image_size( 'portfolio-single', 654, 469, true );
+	add_image_size( 'blog-list', 294, 9999, true );
+	add_image_size( 'blog-thumb', 75, 75, true );
+	add_image_size( 'blog-thumb-3', 270, 180, true );
+}
 
 
 /********************* DEFINE MAIN PATHS ********************/
@@ -111,50 +136,6 @@ function weblusive_typography(){
 
 
 
-/************** ADD SUPPORT FOR LOCALIZATION ***************/
-
-load_theme_textdomain( 'Kappe',  get_template_directory() . '/languages' );
-
-	$locale = get_locale();
-
-	$locale_file =  get_template_directory() . "/languages/$locale.php";
-	if ( is_readable( $locale_file ) )
-		require_once( $locale_file );
-
-/************************************************************/
-
-
-/************* ADD SUPPORT FOR WORDPRESS 3 MENUS ************/
-
-add_theme_support( 'menus' );
-
-//Register Navigations
-add_action( 'init', 'my_custom_menus' );
-function my_custom_menus() {
-    register_nav_menus(
-        array(
-            'primary_nav' => __( 'Primary Navigation', 'Kappe'),
-
-        )
-    );
-}
-/************************************************************/
-
-
-/**************** ADD SUPPORT FOR POST THUMBS ***************/
-
-add_theme_support( 'post-thumbnails');
-
-// Define various thumbnail sizes
-add_image_size('portfolio', 405, 311, true);
-add_image_size('portfolio-single', 654, 469, true);
-add_image_size('blog-list', 294, 9999, true);
-add_image_size('blog-thumb', 75, 75, true);
-add_image_size('blog-thumb-3', 270, 180, true);
-
-/************************************************************/
-
-
 /******* FIX THE PORTFOLIO CATEGORY PAGINATION ISSUE ********/
 
 $option_posts_per_page = get_option( 'posts_per_page' );
@@ -193,9 +174,6 @@ function weblusive_get_option( $name ) {
 	return false ;
 }
 
-//Docs Url
-$docs_url = "http://weblusive-themes.com/documentation/".$themefolder;
-
 // Redirect To Theme Options Page on Activation
 if (is_admin() && isset($_GET['activated'])){
 	wp_redirect(admin_url('admin.php?page=panel'));
@@ -206,9 +184,12 @@ if (is_admin() && isset($_GET['activated'])){
 
 /****************** REGISTER SIDEBARS ***********************/
 
-if ( function_exists('register_sidebar') )
-{
-   
+add_filter('widget_text', 'do_shortcode');
+add_filter('the_excerpt', 'do_shortcode');
+
+add_action( 'widgets_init', 'weblusive_widgets_init' );
+function weblusive_widgets_init() {
+	// Footer sidebars (ids footer-sidebar-N, unchanged)
 	$footer_widget_count = weblusive_get_option('footer_widgets');
 	if($footer_widget_count !== 'none')
 	{
@@ -227,8 +208,6 @@ if ( function_exists('register_sidebar') )
 		}
 		for($i = 1; $i<= $footer_widget_count; $i++)
 		{
-			unregister_sidebar('Footer Widget '.$i);
-			if ( function_exists('register_sidebar') )
 			register_sidebar(array(
 				'name' => 'Footer Widget '.$i,
 				'id'	=> 'footer-sidebar-'.$i,
@@ -239,22 +218,17 @@ if ( function_exists('register_sidebar') )
 			));
 		}
 	}
-}
 
-add_filter('widget_text', 'do_shortcode');
-add_filter('the_excerpt', 'do_shortcode');
 
-add_action( 'widgets_init', 'weblusive_widgets_init' );
-function weblusive_widgets_init() {
 	$before_widget =  '<div id="%1$s" class="widget %2$s">';
 	$after_widget  =  '</div></div>';
 	$before_title  =  '<h3>';
 	$after_title   =  '</h3><div class="widget-container">';
 					
 	register_sidebar( array(
-		'name' =>  __( 'Primary Widget Area', 'Kappe' ),
+		'name' =>  __( 'Primary Widget Area', 'kappe' ),
 		'id' => 'primary-widget-area',
-		'description' => __( 'The Primary widget area', 'Kappe' ),
+		'description' => __( 'The Primary widget area', 'kappe' ),
 		'before_widget' => $before_widget , 'after_widget' => $after_widget , 'before_title' => $before_title , 'after_title' => $after_title ,
 	) );
 
@@ -336,7 +310,6 @@ function Kappe_fill_widget_title($title){
 }
 add_filter('widget_title', 'Kappe_fill_widget_title');
 
-add_theme_support( 'automatic-feed-links' );
 if ( ! isset( $content_width ) ) $content_width = 960;
 
 /************************************************************/

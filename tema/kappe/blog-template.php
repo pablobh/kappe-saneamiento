@@ -57,8 +57,8 @@ $blog_query = new WP_Query( array(
 					'current'   => $paged,
 					'total'     => $blog_query->max_num_pages,
 					'type'      => 'array',
-					'prev_text' => __( 'Previous', 'Kappe' ),
-					'next_text' => __( 'Next', 'Kappe' ),
+					'prev_text' => __( 'Previous', 'kappe' ),
+					'next_text' => __( 'Next', 'kappe' ),
 				) );
 				if ( $page_links ) : ?>
 					<ul class="pagination">

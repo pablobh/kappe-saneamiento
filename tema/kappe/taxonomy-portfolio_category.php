@@ -47,7 +47,7 @@ get_template_part('portfolio_header');
 						<?php if (!empty($thumbnail)): ?>
 							<?php the_post_thumbnail($thumbsize, array('class' => 'cover')); ?>
 						<?php else :?>
-							 <img src="http://placehold.it/405x311" alt="<?php _e ('No preview image', 'Kappe') ?>" />
+							 <img src="http://placehold.it/405x311" alt="<?php _e ('No preview image', 'kappe') ?>" />
 						<?php endif?>
 						<div class="hover-box">
 							<div class="project-title">

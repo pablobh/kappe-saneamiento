@@ -18,7 +18,7 @@ function portfolio_register() {
 			'query_var' => true,
 			'capability_type' => 'page',
 			'hierarchical' => false,
-			'edit_item' => __( 'Edit Work', 'Kappe'),
+			'edit_item' => __( 'Edit Work', 'kappe'),
 			'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields', 'comments', 'revisions')
 		)
 	);
@@ -26,8 +26,8 @@ function portfolio_register() {
 	register_taxonomy( 'portfolio_category', 
 			'portfolio', 
 			array( 'hierarchical' => true, 
-					'label' => __('Categories', 'Kappe'),
-					'singular_label' => __('Category', 'Kappe'),
+					'label' => __('Categories', 'kappe'),
+					'singular_label' => __('Category', 'kappe'),
 					'public' => true,
 					'show_tagcloud' => false,
 					'query_var' => 'true',

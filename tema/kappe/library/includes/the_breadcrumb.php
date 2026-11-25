@@ -13,7 +13,7 @@ function __construct(){
 	$markup = $this->options['before'].$this->options['delimiter'].$this->options['after'];
 	
 	global $post;
-	echo '<a href="'.home_url().'">'.__('Home', 'Kappe').'</a>';
+	echo '<a href="'.home_url().'">'.__('Home', 'kappe').'</a>';
 		if(!is_front_page()){echo $markup;}
 				
 		$output = $this->simple_breadcrumb_case($post);

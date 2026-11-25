@@ -68,7 +68,7 @@ $showcategory = weblusive_get_option('blog_show_category');
 								<h1><?php the_title()?></h1>
 								<?php the_content()?>
 							</div>
-							<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'Kappe' ), 'after' => '</div>' ) ); ?>
+							<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'kappe' ), 'after' => '</div>' ) ); ?>
 							<div class="comment-section">
 								<?php if( 'open' == $post->comment_status) comments_template(); ?>
 								<?php $test = false; if ($test) {comment_form();} ?>

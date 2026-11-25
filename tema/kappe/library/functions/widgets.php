@@ -17,7 +17,7 @@ class alc_social_widget extends WP_Widget {
 		// Widget settings.
 		$widget_ops = array(
 			'classname' => 'widget_alc_social',
-			'description' => __('Display social links', 'Kappe')
+			'description' => __('Display social links', 'kappe')
 		);
 
 		// Widget control settings.
@@ -26,7 +26,7 @@ class alc_social_widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		parent::__construct('alc-social-widget', __('Kappe - Social links', 'Kappe') , $widget_ops, $control_ops);
+		parent::__construct('alc-social-widget', __('Kappe - Social links', 'kappe') , $widget_ops, $control_ops);
 	}
 
 	// Display the widget on the screen.
@@ -116,11 +116,11 @@ class alc_social_widget extends WP_Widget {
 		
 		$instance = wp_parse_args((array)$instance, $defaults); ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'Kappe'); ?></label>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'kappe'); ?></label>
 			<input id="<?php echo $this->get_field_id('title'); ?>" type="text" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" class="widefat" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('social_target'); ?>"><?php _e('Target window:', 'Kappe'); ?></label>
+			<label for="<?php echo $this->get_field_id('social_target'); ?>"><?php _e('Target window:', 'kappe'); ?></label>
 			<select id="<?php echo $this->get_field_id('social_target'); ?>" name="<?php echo $this->get_field_name('featured'); ?>" class="widefat">
 				<option value="0" <?php if( $instance['social_target'] == 0):?>selected="selected"<?php endif?>>Same window</option>
 				<option value="1" <?php if( $instance['social_target'] == 1):?>selected="selected"<?php endif?>>New window</option>
@@ -128,51 +128,51 @@ class alc_social_widget extends WP_Widget {
 		</p>
         
 		<p>
-			<label for="<?php echo $this->get_field_id('bitbucket'); ?>"><?php _e('Bitbucket:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('bitbucket'); ?>"><?php _e('Bitbucket:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('bitbucket'); ?>" type="text" name="<?php echo $this->get_field_name('bitbucket'); ?>" value="<?php echo $instance['bitbucket']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('dribble'); ?>"><?php _e('Dribbble:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('dribble'); ?>"><?php _e('Dribbble:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('dribbble'); ?>" type="text" name="<?php echo $this->get_field_name('dribbble'); ?>" value="<?php echo $instance['dribbble']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('facebook'); ?>"><?php _e('Facebook:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('facebook'); ?>"><?php _e('Facebook:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('facebook'); ?>" type="text" name="<?php echo $this->get_field_name('facebook'); ?>" value="<?php echo $instance['facebook']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('flickr'); ?>"><?php _e('Flickr:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('flickr'); ?>"><?php _e('Flickr:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('flickr'); ?>" type="text" name="<?php echo $this->get_field_name('flickr'); ?>" value="<?php echo $instance['flickr']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('github'); ?>"><?php _e('Github:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('github'); ?>"><?php _e('Github:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('github'); ?>" type="text" name="<?php echo $this->get_field_name('github'); ?>" value="<?php echo $instance['github']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('google'); ?>"><?php _e('Google+:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('google'); ?>"><?php _e('Google+:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('google'); ?>" type="text" name="<?php echo $this->get_field_name('google'); ?>" value="<?php echo $instance['google']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('instagram'); ?>"><?php _e('Instagram:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('instagram'); ?>"><?php _e('Instagram:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('instagram'); ?>" type="text" name="<?php echo $this->get_field_name('instagram'); ?>" value="<?php echo $instance['instagram']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('linkedin'); ?>"><?php _e('LinkedIn:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('linkedin'); ?>"><?php _e('LinkedIn:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('linkedin'); ?>" type="text" name="<?php echo $this->get_field_name('linkedin'); ?>" value="<?php echo $instance['linkedin']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('pinterest'); ?>"><?php _e('Pinterest:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('pinterest'); ?>"><?php _e('Pinterest:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('pinterest'); ?>" type="text" name="<?php echo $this->get_field_name('pinterest'); ?>" value="<?php echo $instance['pinterest']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('skype'); ?>"><?php _e('Skype:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('skype'); ?>"><?php _e('Skype:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('skype'); ?>" type="text" name="<?php echo $this->get_field_name('skype'); ?>" value="<?php echo $instance['skype']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('twitter'); ?>"><?php _e('Twitter:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('twitter'); ?>"><?php _e('Twitter:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('twitter'); ?>" type="text" name="<?php echo $this->get_field_name('twitter'); ?>" value="<?php echo $instance['twitter']; ?>" class="widefat" />
     	</p>
 		<p>
-			<label for="<?php echo $this->get_field_id('youtube'); ?>"><?php _e('Youtube:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('youtube'); ?>"><?php _e('Youtube:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('youtube'); ?>" type="text" name="<?php echo $this->get_field_name('youtube'); ?>" value="<?php echo $instance['youtube']; ?>" class="widefat" />
     	</p>
 	<?php
@@ -196,11 +196,11 @@ class alc_works_widget extends WP_Widget {
 		// Widget settings.
 		$widget_ops = array(
 			'classname' => 'widget_alc_works post-widget',
-			'description' => __('Display latest works (Portoflio)', 'Kappe')
+			'description' => __('Display latest works (Portoflio)', 'kappe')
 		);
 
 		// Create the widget.
-		parent::__construct('alc-works-widget', __('Kappe - Latest Works', 'Kappe') , $widget_ops);
+		parent::__construct('alc-works-widget', __('Kappe - Latest Works', 'kappe') , $widget_ops);
 	}
 
 	// Display the widget on the screen.
@@ -230,7 +230,7 @@ class alc_works_widget extends WP_Widget {
 							<?php if(!empty($thumbnail)):?>
 								<?php echo $thumbnail ?>
 							<?php else:?>
-								<img src = "http://placehold.it/78x78" alt="<?php _e('No Image', 'Kappe')?>" />
+								<img src = "http://placehold.it/78x78" alt="<?php _e('No Image', 'kappe')?>" />
 							<?php endif?>
 						</a>
 					</li>
@@ -257,12 +257,12 @@ class alc_works_widget extends WP_Widget {
 		);
 		$instance = wp_parse_args((array)$instance, $defaults); ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('post_title'); ?>"><?php _e('Title', 'Kappe'); ?></label>
+			<label for="<?php echo $this->get_field_id('post_title'); ?>"><?php _e('Title', 'kappe'); ?></label>
 			<input id="<?php echo $this->get_field_id('post_title'); ?>" type="text" name="<?php echo $this->get_field_name('post_title'); ?>" value="<?php echo $instance['post_title']; ?>" class="widefat" />
 		</p>
         
          <p>
-			<label for="<?php echo $this->get_field_id('featured'); ?>"><?php _e('Show only featured posts', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('featured'); ?>"><?php _e('Show only featured posts', 'kappe'); ?></label> 
 			<select id="<?php echo $this->get_field_id('featured'); ?>" name="<?php echo $this->get_field_name('featured'); ?>" class="widefat">
 				<option value="0" <?php if( $instance['featured'] == 0):?>selected="selected"<?php endif?>>No</option> 
 				<option value="1" <?php if( $instance['featured'] == 1):?>selected="selected"<?php endif?>>Yes</option> 
@@ -270,7 +270,7 @@ class alc_works_widget extends WP_Widget {
 		</p>
         
         <p>
-			<label for="<?php echo $this->get_field_id('post_count'); ?>"><?php _e('Number of Posts to show', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('post_count'); ?>"><?php _e('Number of Posts to show', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('post_count'); ?>" type="text" name="<?php echo $this->get_field_name('post_count'); ?>" value="<?php echo $instance['post_count']; ?>" class="widefat" />
 		</p>
 	<?php
@@ -296,7 +296,7 @@ class alc_flickr_widget extends WP_Widget {
 		// Widget settings.
 		$widget_ops = array(
 			'classname' => 'widget_alc_flickr',
-			'description' => __('Display images from flickr', 'Kappe')
+			'description' => __('Display images from flickr', 'kappe')
 		);
 
 		// Widget control settings.
@@ -305,7 +305,7 @@ class alc_flickr_widget extends WP_Widget {
 		);
 
 		// Create the widget.
-		parent::__construct('alc-flickr-widget', __('Kappe - Flickr images', 'Kappe') , $widget_ops, $control_ops);
+		parent::__construct('alc-flickr-widget', __('Kappe - Flickr images', 'kappe') , $widget_ops, $control_ops);
 	}
 
 	// Display the widget on the screen.
@@ -349,17 +349,17 @@ class alc_flickr_widget extends WP_Widget {
 		
 		$instance = wp_parse_args((array)$instance, $defaults); ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'Kappe'); ?></label>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'kappe'); ?></label>
 			<input id="<?php echo $this->get_field_id('title'); ?>" type="text" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo $instance['title']; ?>" class="widefat" />
 		</p>
         
 		<p>
-			<label for="<?php echo $this->get_field_id('flickr_id'); ?>"><?php _e('Flickr ID:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('flickr_id'); ?>"><?php _e('Flickr ID:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('flickr_id'); ?>" type="text" name="<?php echo $this->get_field_name('flickr_id'); ?>" value="<?php echo $instance['flickr_id']; ?>" class="widefat" />
             <small style="line-height:12px;"><a href="http://www.idgettr.com">Find your Flickr user or group id</a></small>
 		</p>
         <p>
-			<label for="<?php echo $this->get_field_id('flickr_nr'); ?>"><?php _e('Number of photos:', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('flickr_nr'); ?>"><?php _e('Number of photos:', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('flickr_nr'); ?>" type="text" name="<?php echo $this->get_field_name('flickr_nr'); ?>" value="<?php echo $instance['flickr_nr']; ?>" class="widefat" />
 		</p>
 	<?php
@@ -450,10 +450,10 @@ class Latest_Tweets extends WP_Widget {
 		                    if($update) {
 		                      $time = strtotime($item->created_at);
 		                      if ( ( abs( time() - $time) ) < 86400 )
-		                        $h_time = sprintf( __('%s ago', 'Kappe'), human_time_diff( $time ) );
+		                        $h_time = sprintf( __('%s ago', 'kappe'), human_time_diff( $time ) );
 		                      else
-		                        $h_time = date(__('Y/m/d', 'Kappe'), $time);
-		                      echo sprintf( __('%s', 'twitter-for-wordpress', 'Kappe'),' <span class="twitter-timestamp"><abbr title="' . date(__('Y/m/d H:i:s', 'Kappe'), $time) . '">' . $h_time . '</abbr></span>' );
+		                        $h_time = date(__('Y/m/d', 'kappe'), $time);
+		                      echo sprintf( __('%s', 'twitter-for-wordpress', 'kappe'),' <span class="twitter-timestamp"><abbr title="' . date(__('Y/m/d H:i:s', 'kappe'), $time) . '">' . $h_time . '</abbr></span>' );
 		                     }
 		                    echo '</li>
 ';
@@ -465,7 +465,7 @@ class Latest_Tweets extends WP_Widget {
             	}
 				else
 				{ 
-					echo _e('Sorry , Twitter seems down or responds slowly.', 'Kappe'); 
+					echo _e('Sorry , Twitter seems down or responds slowly.', 'kappe'); 
 				}
             ?>
 		<?php
@@ -476,7 +476,7 @@ class Latest_Tweets extends WP_Widget {
 		echo $before_widget;
 		echo $before_title; ?>
 			<a href="http://twitter.com/<?php echo $twitter_username?>" class="twitter-title"><?php echo $title ; ?></a>
-		<?php echo $after_title._e('You need to Setup Twitter API OAuth settings first', 'Kappe');
+		<?php echo $after_title._e('You need to Setup Twitter API OAuth settings first', 'kappe');
 		echo $after_widget;
 	}
 }
@@ -497,35 +497,35 @@ class Latest_Tweets extends WP_Widget {
 	}
 
 	function form( $instance ) {
-		$defaults = array( 'title' =>__('@Follow Me' , 'Kappe') , 'no_of_tweets' => '5', 'twitter_username'=>'', 'consumer_key' => '', 'consumer_secret' => '', 'access_token' => '', 'access_token_secret' => '');
+		$defaults = array( 'title' =>__('@Follow Me' , 'kappe') , 'no_of_tweets' => '5', 'twitter_username'=>'', 'consumer_key' => '', 'consumer_secret' => '', 'access_token' => '', 'access_token_secret' => '');
 		$instance = wp_parse_args( (array) $instance, $defaults ); ?>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id( 'twitter_username' ); ?>"><?php _e('Username', 'Kappe')?> : </label>
+			<label for="<?php echo $this->get_field_id( 'twitter_username' ); ?>"><?php _e('Username', 'kappe')?> : </label>
 			<input id="<?php echo $this->get_field_id( 'twitter_username' ); ?>" name="<?php echo $this->get_field_name( 'twitter_username' ); ?>" value="<?php echo $instance['twitter_username']; ?>" class="widefat" type="text" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'consumer_key' ); ?>"><?php _e('Consumer Key', 'Kappe')?> : </label>
+			<label for="<?php echo $this->get_field_id( 'consumer_key' ); ?>"><?php _e('Consumer Key', 'kappe')?> : </label>
 			<input id="<?php echo $this->get_field_id( 'consumer_key' ); ?>" name="<?php echo $this->get_field_name( 'consumer_key' ); ?>" value="<?php echo $instance['consumer_key']; ?>" class="widefat" type="text" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'consumer_secret' ); ?>"><?php _e('Consumer Secret', 'Kappe')?> : </label>
+			<label for="<?php echo $this->get_field_id( 'consumer_secret' ); ?>"><?php _e('Consumer Secret', 'kappe')?> : </label>
 			<input id="<?php echo $this->get_field_id( 'consumer_secret' ); ?>" name="<?php echo $this->get_field_name( 'consumer_secret' ); ?>" value="<?php echo $instance['consumer_secret']; ?>" class="widefat" type="text" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'access_token' ); ?>"><?php _e('Access Token', 'Kappe')?> : </label>
+			<label for="<?php echo $this->get_field_id( 'access_token' ); ?>"><?php _e('Access Token', 'kappe')?> : </label>
 			<input id="<?php echo $this->get_field_id( 'access_token' ); ?>" name="<?php echo $this->get_field_name( 'access_token' ); ?>" value="<?php echo $instance['access_token']; ?>" class="widefat" type="text" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'access_token_secret' ); ?>"><?php _e('Access Token Secret', 'Kappe')?> : </label>
+			<label for="<?php echo $this->get_field_id( 'access_token_secret' ); ?>"><?php _e('Access Token Secret', 'kappe')?> : </label>
 			<input id="<?php echo $this->get_field_id( 'access_token_secret' ); ?>" name="<?php echo $this->get_field_name( 'access_token_secret' ); ?>" value="<?php echo $instance['access_token_secret']; ?>" class="widefat" type="text" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title', 'Kappe')?> : </label>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e('Title', 'kappe')?> : </label>
 			<input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" class="widefat" type="text" />
 		</p>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'no_of_tweets' ); ?>"><?php _e('Number of Tweets to show', 'Kappe')?> : </label>
+			<label for="<?php echo $this->get_field_id( 'no_of_tweets' ); ?>"><?php _e('Number of Tweets to show', 'kappe')?> : </label>
 			<input id="<?php echo $this->get_field_id( 'no_of_tweets' ); ?>" name="<?php echo $this->get_field_name( 'no_of_tweets' ); ?>" value="<?php echo $instance['no_of_tweets']; ?>" type="text" size="3" />
 		</p>
 	<?php
@@ -569,11 +569,11 @@ class alc_blogposts_widget extends WP_Widget {
 		// Widget settings.
 		$widget_ops = array(
 			'classname' => 'widget_alc_blogposts',
-			'description' => __('Display latest blog posts', 'Kappe')
+			'description' => __('Display latest blog posts', 'kappe')
 		);
 
 		// Create the widget.
-		parent::__construct('alc-blogposts-widget', __('Kappe Blog Posts', 'Kappe') , $widget_ops);
+		parent::__construct('alc-blogposts-widget', __('Kappe Blog Posts', 'kappe') , $widget_ops);
 	}
 
 	// Display the widget on the screen.
@@ -640,22 +640,22 @@ class alc_blogposts_widget extends WP_Widget {
 		);
 		$instance = wp_parse_args((array)$instance, $defaults); ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('post_title'); ?>"><?php _e('Title', 'Kappe'); ?></label>
+			<label for="<?php echo $this->get_field_id('post_title'); ?>"><?php _e('Title', 'kappe'); ?></label>
 			<input id="<?php echo $this->get_field_id('post_title'); ?>" type="text" name="<?php echo $this->get_field_name('post_title'); ?>" value="<?php echo $instance['post_title']; ?>" class="widefat" />
 		</p>
         
         <p>
-			<label for="<?php echo $this->get_field_id('post_count'); ?>"><?php _e('Number of Posts to show', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('post_count'); ?>"><?php _e('Number of Posts to show', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('post_count'); ?>" type="text" name="<?php echo $this->get_field_name('post_count'); ?>" value="<?php echo $instance['post_count']; ?>" class="widefat" />
 		</p>
         
          <p>
-			<label for="<?php echo $this->get_field_id('post_category'); ?>"><?php _e('Category (Leave Blank to show from all categories)', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('post_category'); ?>"><?php _e('Category (Leave Blank to show from all categories)', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('post_category'); ?>" type="text" name="<?php echo $this->get_field_name('post_category'); ?>" value="<?php echo $instance['post_category']; ?>" class="widefat" />
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('post_thumbs'); ?>"><?php _e('Show thumbnails', 'Kappe'); ?></label>
+			<label for="<?php echo $this->get_field_id('post_thumbs'); ?>"><?php _e('Show thumbnails', 'kappe'); ?></label>
 			<select id="<?php echo $this->get_field_id('post_thumbs'); ?>" name="<?php echo $this->get_field_name('post_thumbs'); ?>" class="widefat">
 				<option value="0" <?php if( $instance['post_thumbs'] == 0):?>selected="selected"<?php endif?>>No</option> 
 				<option value="1" <?php if( $instance['post_thumbs'] == 1):?>selected="selected"<?php endif?>>Yes</option> 
@@ -683,15 +683,15 @@ register_widget('alc_blogposts_widget');
 class alc_Contact_Form extends WP_Widget {
 	
 	function __construct() {
-		$widget_ops = array('classname' => 'alc_contact_form_entries', 'description' => __("Contact widget", 'Kappe') );
-		parent::__construct('alc_Contact_Form', __('Kappe - Contact Form', 'Kappe'), $widget_ops);
+		$widget_ops = array('classname' => 'alc_contact_form_entries', 'description' => __("Contact widget", 'kappe') );
+		parent::__construct('alc_Contact_Form', __('Kappe - Contact Form', 'kappe'), $widget_ops);
 	}
 
 	function widget($args, $instance) {
 		extract($args);
-		$title = apply_filters('widget_title', empty($instance['title']) ? __('Contact Us', 'Kappe') : $instance['title'], $instance);
-		$email = apply_filters('widget_title', empty($instance['email']) ? __('', 'Kappe') : $instance['email'], $instance);
-		$success = apply_filters('widget_title', empty($instance['success']) ? __('Thank you, e-mail sent.', 'Kappe') : $instance['success'], $instance);
+		$title = apply_filters('widget_title', empty($instance['title']) ? __('Contact Us', 'kappe') : $instance['title'], $instance);
+		$email = apply_filters('widget_title', empty($instance['email']) ? __('', 'kappe') : $instance['email'], $instance);
+		$success = apply_filters('widget_title', empty($instance['success']) ? __('Thank you, e-mail sent.', 'kappe') : $instance['success'], $instance);
 		
 		echo $before_widget;
 		
@@ -700,17 +700,17 @@ class alc_Contact_Form extends WP_Widget {
 			<form action="#" method="post" id="contactFormWidget">
                             <div class="row">
 					<div class="col-md-6">
-						<input type="text" name="wname" id="wname" value="" size="22" placeholder="<?php _e('Name', 'Kappe')?>"/>
+						<input type="text" name="wname" id="wname" value="" size="22" placeholder="<?php _e('Name', 'kappe')?>"/>
 					</div>
 					<div class="col-md-6">
-						<input type="text" name="wemail" id="wemail" value="" size="22" placeholder="<?php _e('Email', 'Kappe')?>" />
+						<input type="text" name="wemail" id="wemail" value="" size="22" placeholder="<?php _e('Email', 'kappe')?>" />
 					</div>
                              </div>
                             <div class="row">	
 					<div class="col-md-12">
-						<textarea name="wmessage" id="wmessage"  placeholder="<?php _e('Message', 'Kappe')?>"></textarea>
+						<textarea name="wmessage" id="wmessage"  placeholder="<?php _e('Message', 'kappe')?>"></textarea>
 					
-						<input type="submit" id="wformsend" value="<?php _e('Send', 'Kappe')?>" class="btn" name="wsend" />
+						<input type="submit" id="wformsend" value="<?php _e('Send', 'kappe')?>" class="btn" name="wsend" />
 					</div>
                             </div>
 				<div class="loading"></div>
@@ -743,15 +743,15 @@ class alc_Contact_Form extends WP_Widget {
               
 	?>
 		<div>
-        	<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:<br />', 'Kappe'); ?>
+        	<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:<br />', 'kappe'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo $title; ?>" /></label></p>
 		</div>
         <div>
-        	<label for="<?php echo $this->get_field_id('email'); ?>"><?php _e('Email Address:<br />', 'Kappe'); ?>
+        	<label for="<?php echo $this->get_field_id('email'); ?>"><?php _e('Email Address:<br />', 'kappe'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('email'); ?>" name="<?php echo $this->get_field_name('email'); ?>" type="text" value="<?php echo $email; ?>" /></label></p>
 		</div>
         <div>
-        	<label for="<?php echo $this->get_field_id('success'); ?>"><?php _e('Success Message:<br />', 'Kappe'); ?>
+        	<label for="<?php echo $this->get_field_id('success'); ?>"><?php _e('Success Message:<br />', 'kappe'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('success'); ?>" name="<?php echo $this->get_field_name('success'); ?>" type="text" value="<?php echo $success; ?>" /></label></p>
 		</div>
 		<div style="clear:both"></div>
@@ -775,11 +775,11 @@ class alc_postinfo_widget extends WP_Widget {
 		// Widget settings.
 		$widget_ops = array(
 			'classname' => 'widget_alc_postinfo',
-			'description' => __('Display post info', 'Kappe')
+			'description' => __('Display post info', 'kappe')
 		);
 
 		// Create the widget.
-		parent::__construct('alc-postinfo-widget', __('Kappe Post Info', 'Kappe') , $widget_ops);
+		parent::__construct('alc-postinfo-widget', __('Kappe Post Info', 'kappe') , $widget_ops);
 	}
 
 	// Display the widget on the screen.
@@ -831,19 +831,19 @@ class alc_postinfo_widget extends WP_Widget {
 		);
 		$instance = wp_parse_args((array)$instance, $defaults); ?>
 		<p>
-			<label for="<?php echo $this->get_field_id('post_title'); ?>"><?php _e('Title', 'Kappe'); ?></label>
+			<label for="<?php echo $this->get_field_id('post_title'); ?>"><?php _e('Title', 'kappe'); ?></label>
 			<input id="<?php echo $this->get_field_id('post_title'); ?>" type="text" name="<?php echo $this->get_field_name('post_title'); ?>" value="<?php echo $instance['post_title']; ?>" class="widefat" />
 		</p>
         
                 <p>
-			<label for="<?php echo $this->get_field_id('post_author'); ?>"><?php _e('Show author', 'Kappe'); ?></label>
+			<label for="<?php echo $this->get_field_id('post_author'); ?>"><?php _e('Show author', 'kappe'); ?></label>
 			<select id="<?php echo $this->get_field_id('post_author'); ?>" name="<?php echo $this->get_field_name('post_author'); ?>" class="widefat">
 				<option value="0" <?php if( $instance['post_author'] == 0):?>selected="selected"<?php endif?>>No</option> 
 				<option value="1" <?php if( $instance['post_author'] == 1):?>selected="selected"<?php endif?>>Yes</option> 
 			</select>
 		</p>
                 <p>
-			<label for="<?php echo $this->get_field_id('post_date'); ?>"><?php _e('Show Date', 'Kappe'); ?></label>
+			<label for="<?php echo $this->get_field_id('post_date'); ?>"><?php _e('Show Date', 'kappe'); ?></label>
 			<select id="<?php echo $this->get_field_id('post_date'); ?>" name="<?php echo $this->get_field_name('post_date'); ?>" class="widefat">
 				<option value="0" <?php if( $instance['post_date'] == 0):?>selected="selected"<?php endif?>>No</option> 
 				<option value="1" <?php if( $instance['post_date'] == 1):?>selected="selected"<?php endif?>>Yes</option> 
@@ -851,7 +851,7 @@ class alc_postinfo_widget extends WP_Widget {
 		</p>
         
                 <p>
-			<label for="<?php echo $this->get_field_id('post_website'); ?>"><?php _e('Alternative website', 'Kappe'); ?></label> 
+			<label for="<?php echo $this->get_field_id('post_website'); ?>"><?php _e('Alternative website', 'kappe'); ?></label> 
 			<input id="<?php echo $this->get_field_id('post_website'); ?>" type="text" name="<?php echo $this->get_field_name('post_website'); ?>" value="<?php echo $instance['post_website']; ?>" class="widefat" />
 		</p>
 		

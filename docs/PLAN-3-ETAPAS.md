@@ -95,7 +95,7 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
 | ☑ | E2.B4 | Consultas SQL de `helper-functions.php` a APIs de WP (tras A1 quedan solo `get_page_ID_by_page_template` y `getPageContent`) | T2.5 | Sonnet | 0,3–0,5 (hecho 25-nov) |
 | ☑ | E2.B5 | Escapar el título de prettyPhoto; iframes de `single.php` por `https` y `youtube-nocookie.com` | T2.9 | Sonnet | 0,5 (hecho 25-nov) |
 | | | **C · Compatibilidad PHP/WordPress** (rama `componente/c-compatibilidad`) | | | |
-| ☐ | E2.C1 | `functions.php`: hooks (`after_setup_theme`, `widgets_init`), text domain `kappe`, doble `style.css`, Google Maps por `https`; `redirect_docs()` y `weblusive_admin_head()` fuera de `weblusive_add_admin()`. **No cambiar los IDs de las barras laterales** que WP genera hoy (comprobarlos antes con WP-CLI) | T2.7 | **Opus** | 1,5 |
+| ☑ | E2.C1 | `functions.php`: hooks (`after_setup_theme`, `widgets_init`), text domain `kappe`, doble `style.css`, Google Maps por `https`; `redirect_docs()` y `weblusive_admin_head()` fuera de `weblusive_add_admin()`. **No cambiar los IDs de las barras laterales** que WP genera hoy (comprobarlos antes con WP-CLI). **Decisión 25-nov:** se quita todo lo de IE de `header.php` (html5shiv, `css/ie.css`, `<html>` condicional de IE 8) | T2.7 | **Opus** | 1,5 (hecho 25-nov) |
 | ☐ | E2.C3 | (nuevo, E1.10) Avisos de PHP 8 en plantillas: `taxonomy-portfolio_category.php` (`$get_meta[...][0]` sin `isset`, referencias rotas), `$post->ID` fuera del bucle en `archive.php` y `search.php`, `$sidebarPos` en `single-portfolio.php`; apoyarse en phpcs | T2.10 | Sonnet | 0,5–1 |
 | | | **D · Rendimiento** (rama `componente/d-rendimiento`) | | | |
 | ☐ | E2.D1 | Eliminar `retina.js` | T3.1 | Haiku | 0,1 |
@@ -107,7 +107,7 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
 | ☐ | E2.D7 | `eager` en la primera fila y `fetchpriority="high"` en la primera imagen | T3.7 | Haiku | 0,2 |
 | | | **E · SEO del lado del tema** (rama `componente/e-seo-html`) | | | |
 | ☐ | E2.E1 | Un solo `<h1>`; `title-tag`; `alt` del portafolio; tarjetas con `<a href>` real; corregir el `alt` literal `'.__('No image', 'Kappe').'` de las tarjetas del blog (hallazgo de E1.6) | T3B.1, T3B.3, T3B.5, T3B.6 | Sonnet | 1–1,5 |
-| ☐ | E2.E2 | Viewport sin `maximum-scale=1`; `wp_body_open()`; `lang` | T3B.2, T3B.4 | Haiku | 0,2 |
+| ☐ | E2.E2 | Viewport sin `maximum-scale=1`; `wp_body_open()`; `lang` (ya resuelto en E2.C1: el `lang="en"` fijo era de la rama de IE 8, que se quitó) | T3B.2, T3B.4 | Haiku | 0,2 |
 | ☐ | E2.E3 | Contraste AA y foco visible | T3B.7 | Sonnet | 0,5–1 |
 
 **Fuera del saneamiento (decidido en E1.10):** `post_type_link` (`strpos` al revés; arreglarlo podría cambiar las URL `/works/`), `my_option_posts_per_page` (se mantienen las 4 por página en categorías del portafolio), cargar el panel solo en el admin (~0,7 ms, riesgo con el CPT `weblusive_slider`), shortcodes sin uso y el escapado de sus atributos (SPECS §1; los botones de TinyMCE se quedan) y `comments.php` (comentarios desactivados).

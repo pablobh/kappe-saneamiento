@@ -27,7 +27,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
                     $full_image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full', false);
                     $link = $full_image[0];
                 ?>
-                <a  class="zoom" href="<?php echo $link ?>"><?php  _e( '+', 'Kappe' ); ?></a>
+                <a  class="zoom" href="<?php echo $link ?>"><?php  _e( '+', 'kappe' ); ?></a>
             </div>
         </div>
         <!-------------POST FORMAT LINK-------------------->
@@ -80,7 +80,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
                      <?php if( 'open' == $post->comment_status && $showcomments) : ?>
                      <li>
                          <i class="fa fa-comment"></i>
-                         <?php comments_popup_link( __( '0 Comments', 'Kappe' ), __( '1 Comment', 'Kappe' ), __( '% Comments', 'Kappe' )); ?>
+                         <?php comments_popup_link( __( '0 Comments', 'kappe' ), __( '1 Comment', 'kappe' ), __( '% Comments', 'kappe' )); ?>
                      </li>
                      <?php endif?>
                     <?php if($showdate): ?>
@@ -128,7 +128,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
                      <?php if( 'open' == $post->comment_status && $showcomments) : ?>
                      <li>
                          <i class="fa fa-comment"></i>
-                         <?php comments_popup_link( __( '0 Comments', 'Kappe' ), __( '1 Comment', 'Kappe' ), __( '% Comments', 'Kappe' )); ?>
+                         <?php comments_popup_link( __( '0 Comments', 'kappe' ), __( '1 Comment', 'kappe' ), __( '% Comments', 'kappe' )); ?>
                      </li>
                      <?php endif?>
                     <?php if($showdate): ?>
@@ -144,7 +144,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
 				if(!empty($thumbnail)) : ?>
 					<?php the_post_thumbnail('blog-list'); ?>
                 <?php else : ?>
-					<img src = "http://placehold.it/300x193" alt="'.__('No image', 'Kappe').'" />
+					<img src = "http://placehold.it/300x193" alt="'.__('No image', 'kappe').'" />
 				<?php endif; ?>
                 <div class="post-content">
                     <h2><a href="<?php the_permalink()?>"><?php the_title()?></a></h2>
@@ -157,7 +157,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
                      <?php if( 'open' == $post->comment_status && $showcomments) : ?>
                      <li>
                          <i class="fa fa-comment"></i>
-                         <?php comments_popup_link( __( '0 Comments', 'Kappe' ), __( '1 Comment', 'Kappe' ), __( '% Comments', 'Kappe' )); ?>
+                         <?php comments_popup_link( __( '0 Comments', 'kappe' ), __( '1 Comment', 'kappe' ), __( '% Comments', 'kappe' )); ?>
                      </li>
                      <?php endif?>
                     <?php if($showdate): ?>
