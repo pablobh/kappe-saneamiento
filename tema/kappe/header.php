@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]> 	<html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" <?php language_attributes(); ?>> <!--<![endif]-->
+<html class="no-js" <?php language_attributes(); ?>>
 
 <head>
 	<meta charset="utf-8" />
@@ -15,10 +14,6 @@
  	<?php endif?>
 	
 	<?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
-	<!--[if lt IE 10]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-		<link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/css/ie.css" type="text/css" media="screen">
-	<![endif]-->
 	<?php if(weblusive_get_option('header_code')) echo  htmlspecialchars_decode(weblusive_get_option('header_code')); ?>
 	<?php wp_head(); ?>
 </head>
@@ -69,7 +64,7 @@
 						$paginationEnabled = (isset($portfolio_type) && !(empty ($portfolio_type))) ? $portfolio_type[0] : 0;
 					?>
 					<div class="filter-box">
-						<h3><?php _e('Filter', 'Kappe')?><i class="fa fa-th-large"></i></h3>
+						<h3><?php _e('Filter', 'kappe')?><i class="fa fa-th-large"></i></h3>
 						<?php if ($paginationEnabled || is_tax('portfolio_category')):?>
 							<ul class="filter-items">
 								<?php 
@@ -82,7 +77,7 @@
 							</ul>
 						<?php else: ?>
 							<ul id="filterOptions" class="filter-items filter">
-								<li><a href="#" class="active" data-filter="*"><?php _e('All Works', 'Kappe')?></a></li>
+								<li><a href="#" class="active" data-filter="*"><?php _e('All Works', 'kappe')?></a></li>
 								<?php 
 									$cats = get_post_meta($post->ID, "_page_portfolio_cat", $single = true);                                                 
 									$MyWalker = new PortfolioWalker();

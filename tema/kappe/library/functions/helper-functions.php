@@ -231,13 +231,13 @@ function Kappe_comment($comment, $args, $depth) {
             <div class="comment-content">
 				<h6>
 					<?php echo get_comment_author().' / '?>		
-					<span class="time"><?php printf(__('%1$s at %2$s', 'Kappe'), get_comment_date(),get_comment_time()) ?></span>
-					<?php edit_comment_link(__('(Edit)', 'Kappe'),'  ','') ?>
+					<span class="time"><?php printf(__('%1$s at %2$s', 'kappe'), get_comment_date(),get_comment_time()) ?></span>
+					<?php edit_comment_link(__('(Edit)', 'kappe'),'  ','') ?>
 				</h6>
                 <?php comment_text() ?>
                 <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'style'=>'<ul class="depth"', 'max_depth' => $args['max_depth']))) ?>
             </div>
-             <?php if ($comment->comment_approved == '0') : ?><small><?php _e('Your comment is awaiting moderation.', 'Kappe') ?></small><?php endif; ?>
+             <?php if ($comment->comment_approved == '0') : ?><small><?php _e('Your comment is awaiting moderation.', 'kappe') ?></small><?php endif; ?>
         </div>	
 <?php }
 

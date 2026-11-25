@@ -52,7 +52,7 @@ $loop = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => $item
 						if( $cats == '' ): ?>
 							<p><?php _e('No categories selected. To fix this, please login to your WP Admin area and set
 								the categories you want to show by editing this page and setting one or more categories 
-								in the multi checkbox field "Portfolio Categories".', 'Kappe')?>
+								in the multi checkbox field "Portfolio Categories".', 'kappe')?>
 							</p>
 						<?php else: ?>		
 							<?php 

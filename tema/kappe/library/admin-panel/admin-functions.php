@@ -76,7 +76,7 @@ function weblusive_replace_thickbox_text($translated_text, $text, $domain) {
 	
         $referer = strpos( wp_get_referer(), 'weblusive-settings' );
         if ( $referer != '' )
-            return __('Use this image', 'Kappe' );
+            return __('Use this image', 'kappe' );
     }  
     return $translated_text;  
 }  
@@ -227,13 +227,11 @@ function weblusive_add_admin() {
 	$icon = get_template_directory_uri().'/library/admin-panel/images/weblusive_logo.png';
 	add_menu_page(theme_name.' Settings', theme_name ,'switch_themes', 'panel' , 'panel_options', $icon  );
 	$theme_page = add_submenu_page('panel',theme_name.' Settings', theme_name.' Settings','switch_themes', 'panel' , 'panel_options');
-	function redirect_docs(){
-		global $docs_url;
-		echo "<script type='text/javascript'>window.location='".$docs_url."';</script>";
-	}
 
 	add_action( 'admin_head-'. $theme_page, 'weblusive_admin_head' );
-	function weblusive_admin_head(){
+}
+
+function weblusive_admin_head(){
 	
 	?>
 	<script type="text/javascript">
@@ -289,7 +287,6 @@ function weblusive_add_admin() {
 		wp_enqueue_script('thickbox');
 		wp_enqueue_style('thickbox');
 		do_action('admin_print_styles');
-	}
 }
 
 

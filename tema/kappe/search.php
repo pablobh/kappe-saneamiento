@@ -8,7 +8,6 @@ $size = weblusive_get_option('sidebar_size');
 $sidebar_size = (isset($size) && !empty ($size)) ? $size : 'col-md-6';
 $layout_size = ($sidebar_pos === 'full') ? 'col-md-12' : 'col-md-6';
 if ($sidebar_size === 'col-md-3' && $sidebar_pos !== 'full') $layout_size = 'col-md-9';
-$get_meta = get_post_custom($post->ID);
 
 ?>
 <div id="content">
@@ -20,9 +19,9 @@ $get_meta = get_post_custom($post->ID);
 					<?php get_template_part( 'loop', 'search' );?>
 				<?php else : ?>
 				<div id="post-0" class="post no-results not-found">
-					<h4><?php _e( 'Nothing Found', 'Kappe' ); ?></h4>
+					<h4><?php _e( 'Nothing Found', 'kappe' ); ?></h4>
 					<div class="entry-content">
-						<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'Kappe' ); ?></p>
+						<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'kappe' ); ?></p>
 					</div><!-- .entry-content -->
 				</div><!-- #post-0 -->
 				<?php endif; ?>

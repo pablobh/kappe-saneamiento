@@ -1141,7 +1141,7 @@ function alc_portlisting($atts, $content=NULL){
 							if (!empty($thumbnail)): 
 								$return.=$thumbnail; 
 							else :
-								 $return.='<img src="'.get_template_directory_uri().'/images/picture.jpg" alt="'.__ ('No preview image', 'Kappe').'" />';
+								 $return.='<img src="'.get_template_directory_uri().'/images/picture.jpg" alt="'.__ ('No preview image', 'kappe').'" />';
 							endif;	
                                                 $return.='<div class="hover-box">
                                                             <div class="project-title">
@@ -1233,7 +1233,7 @@ function alc_list_posts( $atts )
 						else: 
 							$return.='
 							<a href="'.get_permalink( $ps->ID ).'" class="post-image">
-								<img src = "http://placehold.it/155x112" alt="'.__('No image', 'Kappe').'" />
+								<img src = "http://placehold.it/155x112" alt="'.__('No image', 'kappe').'" />
 							</a>';
 						endif;
 					$return.='<div class="post-content">
@@ -1266,7 +1266,7 @@ function alc_list_posts( $atts )
 				$return.='<iframe src="https://player.vimeo.com/video/'.$postmeta['_post_video'][0].'" width="270"  class="post-image"></iframe>';
 				else: 
 				$return.='<a href="'.get_permalink( $ps->ID ).'" class="post-image">
-				<img src = "http://placehold.it/155x112" alt="'.__('No image', 'Kappe').'" />
+				<img src = "http://placehold.it/155x112" alt="'.__('No image', 'kappe').'" />
 				</a>';
 				endif;
 					$return.='<div class="post-content">
