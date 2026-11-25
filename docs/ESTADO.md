@@ -21,6 +21,7 @@
   - Línea base con la 1.6 en curso (worktree `~/Projects/kappe-prod16` y enlace de Local apuntando a él): capturas hechas; Lighthouse corriendo. Al terminar, volver el enlace a `~/Projects/kappe-saneamiento/tema/kappe`.
   - Hallazgo: `ajax-load-more.php` carga `../../../wp-load.php` con ruta relativa y el enlace simbólico la rompe. Solución solo local: puente `~/Projects/wp-load.php` (se borra al terminar E2.B1).
 - **E1.2 cerrada (24-nov):** `CAMBIOS-PRODUCCION.md` en la raíz. De 106 archivos distintos entre `prod-1.6` y `base-2.1`, 83 son solo fin de línea (1.6 en LF, 2.1 en CRLF); quedan 23 con cambios reales (`git diff --ignore-cr-at-eol`). `es_ES.po` y `table_process.php` no cambian de contenido.
+- **E1.3 cerrada (24-nov), sin cambios en el tema:** `script.js` solo cambia el tamaño por defecto de prettyPhoto (853×480); `prettyPhoto.js` (3.1.6) solo añade `allowfullscreen`; `addons/paginajax` no existe en los tags ni se referencia (carpeta vacía en producción); `es_ES.po`/`.mo` iguales y coherentes entre sí (38 cadenas traducidas, 68 sin traducir). Pendiente de decidir en E2.C1: el texto "Send a message" (2.1) frente a "Send us a message" (el `.po`), la errata "611 characters" y el text domain `'Kappe'` frente a `kappe` en `style.css`.
 
 ## Decisiones del 24-nov
 - **El despliegue final lo hace Pablo.** Claude solo desarrolla y prueba en local y entrega el paquete con instrucciones (E3.5).
