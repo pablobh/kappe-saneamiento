@@ -30,11 +30,9 @@ require_once ($funcPath . 'widgets.php');
 require_once ($funcPath . '/shortcodes/shortcode.php');
 
 include (get_template_directory() . '/library/admin-panel/admin-ui.php');
-include (get_template_directory() . '/library/admin-panel/pricing-tables.php');
 include (get_template_directory() . '/library/admin-panel/admin-functions.php');
 include (get_template_directory() . '/library/admin-panel/post-options.php');
 include (get_template_directory() . '/library/admin-panel/custom-slider.php');
-//include (get_template_directory() . '/library/admin-panel/notifier/update-notifier.php');
 
 /************************************************************/
 
@@ -73,21 +71,6 @@ function kappe_load_scripts() {
 	wp_enqueue_script('hoverdir', get_template_directory_uri() .'/js/jquery.hoverdir.js', array('jquery'), '3.2', true);
 	
 	wp_enqueue_script('custom-scripts', get_template_directory_uri() .'/js/script.js', array('jquery'), '3.2', true);
-		
-	if (is_page_template('contact-template.php')){
-		$map_api = "";
-		$map_api = weblusive_get_option('google_api');
-		$address = weblusive_get_option('contact_address');
-		if (!empty($address && $map_api))
-		{
-			wp_enqueue_script('google-map-api',  'http://maps.google.com/maps/api/js?key='. $map_api );	
-			wp_enqueue_script('google-map',  get_template_directory_uri().'/js/gmap3.min.js', array('jquery'), '3.2', true);
-		}			
-	}		
-	if (is_page_template('under-construction.php'))
-	{
-		wp_enqueue_script('Under-construction',  get_template_directory_uri().'/js/jquery.countdown.js', array('jquery'), '3.2', true);
-	}
 }
 add_action( 'wp_enqueue_scripts', 'kappe_load_styles' );
 add_action( 'wp_enqueue_scripts', 'kappe_load_scripts' );

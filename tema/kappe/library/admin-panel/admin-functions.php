@@ -177,7 +177,6 @@ function weblusive_add_admin() {
 	$icon = get_template_directory_uri().'/library/admin-panel/images/weblusive_logo.png';
 	add_menu_page(theme_name.' Settings', theme_name ,'switch_themes', 'panel' , 'panel_options', $icon  );
 	$theme_page = add_submenu_page('panel',theme_name.' Settings', theme_name.' Settings','switch_themes', 'panel' , 'panel_options');
-	add_submenu_page('panel', theme_name, 'Pricing Tables', 'switch_themes', 'pricing_tables', 'pricing_tables');
 	function redirect_docs(){
 		global $docs_url;
 		echo "<script type='text/javascript'>window.location='".$docs_url."';</script>";

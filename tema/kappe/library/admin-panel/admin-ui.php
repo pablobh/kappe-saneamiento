@@ -43,8 +43,6 @@ $save='
 			<li class="weblusive-tabs styling"><a href="#tab6"><span></span>Styling</a></li>
 			<li class="weblusive-tabs typography"><a href="#tab7"><span></span>Typography</a></li>
 			<li class="weblusive-tabs blog"><a href="#tab8"><span></span>Blog settings</a></li>
-			<li class="weblusive-tabs underconstruction"><a href="#tab9"><span></span>Under construct.</a></li>
-			<li class="weblusive-tabs contact"><a href="#tab10"><span></span>Contact settings</a></li>
 			<li class="weblusive-tabs advanced"><a href="#tab11"><span></span>Advanced</a></li>
 		</ul>
 		<div class="clear"></div>
@@ -627,84 +625,6 @@ $save='
 			</div>
 
 		</div> <!-- Article Settings -->
-		<!-- Under construction -->
-		<div id="tab9" class="tab_content tabs-wrap">
-			<h2>Under construction</h2>	<?php echo $save ?>
-
-			<div class="weblusivepanel-item">
-				<h3>General settings</h3>
-				<?php
-					weblusive_options(
-					array(	"name" => "Main title",
-							"id" => "uc_maintitle",
-							"type" => "text"));
-
-					weblusive_options(
-					array(	"name" => "Custom text",
-							"id" => "uc_text",
-							"type" => "textarea"));
-
-					weblusive_options(
-					array(
-					"name" => "Progress",
-					"id" => "uc_progress",
-					"type" => "select",
-					"options" => array('10%' => '10%', '20%' => '20%', '30%' => '30%', '40%' => '40%', '50%' => '50%', '60%' => '60%', '70%' => '70%', '80%' => '80%', '90%' => '90%')
-					));
-					weblusive_options(
-					array(	"name" => "Launching date (mm/dd/yyyy)",
-							"id" => "uc_launchdate",
-							"type" => "text",
-							"help" => "Please insert the date in mm/dd/yyyy format otherwise the page won't work correctly. Example: 05/07/2015"));
-				?>
-			</div>
-
-
-
-		</div> <!-- End under construction -->
-
-		<!-- Contact form page -->
-		<div id="tab10" class="tab_content tabs-wrap">
-			<h2>Contact page</h2>	<?php echo $save ?>
-
-			<div class="weblusivepanel-item">
-				<h3>General settings</h3>
-				<?php
-				weblusive_options(
-				array(	"name" => "Email address",
-						"id" => "contact_email",
-						"type" => "text"));
-				weblusive_options(
-				array(	"name" => "Subject",
-						"id" => "contact_subject",
-						"type" => "text",
-						"help" => "Will be set as subject for all e-mails coming from website."));
-				weblusive_options(
-				array(	"name" => "Contact Address (Google map)",
-				"id" => "contact_address",
-				"type" => "text",
-				"help" => "Will display a Google map with your contact address."));
-				weblusive_options(
-				array(	"name" => "Error text",
-				"id" => "contact_error",
-				"type" => "text",
-				"help" => "The message to display if there was an issue while sending the e-mail."));
-				weblusive_options(
-				array(	"name" => "Success text",
-				"id" => "contact_success",
-				"type" => "text",
-				"help" => "The message to display if the e-mail is sent succesfully."));
-				
-				weblusive_options(
-				array(	"name" => "Google API Key",
-				"id" => "google_api",
-				"type" => "text",));
-				?>
-			</div>
-
-
-
-		</div> <!-- End contact form -->
 
 		<div id="tab11" class="tab_content tabs-wrap">
 			<h2>Advanced Settings</h2>	<?php echo $save ?>
