@@ -100,19 +100,19 @@ $loop = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => $item
 								<ul class="project-links">
 									<?php if( !empty ( $custom['_portfolio_video'][0] ) ) : $link = $custom['_portfolio_video'][0]; ?>
 										<li>
-											<a href="<?php echo $link ?>" class="zoom video"  data-rel="prettyPhoto" title="<?php echo '<h5>'.get_the_title($post->ID).'</h5><p>'.get_the_excerpt().'</p>' ?>">
+											<a href="<?php echo $link ?>" class="zoom video"  data-rel="prettyPhoto" title="<?php echo esc_attr('<h5>'.esc_html(get_the_title($post->ID)).'</h5><p>'.esc_html(get_the_excerpt()).'</p>') ?>">
 												<i class="fa fa-film"></i>
 											</a>
 										</li>
 									<?php elseif( isset($custom['_portfolio_link'][0]) && $custom['_portfolio_link'][0] != '' ) : ?>
 										<li>
-											<a href="<?php echo $custom['_portfolio_link'][0] ?>"  title="<?php the_title() ?>">
+											<a href="<?php echo $custom['_portfolio_link'][0] ?>"  title="<?php echo esc_attr(get_the_title()) ?>">
 												<i class="fa fa-external-link"></i>
 											</a>
 										</li>
 									<?php elseif(  isset( $custom['_portfolio_no_lightbox'][0] )  &&  $custom['_portfolio_no_lightbox'][0] !='' ) : $link = get_permalink(get_the_ID());  ?>
 										<li>
-											<a href="<?php echo $link; ?>"  title="<?php the_title() ?>">
+											<a href="<?php echo $link; ?>"  title="<?php echo esc_attr(get_the_title()) ?>">
 												<i class="fa fa-arrow-right"></i>
 											</a>
 										</li>
@@ -131,12 +131,12 @@ $loop = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => $item
 											$link = $full_image[0];
 										?>
 										<li>
-											<a href="<?php echo $link ?>" class="zoom-image" data-rel="prettyPhoto[ppgal<?php echo $post->ID?>]" title="<?php echo '<h5>'.get_the_title($post->ID).'</h5><p>'.get_the_excerpt().'</p>' ?>"><i class="fa fa-search"></i></a>
+											<a href="<?php echo $link ?>" class="zoom-image" data-rel="prettyPhoto[ppgal<?php echo $post->ID?>]" title="<?php echo esc_attr('<h5>'.esc_html(get_the_title($post->ID)).'</h5><p>'.esc_html(get_the_excerpt()).'</p>') ?>"><i class="fa fa-search"></i></a>
 											<?php 
 												$attachments = get_posts($argsThumb);
 												if ($attachments) {
 													foreach ($attachments as $attachment) {
-														echo '<a href="'.wp_get_attachment_url($attachment->ID, 'full', false, false).'" data-rel="prettyPhoto[ppgal'.$post->ID.']" class="gallery-link" title="'.get_the_title($post->ID).'"></a>';
+														echo '<a href="'.wp_get_attachment_url($attachment->ID, 'full', false, false).'" data-rel="prettyPhoto[ppgal'.$post->ID.']" class="gallery-link" title="'.esc_attr(get_the_title($post->ID)).'"></a>';
 													}
 												}
 											?>

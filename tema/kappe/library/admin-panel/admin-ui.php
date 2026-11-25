@@ -651,9 +651,9 @@ $save='
 
 			<div class="weblusivepanel-item">
 				<h3>Export</h3>
-				<p class="info">If you are importing previously saved content, make sure to delete the content in the "Export" field.</p>
+				<p class="info">To import, paste a previously exported content in the "Import" field and click "Save Changes". The "Export" field is never sent, so there is no need to delete it.</p>
 				<div class="option-item">
-					<textarea style="width:100%" rows="7"><?php echo $currentsettings = base64_encode( serialize( $current_options )); ?></textarea>
+					<textarea style="width:100%" rows="7"><?php echo esc_textarea( wp_json_encode( $current_options, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ); ?></textarea>
 				</div>
 			</div>
 			<div class="weblusivepanel-item">

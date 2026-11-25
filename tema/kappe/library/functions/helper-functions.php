@@ -163,9 +163,23 @@ function limit_words($string, $word_limit) {
 /*-- Get page ID by Page Template --*/
 function get_page_ID_by_page_template($template_name)
 {
-	global $wpdb;
-	$page_ID = $wpdb->get_var("SELECT post_id FROM $wpdb->postmeta WHERE meta_value = '$template_name' AND meta_key = '_wp_page_template'");
-	return $page_ID;
+	$ids = get_posts(array(
+		'post_type'              => 'any',
+		'post_status'            => 'any',
+		'posts_per_page'         => 1,
+		'orderby'                => 'ID',
+		'order'                  => 'ASC',
+		'fields'                 => 'ids',
+		'no_found_rows'          => true,
+		'update_post_term_cache' => false,
+		'meta_query'             => array(
+			array(
+				'key'   => '_wp_page_template',
+				'value' => $template_name,
+			),
+		),
+	));
+	return $ids ? $ids[0] : null;
 }
 
 /*-- Get page content (Used for pages with custom post types) --*/
@@ -177,16 +191,10 @@ if(!function_exists('getPageContent'))
 		{
 			return;
 		}
-		global $wpdb;
-		$sql_query = 'SELECT DISTINCT * FROM ' . $wpdb->posts .
-		' WHERE ' . $wpdb->posts . '.ID=' . $pageId;
-		$posts = $wpdb->get_results($sql_query);
-		if(!empty($posts))
+		$post = get_post((int) $pageId);
+		if($post)
 		{
-			foreach($posts as $post)
-			{
-				return nl2br($post->post_content);
-			}
+			return nl2br($post->post_content);
 		}
 	}
 }

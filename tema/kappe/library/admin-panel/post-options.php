@@ -14,7 +14,7 @@ function portfolio_options(){
 
 ?>	
 		<div class="weblusivepanel-item">
-			<input type="hidden" name="weblusive_hidden_flag" value="true" />	
+			<?php weblusive_post_options_hidden_fields(); ?>
 		
 		
 			<h3>Post Head Options</h3>
@@ -108,7 +108,7 @@ function post_options(){
 
 ?>	
 		<div class="weblusivepanel-item">
-		<input type="hidden" name="weblusive_hidden_flag" value="true" />	
+		<?php weblusive_post_options_hidden_fields(); ?>
 		
 		<h3>General Options</h3>
 			<?php weblusive_post_options(				
@@ -122,9 +122,6 @@ function post_options(){
 						"youtube" => "Youtube video" ,
 						"vimeo" => "Vimeo video",
 						"dailymotion" => "Dailymotion video",
-						"veoh" => "Veoh video",
-						"bliptv" => "blipTV video",
-						"viddler" => "Viddler video",
 						"" => "None of the above"
 					))
 				);
@@ -249,7 +246,7 @@ function page_options(){
 	}
 	
 ?>
-		<input type="hidden" name="weblusive_hidden_flag" value="true" />	
+		<?php weblusive_post_options_hidden_fields(); ?>
 		<div class="weblusivepanel-item">
 			<h3>Sidebar Options</h3>
 			<div class="option-item">
@@ -371,16 +368,45 @@ function page_options(){
   <?php
 }
 
-add_action('save_post', 'save_postdata');
-function save_postdata(){
+/**
+ * Campo oculto que marca el formulario de las cajas del tema y su nonce (E2.B2).
+ */
+function weblusive_post_options_hidden_fields(){
+	echo '<input type="hidden" name="weblusive_hidden_flag" value="true" />';
+	wp_nonce_field( 'weblusive_post_options', 'weblusive_post_options_nonce' );
+}
 
-	global $post;
-	
+/**
+ * Valores permitidos de las listas desplegables. Un valor fuera de la lista no se guarda
+ * (la meta se queda como estaba).
+ */
+function weblusive_post_options_allowed(){
+	return array(
+		'_weblusive_sidebar_pos' => array( 'right', 'left', 'full' ),
+		'_weblusive_post_head'   => array( '', 'none', 'slider', 'promotext', 'thumb', 'lightbox' ),
+		'_portfolio_type'        => array( '0', '1' ),
+		'_blog_videoap'          => array( '0', '1' ),
+		'_blog_mediatype'        => array( 'image', 'slider', 'youtube', 'vimeo', 'dailymotion', '' ),
+	);
+}
+
+add_action('save_post', 'save_postdata');
+function save_postdata( $post_id ){
+
 	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
-		return $post_id;
-		
-    if (isset($_POST['weblusive_hidden_flag'])) {
-	
+		return;
+	if ( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) )
+		return;
+	if ( ! isset( $_POST['weblusive_hidden_flag'], $_POST['weblusive_post_options_nonce'] ) )
+		return;
+	if ( ! wp_verify_nonce( sanitize_key( wp_unslash( $_POST['weblusive_post_options_nonce'] ) ), 'weblusive_post_options' ) )
+		return;
+	if ( ! current_user_can( 'edit_post', $post_id ) )
+		return;
+
+	$allowed = weblusive_post_options_allowed();
+	$ints    = array( '_weblusive_post_slider', '_page_portfolio_num_items_page' );
+
 		$custom_meta_fields = array(
 			'_weblusive_sidebar_pos',
 			'_page_portfolio_cat',
@@ -404,27 +430,33 @@ function save_postdata(){
 		foreach( $custom_meta_fields as $custom_meta_field ){
 			if(isset($_POST[$custom_meta_field]) )
 			{
-				if(is_array($_POST[$custom_meta_field]))
+				$raw = wp_unslash( $_POST[$custom_meta_field] );
+				if(is_array($raw))
 				{
-					$cats = '';
-					foreach($_POST[$custom_meta_field] as $cat){
-						$cats .= $cat . ",";
-					}
-					$data = substr($cats, 0, -1);
-					update_post_meta($post->ID, $custom_meta_field, $data);
+					// Categorías del portafolio: se guardan como lista "1,2,3" (formato original).
+					$data = implode( ',', array_filter( array_map( 'absint', $raw ) ) );
+					update_post_meta($post_id, $custom_meta_field, $data);
+				}
+				elseif ( isset( $allowed[ $custom_meta_field ] ) )
+				{
+					if ( in_array( (string) $raw, $allowed[ $custom_meta_field ], true ) )
+						update_post_meta($post_id, $custom_meta_field, $raw);
+				}
+				elseif ( in_array( $custom_meta_field, $ints, true ) )
+				{
+					update_post_meta($post_id, $custom_meta_field, (string) absint( $raw ));
 				}
 				else
 				{
-					update_post_meta($post->ID, $custom_meta_field, htmlspecialchars(stripslashes($_POST[$custom_meta_field])) );
+					// Formato original: texto escapado con htmlspecialchars (las plantillas lo imprimen tal cual).
+					update_post_meta($post_id, $custom_meta_field, wp_slash( htmlspecialchars( (string) $raw ) ) );
 				}
 			}
 			else
 			{
-				delete_post_meta($post->ID, $custom_meta_field);
+				delete_post_meta($post_id, $custom_meta_field);
 			}
 		}
-	
-	}
 }
 
 /*********************************************************/
@@ -445,7 +477,7 @@ function weblusive_post_options($value){
 	switch ( $value['type'] ) {
 		
 		case 'text': ?>
-			<input  name="<?php echo $value['id']; ?>" id="<?php  echo $value['id']; ?>" type="text" value="<?php echo (isset($current_value) && !empty( $current_value )) ? $current_value : '' ?>" />
+			<input  name="<?php echo $value['id']; ?>" id="<?php  echo $value['id']; ?>" type="text" value="<?php echo (isset($current_value) && !empty( $current_value )) ? esc_attr( $current_value ) : '' ?>" />
 			<?php if (isset($value ['hint'])):?><a href="#" class="mo-help tooltip" title="<?php echo $value ['hint']?>"></a><?php endif?>
 		<?php 
 		break;
@@ -461,7 +493,7 @@ function weblusive_post_options($value){
 		?>
 			<select name="<?php echo $value['id']; ?>" id="<?php echo $value['id']; ?>">
 				<?php foreach ($value['options'] as $key => $option) { ?>
-				<option value="<?php echo $key ?>" <?php if (isset($current_value) && !empty( $current_value ) && $current_value == $key) { echo ' selected="selected"' ; } ?>><?php echo $option; ?></option>
+				<option value="<?php echo esc_attr( $key ) ?>" <?php if (isset($current_value) && !empty( $current_value ) && $current_value == $key) { echo ' selected="selected"' ; } ?>><?php echo esc_html( $option ); ?></option>
 				<?php } ?>
 			</select>
 			<?php if (isset($value ['hint'])):?><a href="#" class="mo-help tooltip" title="<?php echo $value ['hint']?>"></a><?php endif?>
@@ -476,7 +508,7 @@ function weblusive_post_options($value){
 		break;
 		
 		case 'slider':
-			if ($meta_box_value == '') $meta_box_value = 9;  
+			$meta_box_value = ($meta_box_value == '') ? 9 : absint( $meta_box_value );
 			echo '
 			<script type="text/javascript">		
 			jQuery(document).ready(function () {						

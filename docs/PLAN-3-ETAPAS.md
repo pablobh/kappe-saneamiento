@@ -89,11 +89,11 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
 | ☑ | E2.A2 | ~~Constructor del breadcrumb~~ **Cerrada sin cambios (E1.10, 24-nov):** la 2.1 ya trae `__construct` y el breadcrumb no se usa (su única llamada está comentada en `404.php`); el archivo se queda | T2.8 | — | 0 |
 | ☑ | E2.A3 | (antes E2.C2) Eliminar Twitter/OAuth. **Decisión 24-nov:** el sitio no usa widgets, así que `widgets.php` **no se carga** (como en producción) y con él quedan fuera Flickr (incluido su `jflickrfeed` encolado) y el widget de contacto | T2.6 | Sonnet | 0,3 (hecho 24-nov) |
 | | | **B · Seguridad** (rama `componente/b-seguridad`) | | | |
-| ☐ | E2.B1 | Eliminar `ajax-load-more.php`, su llamada en `js/script.js` y el botón "Cargar más"; reemplazar por la paginación nativa de WordPress (`paginate_links()` con `paged`) en `blog-template.php`. Decidido 24-nov: el blog no se usa, así que no se endurece. Al terminar, borrar el puente `~/Projects/wp-load.php` | T2.2 | Sonnet | 1 |
-| ☐ | E2.B2 | Meta boxes: nonce, capacidades, autosave; `save_slide()` no borra metas. **E1.10:** también `portfolio_update_post_order` (`post-types.php`) con nonce y `current_user_can`, y el nonce en su llamada de `main.js` | T2.4 | **Opus** | 1,5–2 |
-| ☐ | E2.B3 | Importar/exportar opciones en JSON con `current_user_can`. **E1.10:** también `current_user_can` en `weblusive_save_ajax` y en "reset"; conservar el formato guardado (`htmlspecialchars`, SPECS §5) | T2.3 | **Opus** (decisión de Pablo: seguridad y datos guardados) | 1 |
-| ☐ | E2.B4 | Consultas SQL de `helper-functions.php` a APIs de WP (tras A1 quedan solo `get_page_ID_by_page_template` y `getPageContent`) | T2.5 | Sonnet | 0,3–0,5 |
-| ☐ | E2.B5 | Escapar el título de prettyPhoto; iframes de `single.php` por `https` y `youtube-nocookie.com` | T2.9 | Sonnet | 0,5 |
+| ☑ | E2.B1 | Eliminar `ajax-load-more.php`, su llamada en `js/script.js` y el botón "Cargar más"; reemplazar por la paginación nativa de WordPress (`paginate_links()` con `paged`) en `blog-template.php`. Decidido 24-nov: el blog no se usa, así que no se endurece. Al terminar, borrar el puente `~/Projects/wp-load.php` | T2.2 | Sonnet | 1 (hecho 24-nov) |
+| ☑ | E2.B2 | Meta boxes: nonce, capacidades, autosave; `save_slide()` no borra metas. **E1.10:** también `portfolio_update_post_order` (`post-types.php`) con nonce y `current_user_can`, y el nonce en su llamada de `main.js` | T2.4 | **Opus** | 1,5–2 (hecho 24-nov) |
+| ☑ | E2.B3 | Importar/exportar opciones en JSON con `current_user_can`. **E1.10:** también `current_user_can` en `weblusive_save_ajax` y en "reset"; conservar el formato guardado (`htmlspecialchars`, SPECS §5) | T2.3 | **Opus** (decisión de Pablo: seguridad y datos guardados) | 1 |
+| ☑ | E2.B4 | Consultas SQL de `helper-functions.php` a APIs de WP (tras A1 quedan solo `get_page_ID_by_page_template` y `getPageContent`) | T2.5 | Sonnet | 0,3–0,5 (hecho 25-nov) |
+| ☑ | E2.B5 | Escapar el título de prettyPhoto; iframes de `single.php` por `https` y `youtube-nocookie.com` | T2.9 | Sonnet | 0,5 (hecho 25-nov) |
 | | | **C · Compatibilidad PHP/WordPress** (rama `componente/c-compatibilidad`) | | | |
 | ☐ | E2.C1 | `functions.php`: hooks (`after_setup_theme`, `widgets_init`), text domain `kappe`, doble `style.css`, Google Maps por `https`; `redirect_docs()` y `weblusive_admin_head()` fuera de `weblusive_add_admin()`. **No cambiar los IDs de las barras laterales** que WP genera hoy (comprobarlos antes con WP-CLI) | T2.7 | **Opus** | 1,5 |
 | ☐ | E2.C3 | (nuevo, E1.10) Avisos de PHP 8 en plantillas: `taxonomy-portfolio_category.php` (`$get_meta[...][0]` sin `isset`, referencias rotas), `$post->ID` fuera del bucle en `archive.php` y `search.php`, `$sidebarPos` en `single-portfolio.php`; apoyarse en phpcs | T2.10 | Sonnet | 0,5–1 |
@@ -132,11 +132,34 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
  
 ---
  
+## Lista de control del despliegue (Pablo; E3.5 la completa con los comandos exactos)
+
+Se suma a lo que aporte cada componente. No saltarse ningún paso ni cambiar el orden.
+
+- ☐ **Respaldo** de la BD y de la carpeta `wp-content/themes/kappe` de producción, descargado y comprobado (que abra) antes de tocar nada.
+- ☐ **Subir el tema** a la carpeta `kappe` con `rsync --delete`: primero la simulación (`-n -i`), revisada por Pablo línea a línea; después la copia real.
+- ☐ **Panel "Kappe" → "Save Changes" una vez** (E2.B3). Así se borran los 8 `typography_*.color` que hoy muestran la ruta del servidor en el CSS público y las opciones aceptadas para borrar (`contact_*`, `uc_*`, `google_api`).
+- ☐ **Retirar de la BD el CSS que ya trae el tema** (opción `css` del panel y CSS adicional del Personalizador: Gravity Forms `.escala-horizontal`, `flow-root`, menú lateral fijo, colores de créditos). Antes, comprobar en el sitio que se ve igual; guardar una copia del texto retirado.
+- ☐ **Purgar cachés:** Cloudflare y WP Super Page Cache.
+- ☐ **Comprobar en producción:**
+  - las 6 páginas y un proyecto cargan;
+  - el blog pagina hasta el final y `ajax-load-more.php` da 404;
+  - el CSS público no contiene "Warning" ni la ruta `/home/…`;
+  - guardar una página y un proyecto conserva sus opciones;
+  - "Sort items" reordena el portafolio;
+  - el panel guarda, exporta e importa;
+  - el log de errores PHP del servidor no tiene líneas nuevas.
+- ☐ **Exportar la configuración del panel** (JSON, E2.B3) y guardarla junto al respaldo. Las exportaciones viejas en base64 ya no se pueden importar.
+
 ## Después del despliegue final (fuera de las 3 etapas)
  
 Se retoma con Pablo una vez desplegado el tema saneado. Modelo sugerido: Sonnet, en el chat, con Claude in Chrome para el panel de Cloudflare.
  
+- ☐ **Vigilar el log de errores PHP de producción** durante la primera semana (avisos de PHP 8 que no salieron en local).
+- ☐ **Medir en producción:** Lighthouse y TTFB contra la línea base de T1.6 (junto con la comparación Wordfence/Cloudflare de abajo).
+- ☐ **Slider huérfano:** el slider 28 apunta a los adjuntos 29 y 31, que no existen, y ninguna página lo usa (E2.B2). Decidir si se borra o se le ponen imágenes.
 - ☐ **Cloudflare:** decidir `xmlrpc.php` (Pablo cree que no se usa: bloquear con regla personalizada y observar); registros DNS "DNS only" que exponen la IP de origen; Bot Fight Mode vs protección anti-bots de DreamHost; Wordfence vs Cloudflare (S.5), midiendo el TTFB real en producción con y sin Wordfence.
 - ☐ **SEO:** `/works/` caso por caso con datos de Search Console (S.1); sitemap de Yoast y `robots.txt` (S.2); 6 enlaces 404 y 3 redirecciones (S.3); Yoast → The SEO Framework con respaldo y comparación antes/después (S.4).
+- ☐ **Recomendada (código, sin prisa):** refactorizar `library/admin-panel/post-options.php` para quitar el código **triplicado** de las cajas "Post/Page/Portfolio Options" (cabecera, slider, texto promocional y barra lateral repetidos en `post_options()`, `page_options()` y `portfolio_options()`) en funciones comunes, sin cambiar nombres de metas (SPECS §5) ni el HTML del formulario. No es seguridad; se aplazó en E2.B2 (24-nov). Modelo: Sonnet. Probar guardando una página, un proyecto y una entrada y comparando sus metas antes/después.
 - Recordar **purgar la caché de Cloudflare** tras cada cambio de HTML.
  

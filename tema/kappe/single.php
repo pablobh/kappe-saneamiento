@@ -38,17 +38,11 @@ $showcategory = weblusive_get_option('blog_show_category');
 						<?php if($mediatype== 'image' && !empty($thumbnail)):?>
 							<a class="blog-image" href="<?php the_permalink()?>"><?php the_post_thumbnail('blog-list'); ?></a>
 <!--						--><?php //elseif ( $mediatype == "youtube" && $videoId):?>
-<!--							<iframe  src="http://www.youtube.com/embed/--><?php //echo $videoId?><!--?autoplay=--><?php //echo $autoplay?><!--" class="vid iframe-youtube"></iframe>-->
+<!--							<iframe  src="https://www.youtube-nocookie.com/embed/--><?php //echo $videoId?><!--?autoplay=--><?php //echo $autoplay?><!--" class="vid iframe-youtube"></iframe>-->
 						<?php elseif ( $mediatype == "vimeo" && $videoId):?>
-							<iframe  src="http://player.vimeo.com/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="vid iframe-vimeo"></iframe>
+							<iframe  src="https://player.vimeo.com/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="vid iframe-vimeo"></iframe>
 						<?php elseif ( $mediatype == "dailymotion" && $videoId):?>
-							<iframe  src="http://www.dailymotion.com/embed/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="vid dailymotion-vimeo"></iframe>
-						<?php elseif ( $mediatype == "veoh" && $videoId):?>
-							<iframe  src="http://www.veoh.com/static/swf/veoh/SPL.swf?videoAutoPlay=<?php echo $autoplay?>&permalinkId=<?php echo $videoId?>" class="vid iframe-veoh"></iframe>
-						<?php elseif ( $mediatype == "bliptv" && $videoId):?>
-							<iframe  src="http://a.blip.tv/scripts/shoggplayer.html#file=http://blip.tv/rss/flash/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="vid iframe-bliptv"></iframe>
-						<?php elseif ( $mediatype == "viddler" && $videoId):?>
-							<iframe  src="http://www.viddler.com/embed/<?php echo $videoId?>e/?f=1&offset=0&autoplay=<?php echo $autoplay?>" class="vid iframe-viddler"></iframe>
+							<iframe  src="https://www.dailymotion.com/embed/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="vid dailymotion-vimeo"></iframe>
 						<?php elseif($mediatype== 'slider' && !empty($thumbnail)):?>
 						<div class="flexslider">
 								<ul class="slides">

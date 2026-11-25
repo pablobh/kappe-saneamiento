@@ -63,17 +63,11 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
         <div <?php post_class('blog-post video-post'); ?>>
             <div class="inner-post">
                 <?php if ( $mediatype == "youtube" && $videoId):?>
-                    <iframe src="http://www.youtube.com/embed/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube-nocookie.com/embed/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed" allowfullscreen></iframe>
                 <?php elseif ( $mediatype == "vimeo" && $videoId):?>
-                    <iframe src="http://player.vimeo.com/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed"></iframe>
+                    <iframe src="https://player.vimeo.com/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed"></iframe>
 				<?php elseif ( $mediatype == "dailymotion" && $videoId):?>
-                    <iframe  src="http://www.dailymotion.com/embed/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed"></iframe>
-				<?php elseif ( $mediatype == "veoh" && $videoId):?>
-                    <iframe  src="http://www.veoh.com/static/swf/veoh/SPL.swf?videoAutoPlay=<?php echo $autoplay?>&permalinkId=<?php echo $videoId?>" class="videoembed"></iframe>
-				<?php elseif ( $mediatype == "bliptv" && $videoId):?>
-                    <iframe  src="http://a.blip.tv/scripts/shoggplayer.html#file=http://blip.tv/rss/flash/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed"></iframe>
-				<?php elseif ( $mediatype == "viddler" && $videoId):?>
-                    <iframe  src="http://www.viddler.com/embed/<?php echo $videoId?>e/?f=1&offset=0&autoplay=<?php echo $autoplay?>" class="videoembed" ></iframe>
+                    <iframe  src="https://www.dailymotion.com/embed/video/<?php echo $videoId?>?autoplay=<?php echo $autoplay?>" class="videoembed"></iframe>
                 <?php endif;?>
                 <div class="post-content">
                     <h2><a href="<?php the_permalink()?>"><?php the_title()?></a></h2>

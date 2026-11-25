@@ -54,13 +54,13 @@ get_template_part('portfolio_header');
 								<h2><?php the_title() ?></h2>                                    
 								<span><?php echo $cat_slugs; ?></span>
 								<?php if( !empty ( $custom['_portfolio_video'][0] ) ) : $link = $custom['_portfolio_video'][0]; ?>
-									<a href="<?php echo $link ?>" class="zoom video" data-rel="prettyPhoto" title="<?php the_title() ?>"><i class="fa fa-film"></i></a>
+									<a href="<?php echo $link ?>" class="zoom video" data-rel="prettyPhoto" title="<?php echo esc_attr(get_the_title()) ?>"><i class="fa fa-film"></i></a>
 								<?php elseif( isset($custom['_portfolio_link'][0]) && $custom['_portfolio_link'][0] != '' ) : ?>
-									<a href="<?php echo $custom['_portfolio_link'][0] ?>"  title="<?php the_title() ?>">
+									<a href="<?php echo $custom['_portfolio_link'][0] ?>"  title="<?php echo esc_attr(get_the_title()) ?>">
 										<i class="fa fa-external-link"></i>
 									</a>
 								<?php elseif(  isset( $custom['_portfolio_no_lightbox'][0] )  &&  $custom['_portfolio_no_lightbox'][0] !='' ) : $link = get_permalink(get_the_ID());  ?>
-									<a href="<?php echo $link; ?>"  title="<?php the_title() ?>"><i class="fa fa-arrow-right"></i></a>
+									<a href="<?php echo $link; ?>"  title="<?php echo esc_attr(get_the_title()) ?>"><i class="fa fa-arrow-right"></i></a>
 								<?php elseif(  isset( $custom['_portfolio_inner_lightbox'][0] )  &&  $custom['_portfolio_inner_lightbox'][0] !='' ) : 
 									$id = get_the_ID(); $link = '#portfolio-item-'.$id;  ?>
 									<a href="<?php echo $link; ?>" class="link-project button btn-icon" data-rel="prettyPhoto" >
@@ -84,12 +84,12 @@ get_template_part('portfolio_header');
 										);														
 										$link = $full_image[0];
 									?>
-									<a href="<?php echo $link ?>" class="zoom-image" data-rel="prettyPhoto[ppgal<?php echo $post->ID?>]" title="<?php the_title() ?>"><i class="fa fa-search"></i></a>
+									<a href="<?php echo $link ?>" class="zoom-image" data-rel="prettyPhoto[ppgal<?php echo $post->ID?>]" title="<?php echo esc_attr(get_the_title()) ?>"><i class="fa fa-search"></i></a>
 									<?php 
 										$attachments = get_posts($argsThumb);
 										if ($attachments) {
 											foreach ($attachments as $attachment) {
-												echo '<a href="'.wp_get_attachment_url($attachment->ID, 'full', false, false).'" data-rel="prettyPhoto[ppgal'.$post->ID.']" class="gallery-link" title="'.get_the_title($post->ID).'"></a>';
+												echo '<a href="'.wp_get_attachment_url($attachment->ID, 'full', false, false).'" data-rel="prettyPhoto[ppgal'.$post->ID.']" class="gallery-link" title="'.esc_attr(get_the_title($post->ID)).'"></a>';
 											}
 										}
 									?>

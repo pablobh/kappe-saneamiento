@@ -119,7 +119,7 @@ function portfolio_order_page()
          
                 </tr>
             </thead>
-            <tbody data-post-type="portfolio"><!--?php while( $products--->
+            <tbody data-post-type="portfolio" data-nonce="<?php echo esc_attr( wp_create_nonce( 'portfolio_update_post_order' ) ); ?>"><!--?php while( $products--->
 				<?php if( $slides->have_posts() )  : ?>
                     <?php while ($slides->have_posts()): $slides->the_post(); ?>
                         <tr id="post-<?php the_ID(); ?>">
@@ -149,25 +149,32 @@ function portfolio_order_page()
 
 add_action( 'wp_ajax_portfolio_update_post_order', 'portfolio_update_post_order' );
 
+// E2.B2: nonce, capacidad del menú "Sort items" (edit_pages) y permiso sobre cada proyecto.
 function portfolio_update_post_order() {
-	global $wpdb;
+	check_ajax_referer( 'portfolio_update_post_order', 'nonce' );
 
-	$post_type     = $_POST['postType'];
-	$order        = $_POST['order'];
+	if ( ! current_user_can( 'edit_pages' ) )
+		wp_send_json_error( null, 403 );
+
+	$order = isset( $_POST['order'] ) ? wp_unslash( $_POST['order'] ) : array();
+	if ( ! is_array( $order ) )
+		wp_send_json_error( null, 400 );
 
 	/**
-	*    Expect: $sorted = array(
+	*    Expect: $order = array(
 	*                menu_order => post-XX
 	*            );
 	*/
 	foreach( $order as $menu_order => $post_id )
 	{
-		$post_id         = intval( str_ireplace( 'post-', '', $post_id ) );
-		$menu_order     = intval($menu_order);
+		$post_id    = absint( str_ireplace( 'post-', '', (string) $post_id ) );
+		$menu_order = absint( $menu_order );
+		if ( ! $post_id || 'portfolio' !== get_post_type( $post_id ) || ! current_user_can( 'edit_post', $post_id ) )
+			continue;
 		wp_update_post( array( 'ID' => $post_id, 'menu_order' => $menu_order ) );
 	}
 
-	die( '1' );
+	wp_send_json_success();
 }
 
 
