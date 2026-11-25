@@ -13,7 +13,6 @@ function weblusive_get_font ( $got_font ) {
 	}
 }
 ?>
-<?php $noloader = weblusive_get_option( 'disable_loader' ); if($noloader):?>#container{opacity:1}<?php endif?>
 <?php $maincolor = weblusive_get_option('global_color'); if($maincolor):?>
 a.comment-reply-link, header .menu-box,#contact-form input[type="submit"], .comment-form input[type="submit"],.btn-Kappe,ul.tab-links li:hover, ul.tab-links li.active,
 .team-hover,.client-test h3, .blog-page-link,#wp-calendar caption, .bx-controls-direction a:hover, .toggle-trigger.open,
