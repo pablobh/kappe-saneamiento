@@ -142,23 +142,6 @@ class My_Walker extends Walker_Nav_Menu {
 }
 /********* STRING MANIPULATIONS ************/
 
-function alc_trim($text, $length, $end = '[...]') {
-	$text = preg_replace('`\[[^\]]*\]`', '', $text);
-	$text = strip_tags($text);
-	$text = substr($text, 0, $length);
-	$text = substr($text, 0, last_pos($text, " "));
-	$text = $text . $end;
-	return $text;
-}
-
-function last_pos($string, $needle){
-   $len=strlen($string);
-   for ($i=$len-1; $i>-1;$i--){
-       if (substr($string, $i, 1)==$needle) return ($i);
-   }
-   return FALSE;
-}
-
 function limit_words($string, $word_limit) {
  
 	// creates an array of words from $string (this will be our excerpt)
@@ -176,29 +159,6 @@ function limit_words($string, $word_limit) {
 }
 
 /********** GET PAGES BY PARAMS ************/
-
-/*-- Get root parent of a page --*/
-function get_root_page($page_id) 
-{
-	global $wpdb;
-	
-	$parent = $wpdb->get_var("SELECT post_parent FROM $wpdb->posts WHERE post_type='page' AND ID = '$page_id'");
-	
-	if ($parent == 0) 
-		return $page_id;
-	else 
-		return get_root_page($parent);
-}
-
-
-/*-- Get page name by ID --*/
-function get_page_name_by_ID($page_id)
-{
-	global $wpdb;
-	$page_name = $wpdb->get_var("SELECT post_title FROM $wpdb->posts WHERE ID = '$page_id'");
-	return $page_name;
-}
-
 
 /*-- Get page ID by Page Template --*/
 function get_page_ID_by_page_template($template_name)
@@ -231,68 +191,6 @@ if(!function_exists('getPageContent'))
 	}
 }
 
-
-/* -- Get page ID by Custom Field Value -- */
-function get_page_ID_by_custom_field_value($custom_field, $value)
-{
-	global $wpdb;
-	$page_ID = $wpdb->get_var("
-	    SELECT wposts.ID
-    	FROM $wpdb->posts wposts, $wpdb->postmeta wpostmeta
-	    WHERE wposts.ID = wpostmeta.post_id 
-    	AND wpostmeta.meta_key = '$custom_field' 
-	    AND (wpostmeta.meta_value like '$value,%' OR wpostmeta.meta_value like '%,$value,%' OR wpostmeta.meta_value like '%,$value' OR wpostmeta.meta_value = '$value')		
-    	AND wposts.post_status = 'publish' 
-	    AND wposts.post_type = 'page'
-		LIMIT 0, 1");
-
-	return $page_ID;
-}
-/*******************************************/
-
-/******* POSTS RELATED BY TAXONOMY *********/
-
-function get_taxonomy_related_posts($post_id, $taxonomy, $limit, $args=array()) {
-  $query = new WP_Query();
-  $terms = wp_get_object_terms($post_id, $taxonomy);
-  if (count($terms)) {
-    $post_ids = get_objects_in_term($terms[0]->term_id,$taxonomy);
-    $post = get_post($post_id);
-    $args = wp_parse_args($args,array(
-      'post_type' => $post->post_type, 
-      'post__in' => $post_ids,
-	  'exclude' => $post_id,
-      'taxonomy' => $taxonomy,
-      'term' => $terms[0]->slug,
-	  'posts_per_page' => $limit
-    ));
-    $query = new WP_Query($args);
-  }
-  return $query;
-}
-
-/********************************************/
-
-/************** LIST TAXONOMY ***************/
-
-function list_taxonomy($taxonomy, $id='')
-{
-	$args = array ('hide_empty' => false);
-	$tax_terms = get_terms($taxonomy, $args); 
-	$active = '';
-	$output = '<ul id="'.$id.'">';
-
-	foreach ($tax_terms as $tax_term) {
-		if ($taxonomy  == $tax_term)
-		{
-			$active  = ' class="active"';
-		}
-		$output.='<li><a href="'.esc_attr(get_term_link($tax_term, $taxonomy)) . '"'.$active.'>'.$tax_term->name.'</a></li>';
-	}
-	$output.='</ul>';
-	
-	return $output;
-}
 
 /********* HEX TO RGB CONVERSION ************/
 function HexToRGB($hex) {

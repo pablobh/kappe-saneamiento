@@ -22,19 +22,14 @@ $incPath 	=  get_template_directory() . '/library/includes/';
 require_once ($funcPath . 'helper-functions.php');
 
 require_once ($incPath . 'the_breadcrumb.php');
-require_once ($incPath . 'OAuth.php');
-require_once ($incPath . 'twitteroauth.php');
 require_once ($incPath . 'portfolio_walker.php');
 require_once ($funcPath . 'post-types.php');
-require_once ($funcPath . 'widgets.php');
 require_once ($funcPath . '/shortcodes/shortcode.php');
 
 include (get_template_directory() . '/library/admin-panel/admin-ui.php');
-include (get_template_directory() . '/library/admin-panel/pricing-tables.php');
 include (get_template_directory() . '/library/admin-panel/admin-functions.php');
 include (get_template_directory() . '/library/admin-panel/post-options.php');
 include (get_template_directory() . '/library/admin-panel/custom-slider.php');
-//include (get_template_directory() . '/library/admin-panel/notifier/update-notifier.php');
 
 /************************************************************/
 
@@ -67,27 +62,11 @@ function kappe_load_scripts() {
 	wp_enqueue_script('testimonial-script', get_template_directory_uri().'/js/jquery.quovolver.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('bootstrap',  get_template_directory_uri(). '/js/bootstrap.js', array('jquery'), '3.0.1' );
 	wp_enqueue_script('nicescroll',  get_template_directory_uri().'/js/jquery.nicescroll.min.js', array('jquery'), '3.2', true);
-	wp_enqueue_script('flickr', get_template_directory_uri().'/addons/flickr/jflickrfeed.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('Validate',  get_template_directory_uri().'/js/jquery.validate.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('retina', get_template_directory_uri().'/js/retina-1.1.0.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('hoverdir', get_template_directory_uri() .'/js/jquery.hoverdir.js', array('jquery'), '3.2', true);
 	
 	wp_enqueue_script('custom-scripts', get_template_directory_uri() .'/js/script.js', array('jquery'), '3.2', true);
-		
-	if (is_page_template('contact-template.php')){
-		$map_api = "";
-		$map_api = weblusive_get_option('google_api');
-		$address = weblusive_get_option('contact_address');
-		if (!empty($address && $map_api))
-		{
-			wp_enqueue_script('google-map-api',  'http://maps.google.com/maps/api/js?key='. $map_api );	
-			wp_enqueue_script('google-map',  get_template_directory_uri().'/js/gmap3.min.js', array('jquery'), '3.2', true);
-		}			
-	}		
-	if (is_page_template('under-construction.php'))
-	{
-		wp_enqueue_script('Under-construction',  get_template_directory_uri().'/js/jquery.countdown.js', array('jquery'), '3.2', true);
-	}
 }
 add_action( 'wp_enqueue_scripts', 'kappe_load_styles' );
 add_action( 'wp_enqueue_scripts', 'kappe_load_scripts' );
