@@ -57,7 +57,7 @@ Revisado el 20-nov-2026:
 | `/` | `portfolio_template.php` | Grilla con filtro (Isotope), hover direccional, lightbox (prettyPhoto) con imágenes y YouTube, Font Awesome |
 | `/blog/` | `blog-template.php` | "Cargar más" por AJAX (`ajax-load-more.php`), grilla Isotope, sidebar |
 | `/servicios/` | `page` | Shortcode de pestañas (`tabgroup`/`tab`), Font Awesome |
-| `/nuestro-equipo/` | `page.php` | Shortcode `teammember`, sidebar |
+| `/nuestro-equipo/` | `page.php` | Shortcode `teammember`, sidebar (nota E1.10: el inventario de la BD solo encontró `row` y `tabgroup` del tema; no afecta porque no se eliminan shortcodes) |
 | `/trabaja-con-nosotros/` | `page` | iframe, sidebar |
 | `/contactanos/` | `page.php` | **Gravity Forms** (no el formulario del tema), Easy Bootstrap Shortcodes, iframe de mapa |
  

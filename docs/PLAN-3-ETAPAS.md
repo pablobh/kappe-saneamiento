@@ -1,6 +1,6 @@
 # PLAN EN 3 ETAPAS — Saneamiento de Kappe (con modelo por tarea)
  
-> Aprobado por Pablo el 24-nov-2026. Estado: **EN CURSO — etapa 1** (ver `ESTADO.md`).
+> Aprobado por Pablo el 24-nov-2026; etapa 2 reordenada en E1.10 (24-nov). Estado: **Puerta 1 aprobada (24-nov); EN CURSO — etapa 2** (ver `ESTADO.md`).
 > **Precedencia:** este documento manda sobre `TAREAS.md` y `SPECS.md` §10 en lo que toca a etapas, ramas, pruebas, despliegue y modelo. `TAREAS.md` sigue siendo el catálogo con el detalle y los criterios de cada tarea (IDs T…); `SPECS.md`, el alcance y los datos que no se renombran.
  
 ---
@@ -68,42 +68,51 @@ La Fase 0 ya está hecha (archivos expuestos borrados, Cloudflare con rate limit
 | ☑ | E1.7 | Lighthouse de línea base (móvil y escritorio, 6 páginas, sin caché de página) (hecho 24-nov con la 1.6: 36 informes en `pruebas/lighthouse/linea-base/`, commit `2db47b7`; capturas de la 1.6 en `pruebas/capturas/antes/`) | T1.6 | Haiku |
 | ✗ | E1.8 | ~~Staging medible en DreamHost~~ **Cancelada 24-nov:** no habrá copias del sitio en DreamHost; el staging es solo local. El TTFB real y el efecto de Wordfence se miden después del despliegue | T1.7 | — |
 | ☑ | E1.9 | Decisiones de Pablo de SPECS §9 que afectan al tema. **Resueltas 24-nov:** el blog no se usa (no es prioridad); editor clásico (no quitar botones de TinyMCE). Los widgets activos los saca el inventario | SPECS §9 | Sonnet, en el chat |
-| ☐ | E1.10 | **Plan final:** componentes, orden, dependencias y estimación recalculada. Lee solo `INVENTARIO.md`, `SPECS.md` y `TAREAS.md` | nuevo | **Opus** (una vez, salida corta) |
+| ☑ | E1.10 | **Plan final:** componentes, orden, dependencias y estimación recalculada. Lee solo `INVENTARIO.md`, `SPECS.md` y `TAREAS.md` (hecho 24-nov: etapa 2 reordenada abajo; decisiones de Pablo incluidas) | nuevo | **Opus** (una vez, salida corta) |
  
-**Puerta 1:** Pablo aprueba el plan final de E1.10 antes de programar.
+**Puerta 1:** Pablo aprueba el plan final de E1.10 antes de programar. ☑ **Aprobada el 24-nov-2026.**
  
 ---
  
 ## Etapa 2 — Desarrollo por componente
  
-Orden: A → B → C → D → E. D2 y D4 van después de C1 porque dependen de `functions.php`.
- 
-| ☐ | ID | Tarea | Antes | Modelo |
-|---|---|---|---|---|
-| | | **A · Código muerto** (rama `componente/a-codigo-muerto`) | | |
-| ☐ | E2.A1 | Quitar `sendmail`, `contact-form`, PHPMailer, notificador, pricing tables, `table_wizard`, archivos sueltos, el `include` de `pricing-tables.php` y el submenú "Pricing Tables". **Decisión 24-nov:** también `contact-template.php`, `portfolio_template2.php`, `under-construction.php` y `woocommerce.php` (ninguna página las usa; el contacto es Gravity Forms con la plantilla `default`) y lo que solo ellas usaban (`gmap3`, `jquery.countdown`, su encolado en `functions.php`, las pestañas "Contact settings" y "Under construct." del panel; **se acepta que sus opciones guardadas `contact_*`, `uc_*` y `google_api` se borren**), más las librerías que ningún archivo referencia (`js/jquery.min.js`, `js/jquery.bxslider.js`, `css/font-awesome.css`, `css/magnific-popup.css` y los archivos sobrantes de `js/jplayer/`) | T2.1, T2.6 | Sonnet |
-| ☐ | E2.A2 | Constructor del breadcrumb (`__construct`) | T2.8 | Haiku |
-| | | **B · Seguridad** (rama `componente/b-seguridad`) | | |
-| ☐ | E2.B1 | Eliminar `ajax-load-more.php`, su llamada en `js/script.js` y el botón "Cargar más"; reemplazar por la paginación nativa de WordPress (`paginate_links()` con `paged`) en `blog-template.php`. Decidido 24-nov: el blog no se usa, así que no se endurece. Al terminar, borrar el puente `~/Projects/wp-load.php` | T2.2 | Sonnet |
-| ☐ | E2.B2 | Meta boxes: nonce, capacidades, autosave; `save_slide()` no borra metas | T2.4 | **Opus** |
-| ☐ | E2.B3 | Importar/exportar opciones en JSON con `current_user_can` | T2.3 | Sonnet |
-| ☐ | E2.B4 | Consultas SQL de `helper-functions.php` a APIs de WP | T2.5 | Sonnet |
-| ☐ | E2.B5 | Escapar el título de prettyPhoto; iframes de `single.php` por `https` y `youtube-nocookie.com` | T2.9 | Sonnet |
-| | | **C · Compatibilidad PHP/WordPress** (rama `componente/c-compatibilidad`) | | |
-| ☐ | E2.C1 | `functions.php`: hooks (`after_setup_theme`, `widgets_init`), text domain `kappe`, doble `style.css`, Google Maps por `https` | T2.7 | **Opus** |
-| ☐ | E2.C2 | Eliminar Twitter/OAuth. **Decisión 24-nov:** el sitio no usa widgets, así que `widgets.php` **no se carga** (como en producción) y con él quedan fuera Flickr (incluido su `jflickrfeed` encolado) y el widget de contacto | T2.6 | Sonnet |
-| | | **D · Rendimiento** (rama `componente/d-rendimiento`) | | |
-| ☐ | E2.D1 | Eliminar `retina.js` | T3.1 | Haiku |
-| ☐ | E2.D2 | Reemplazar `dynamic-styles.php` por CSS en línea con transient; quitar `!important`; integrar los colores de créditos (#F5F8E3 y #34B7AE) **directamente en los estilos del tema** (decisión 24-nov). **Se integra todo** el CSS que hoy vive en la BD: el de la opción `css` del panel y el del CSS adicional del Personalizador (colores de créditos, `.inner-content`, `header .logo-box`, `.escala-horizontal .gfield_radio` de Gravity Forms, `flow-root`, menú lateral fijo); ambos se retiran de la BD en E3.5 | T3.2 | **Opus** |
-| ☐ | E2.D3 | Quitar `opacity: 0` y el preloader GIF | T3.3 | Sonnet |
-| ☐ | E2.D4 | Altura del menú lateral solo con CSS (`100dvh`, `flow-root`) | T3.4 | **Opus** |
-| ☐ | E2.D5 | Fuentes: solo los pesos usados y `display=swap` | T3.5 | Haiku |
-| ☐ | E2.D6 | Carga condicional y `defer`; quitar Modernizr, nicescroll y Migrate 1.0 (decidido 24-nov; hay que corregir `.load()` y `.size()` en `script.js`; sin reescribir `script.js` en JS puro salvo lo necesario; no añadir jQuery nuevo) | T3.6 | Sonnet |
-| ☐ | E2.D7 | `eager` en la primera fila y `fetchpriority="high"` en la primera imagen | T3.7 | Haiku |
-| | | **E · SEO del lado del tema** (rama `componente/e-seo-html`) | | |
-| ☐ | E2.E1 | Un solo `<h1>`; `title-tag`; `alt` del portafolio; tarjetas con `<a href>` real | T3B.1, T3B.3, T3B.5, T3B.6 | Sonnet |
-| ☐ | E2.E2 | Viewport sin `maximum-scale=1`; `wp_body_open()`; `lang` | T3B.2, T3B.4 | Haiku |
-| ☐ | E2.E3 | Contraste AA y foco visible | T3B.7 | Sonnet |
+Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10, 24-nov). **Sin ramas en paralelo:** cada rama de componente sale de `desarrollo` después de fusionar la anterior (`js/script.js` lo tocan 5 tareas y `functions.php` 7).
+
+**Dependencias:** C1 después de A3 (recibe `functions.php` ya limpio); D6 después de A1 y B1 (quitan sus bloques de `script.js`); D4 y E3 después de D2.
+
+**Verificación al cerrar cada componente:** las 6 páginas cargan, `debug.log` vacío, entrada en `CHANGELOG.md`; en D y E, además, capturas rápidas a 1440 px.
+
+| ☐ | ID | Tarea | Antes | Modelo | Horas |
+|---|---|---|---|---|---|
+| | | **A · Código muerto** (rama `componente/a-codigo-muerto`) | | | |
+| ☐ | E2.A1 | Quitar `sendmail`, `contact-form`, PHPMailer, notificador, pricing tables, `table_wizard`, archivos sueltos, el `include` de `pricing-tables.php` y el submenú "Pricing Tables". **Decisión 24-nov:** también `contact-template.php`, `portfolio_template2.php`, `under-construction.php` y `woocommerce.php` (ninguna página las usa; el contacto es Gravity Forms con la plantilla `default`) y lo que solo ellas usaban (`gmap3`, `jquery.countdown`, su encolado en `functions.php`, las pestañas "Contact settings" y "Under construct." del panel; **se acepta que sus opciones guardadas `contact_*`, `uc_*` y `google_api` se borren**), más las librerías que ningún archivo referencia (`js/jquery.min.js`, `js/jquery.bxslider.js`, `css/font-awesome.css`, `css/magnific-popup.css` y los archivos sobrantes de `js/jplayer/`). **E1.10:** también el bloque del widget de contacto en `script.js`, la llamada huérfana `sneek_update_post_order` en `library/admin-panel/js/main.js` y las funciones sin uso de `helper-functions.php` (`get_page_name_by_ID`, `get_page_ID_by_custom_field_value`, `get_taxonomy_related_posts`, `list_taxonomy`, `alc_trim`, más `get_root_page` y `last_pos`, que solo usan esas; decisión de Pablo) | T2.1, T2.6 | Sonnet | 1–1,5 |
+| ☑ | E2.A2 | ~~Constructor del breadcrumb~~ **Cerrada sin cambios (E1.10, 24-nov):** la 2.1 ya trae `__construct` y el breadcrumb no se usa (su única llamada está comentada en `404.php`); el archivo se queda | T2.8 | — | 0 |
+| ☐ | E2.A3 | (antes E2.C2) Eliminar Twitter/OAuth. **Decisión 24-nov:** el sitio no usa widgets, así que `widgets.php` **no se carga** (como en producción) y con él quedan fuera Flickr (incluido su `jflickrfeed` encolado) y el widget de contacto | T2.6 | Sonnet | 0,3 |
+| | | **B · Seguridad** (rama `componente/b-seguridad`) | | | |
+| ☐ | E2.B1 | Eliminar `ajax-load-more.php`, su llamada en `js/script.js` y el botón "Cargar más"; reemplazar por la paginación nativa de WordPress (`paginate_links()` con `paged`) en `blog-template.php`. Decidido 24-nov: el blog no se usa, así que no se endurece. Al terminar, borrar el puente `~/Projects/wp-load.php` | T2.2 | Sonnet | 1 |
+| ☐ | E2.B2 | Meta boxes: nonce, capacidades, autosave; `save_slide()` no borra metas. **E1.10:** también `portfolio_update_post_order` (`post-types.php`) con nonce y `current_user_can`, y el nonce en su llamada de `main.js` | T2.4 | **Opus** | 1,5–2 |
+| ☐ | E2.B3 | Importar/exportar opciones en JSON con `current_user_can`. **E1.10:** también `current_user_can` en `weblusive_save_ajax` y en "reset"; conservar el formato guardado (`htmlspecialchars`, SPECS §5) | T2.3 | **Opus** (decisión de Pablo: seguridad y datos guardados) | 1 |
+| ☐ | E2.B4 | Consultas SQL de `helper-functions.php` a APIs de WP (tras A1 quedan solo `get_page_ID_by_page_template` y `getPageContent`) | T2.5 | Sonnet | 0,3–0,5 |
+| ☐ | E2.B5 | Escapar el título de prettyPhoto; iframes de `single.php` por `https` y `youtube-nocookie.com` | T2.9 | Sonnet | 0,5 |
+| | | **C · Compatibilidad PHP/WordPress** (rama `componente/c-compatibilidad`) | | | |
+| ☐ | E2.C1 | `functions.php`: hooks (`after_setup_theme`, `widgets_init`), text domain `kappe`, doble `style.css`, Google Maps por `https`; `redirect_docs()` y `weblusive_admin_head()` fuera de `weblusive_add_admin()`. **No cambiar los IDs de las barras laterales** que WP genera hoy (comprobarlos antes con WP-CLI) | T2.7 | **Opus** | 1,5 |
+| ☐ | E2.C3 | (nuevo, E1.10) Avisos de PHP 8 en plantillas: `taxonomy-portfolio_category.php` (`$get_meta[...][0]` sin `isset`, referencias rotas), `$post->ID` fuera del bucle en `archive.php` y `search.php`, `$sidebarPos` en `single-portfolio.php`; apoyarse en phpcs | T2.10 | Sonnet | 0,5–1 |
+| | | **D · Rendimiento** (rama `componente/d-rendimiento`) | | | |
+| ☐ | E2.D1 | Eliminar `retina.js` | T3.1 | Haiku | 0,1 |
+| ☐ | E2.D3 | Quitar `opacity: 0` y el preloader GIF (va antes de D2 para comparar colores sin preloader) | T3.3 | Sonnet | 0,5 |
+| ☐ | E2.D2 | Reemplazar `dynamic-styles.php` por CSS en línea con transient; quitar `!important`; integrar en los estilos del tema el CSS que hoy vive en la BD (opción `css` del panel y CSS adicional del Personalizador): colores de créditos (#F5F8E3 y #34B7AE), `.inner-content`, `header .logo-box` y `.escala-horizontal .gfield_radio` de Gravity Forms. **`flow-root` y el menú lateral fijo van en D4** (E1.10). Ambos bloques se retiran de la BD en E3.5. Corregir `HexToRGB` (variables sin definir) si se sigue usando | T3.2 | **Opus** | 2 |
+| ☐ | E2.D4 | Altura del menú lateral solo con CSS (`100dvh`, `flow-root`, menú fijo del Personalizador), quitando el JS que fija la altura del `header` | T3.4 | **Opus** | 1–1,5 |
+| ☐ | E2.D5 | Fuentes: solo los pesos usados y `display=swap` | T3.5 | Haiku | 0,3 |
+| ☐ | E2.D6 | Carga condicional y `defer`; quitar Modernizr, nicescroll y **solo el Migrate 1.0 del tema** (el Migrate 3.x de WordPress se queda; decisión de Pablo en E1.10). Corregir lo necesario en `script.js` (`.load()`, `.size()`, `.bind()`) sin reescribirlo en JS puro ni añadir jQuery nuevo | T3.6 | Sonnet | 1–1,5 |
+| ☐ | E2.D7 | `eager` en la primera fila y `fetchpriority="high"` en la primera imagen | T3.7 | Haiku | 0,2 |
+| | | **E · SEO del lado del tema** (rama `componente/e-seo-html`) | | | |
+| ☐ | E2.E1 | Un solo `<h1>`; `title-tag`; `alt` del portafolio; tarjetas con `<a href>` real; corregir el `alt` literal `'.__('No image', 'Kappe').'` de las tarjetas del blog (hallazgo de E1.6) | T3B.1, T3B.3, T3B.5, T3B.6 | Sonnet | 1–1,5 |
+| ☐ | E2.E2 | Viewport sin `maximum-scale=1`; `wp_body_open()`; `lang` | T3B.2, T3B.4 | Haiku | 0,2 |
+| ☐ | E2.E3 | Contraste AA y foco visible | T3B.7 | Sonnet | 0,5–1 |
+
+**Fuera del saneamiento (decidido en E1.10):** `post_type_link` (`strpos` al revés; arreglarlo podría cambiar las URL `/works/`), `my_option_posts_per_page` (se mantienen las 4 por página en categorías del portafolio), cargar el panel solo en el admin (~0,7 ms, riesgo con el CPT `weblusive_slider`), shortcodes sin uso y el escapado de sus atributos (SPECS §1; los botones de TinyMCE se quedan) y `comments.php` (comentarios desactivados).
+
+**Estimación (E1.10):** etapa 2 ≈ 13–18 h y etapa 3 ≈ 3–5 h, en total ≈ 16–23 h en 7–8 sesiones (una por componente; D en dos). Es más que las 11–18 h de `TAREAS.md` porque el alcance creció: más seguridad, cuatro plantillas eliminadas con sus opciones, todo el CSS de la BD y E2.C3.
  
 **Puerta 2:** Pablo revisa el resumen de `CHANGELOG.md` antes de pasar a las pruebas.
  
@@ -113,7 +122,7 @@ Orden: A → B → C → D → E. D2 y D4 van después de C1 porque dependen de 
  
 | ☐ | ID | Tarea | Antes | Modelo |
 |---|---|---|---|---|
-| ☐ | E3.1 | PHPCompatibilityWP en 0 errores y `debug.log` vacío en PHP 8.4 y 8.5 | T2.10, T4.1 | Haiku para ejecutar; Sonnet para corregir lo que falle |
+| ☐ | E3.1 | PHPCompatibilityWP (`8.2-`) en 0 errores y `debug.log` vacío en PHP **8.2** (el de producción), 8.4 y 8.5 | T2.10, T4.1 | Haiku para ejecutar; Sonnet para corregir lo que falle |
 | ☐ | E3.2 | Pruebas funcionales: las 6 páginas, paginación nativa del blog hasta el final (E2.B1), guardar una página y un proyecto conserva sus opciones, el panel del tema guarda e importa | "Cómo probar" | Sonnet |
 | ☐ | E3.3 | Comparación visual contra las capturas de E1.6 (1440 px y 390 px); solo se aceptan diferencias que sean mejoras acordadas | T4.2 | Sonnet |
 | ☐ | E3.4 | Lighthouse después contra E1.7 y prueba de teclado en el home y el blog | T4.3 | Haiku (medición); Sonnet (análisis) |
