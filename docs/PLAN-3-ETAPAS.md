@@ -132,10 +132,32 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
  
 ---
  
+## Lista de control del despliegue (Pablo; E3.5 la completa con los comandos exactos)
+
+Se suma a lo que aporte cada componente. No saltarse ningún paso ni cambiar el orden.
+
+- ☐ **Respaldo** de la BD y de la carpeta `wp-content/themes/kappe` de producción, descargado y comprobado (que abra) antes de tocar nada.
+- ☐ **Subir el tema** a la carpeta `kappe` con `rsync --delete`: primero la simulación (`-n -i`), revisada por Pablo línea a línea; después la copia real.
+- ☐ **Panel "Kappe" → "Save Changes" una vez** (E2.B3). Así se borran los 8 `typography_*.color` que hoy muestran la ruta del servidor en el CSS público y las opciones aceptadas para borrar (`contact_*`, `uc_*`, `google_api`).
+- ☐ **Retirar de la BD el CSS que ya trae el tema** (opción `css` del panel y CSS adicional del Personalizador: Gravity Forms `.escala-horizontal`, `flow-root`, menú lateral fijo, colores de créditos). Antes, comprobar en el sitio que se ve igual; guardar una copia del texto retirado.
+- ☐ **Purgar cachés:** Cloudflare y WP Super Page Cache.
+- ☐ **Comprobar en producción:**
+  - las 6 páginas y un proyecto cargan;
+  - el blog pagina hasta el final y `ajax-load-more.php` da 404;
+  - el CSS público no contiene "Warning" ni la ruta `/home/…`;
+  - guardar una página y un proyecto conserva sus opciones;
+  - "Sort items" reordena el portafolio;
+  - el panel guarda, exporta e importa;
+  - el log de errores PHP del servidor no tiene líneas nuevas.
+- ☐ **Exportar la configuración del panel** (JSON, E2.B3) y guardarla junto al respaldo. Las exportaciones viejas en base64 ya no se pueden importar.
+
 ## Después del despliegue final (fuera de las 3 etapas)
  
 Se retoma con Pablo una vez desplegado el tema saneado. Modelo sugerido: Sonnet, en el chat, con Claude in Chrome para el panel de Cloudflare.
  
+- ☐ **Vigilar el log de errores PHP de producción** durante la primera semana (avisos de PHP 8 que no salieron en local).
+- ☐ **Medir en producción:** Lighthouse y TTFB contra la línea base de T1.6 (junto con la comparación Wordfence/Cloudflare de abajo).
+- ☐ **Slider huérfano:** el slider 28 apunta a los adjuntos 29 y 31, que no existen, y ninguna página lo usa (E2.B2). Decidir si se borra o se le ponen imágenes.
 - ☐ **Cloudflare:** decidir `xmlrpc.php` (Pablo cree que no se usa: bloquear con regla personalizada y observar); registros DNS "DNS only" que exponen la IP de origen; Bot Fight Mode vs protección anti-bots de DreamHost; Wordfence vs Cloudflare (S.5), midiendo el TTFB real en producción con y sin Wordfence.
 - ☐ **SEO:** `/works/` caso por caso con datos de Search Console (S.1); sitemap de Yoast y `robots.txt` (S.2); 6 enlaces 404 y 3 redirecciones (S.3); Yoast → The SEO Framework con respaldo y comparación antes/después (S.4).
 - ☐ **Recomendada (código, sin prisa):** refactorizar `library/admin-panel/post-options.php` para quitar el código **triplicado** de las cajas "Post/Page/Portfolio Options" (cabecera, slider, texto promocional y barra lateral repetidos en `post_options()`, `page_options()` y `portfolio_options()`) en funciones comunes, sin cambiar nombres de metas (SPECS §5) ni el HTML del formulario. No es seguridad; se aplazó en E2.B2 (24-nov). Modelo: Sonnet. Probar guardando una página, un proyecto y una entrada y comparando sus metas antes/después.
