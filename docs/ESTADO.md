@@ -42,11 +42,13 @@
 - Sin pendientes de Pablo en esta verificación.
 
 ## Pendiente (siguiente)
-1. **Etapa 1:** terminar línea base (Lighthouse, commit de `pruebas/`), luego E1.3 a E1.5 en Claude Code (diferencias sin revisar, causa de la caída de la 2.1, `INVENTARIO.md` con lectura única), E1.6 compatibilidad 1.6→2.1 y plan final E1.10 aprobado por Pablo.
+1. **Etapa 1 — hecho:** E1.1, E1.2, E1.3, E1.4, E1.5a, E1.5b, E1.7 (línea base con la 1.6: 12 capturas y 36 informes Lighthouse) y E1.9; E1.8 cancelada. **Siguiente: E1.6** (compatibilidad 1.6→2.1 con capturas a 1440 px y 390 px del tema 2.1 en `pruebas/capturas/despues/`, contra las de la 1.6 en `pruebas/capturas/antes/`; modelo Sonnet, Opus solo si aparece una incompatibilidad; si algo no es compatible, parar y avisar a Pablo). Después **E1.10** (plan final, Opus; lee solo `INVENTARIO.md`, `SPECS.md` y `TAREAS.md`) y Puerta 1. Al comparar capturas: la 2.1 incluye ya el renombrado a `es_CO`, así que los textos traducidos saldrán en español frente a la línea base en inglés (mejora acordada).
 2. **Etapa 2:** componentes A (código muerto, incluye quitar el `include` de `pricing-tables.php` en `functions.php:33` y el submenú en `admin-functions.php:180`), B (seguridad), C (compatibilidad), D (rendimiento), E (SEO HTML).
 3. **Etapa 3:** pruebas en local y paquete de despliegue.
 4. **Después del despliegue:** Cloudflare y SEO (ver `PLAN-3-ETAPAS.md`).
 5. Más adelante: MCP de WordPress (aplazado); tema de bloques (feb-2027, SPECS §8).
+
+**Herramientas (24-nov):** phpcs con PHPCompatibilityWP y WordPress instalado por Pablo con Composer global (fuera del repo) en `~/.composer/vendor/bin/phpcs`; se usa en E3.1 y puede usarse antes, en E2.C.
 
 ## Reglas de trabajo
 - Preguntar todo lo necesario antes de actuar; cambios pequeños sin pedir permiso, el resto se aprueba primero.

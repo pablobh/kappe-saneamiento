@@ -35,6 +35,7 @@ o si toca seguridad o datos guardados. Haiku solo en las tareas marcadas. Cambia
 ## Copia local
 - Prefijo de tablas `p1x3l4d0s_`. Desactivados en local: wordfence, wp-cloudflare-page-cache, google-site-kit, worker.
 - Ejecuta WP-CLI y PHP desde la shell del sitio de Local.
+- phpcs con PHPCompatibilityWP y WordPress está instalado con Composer global, fuera del repo: `~/.composer/vendor/bin/phpcs` (p. ej. `phpcs --standard=PHPCompatibilityWP --runtime-set testVersion 8.2- tema/kappe`). Se usa en E3.1.
 - `~/Projects/wp-load.php` es un puente solo para local que necesita `ajax-load-more.php` mientras exista; se borra al terminar E2.B1.
 
 ## Decisiones de Pablo

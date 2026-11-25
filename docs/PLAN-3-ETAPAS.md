@@ -58,14 +58,14 @@ La Fase 0 ya está hecha (archivos expuestos borrados, Cloudflare con rate limit
  
 | ☐ | ID | Tarea | Antes | Modelo |
 |---|---|---|---|---|
-| ☐ | E1.1 | LocalWP con BD y uploads de producción, PHP 8.4 y 8.5 (PHP 8.4 listo y verificado el 24-nov: `wp-content`, tema y WP-CLI coinciden con producción; falta PHP 8.5) | T1.1 | Sonnet |
+| ☑ | E1.1 | LocalWP con BD y uploads de producción, PHP 8.4 y 8.5 (hecho 24-nov: `wp-content`, tema y WP-CLI coinciden con producción; el sitio corre hoy con PHP 8.5.13 y están instalados 8.2, 8.4 y 8.5; borradas las 12 tablas `wp_*` sobrantes) | T1.1 | Sonnet |
 | ☑ | E1.2 | Repo Git (commit 1 = tema 1.6 de producción; commit 2 = base 2.1 + `es_ES`) y `CAMBIOS-PRODUCCION.md` (hecho 24-nov) | T1.2 | Sonnet |
 | ☑ | E1.3 | Revisar las diferencias producción-vs-2.1 pendientes: `script.js`, `prettyPhoto.js`, `addons/paginajax`, `es_ES.po` (hecho 24-nov: sin bloqueos) | ESTADO #4 | Sonnet |
 | ☑ | E1.4 | Confirmar la causa de la caída de la 2.1 (`table_process.php:99`) (hecho 24-nov: sintaxis `$row_{$i}` inválida en PHP 8; solo falla al abrir la página admin "Pricing Tables") | T1.3 | Sonnet |
 | ☑ | E1.5a | Scripts de extracción (paso 1 de `INVENTARIO.md`) (hecho 24-nov: `inventario/scripts/ejecutar-todo.sh` → `inventario/raw/`) | T1.4 | Sonnet |
 | ☑ | E1.5b | Lectura única y `INVENTARIO.md` (pasos 2 y 3) (hecho 24-nov: `docs/INVENTARIO.md`; `CLAUDE.md` actualizado) | T1.4 | Sonnet |
 | ☐ | E1.6 | Compatibilidad 1.6→2.1 con capturas a 1440 px y 390 px. Si algo no es compatible, parar y avisar a Pablo | T1.5 | Sonnet; **Opus** solo si aparece una incompatibilidad |
-| ☐ | E1.7 | Lighthouse de línea base (móvil y escritorio, 6 páginas, sin caché de página). En curso: capturas hechas, Lighthouse corriendo | T1.6 | Haiku |
+| ☑ | E1.7 | Lighthouse de línea base (móvil y escritorio, 6 páginas, sin caché de página) (hecho 24-nov con la 1.6: 36 informes en `pruebas/lighthouse/linea-base/`, commit `2db47b7`; capturas de la 1.6 en `pruebas/capturas/antes/`) | T1.6 | Haiku |
 | ✗ | E1.8 | ~~Staging medible en DreamHost~~ **Cancelada 24-nov:** no habrá copias del sitio en DreamHost; el staging es solo local. El TTFB real y el efecto de Wordfence se miden después del despliegue | T1.7 | — |
 | ☑ | E1.9 | Decisiones de Pablo de SPECS §9 que afectan al tema. **Resueltas 24-nov:** el blog no se usa (no es prioridad); editor clásico (no quitar botones de TinyMCE). Los widgets activos los saca el inventario | SPECS §9 | Sonnet, en el chat |
 | ☐ | E1.10 | **Plan final:** componentes, orden, dependencias y estimación recalculada. Lee solo `INVENTARIO.md`, `SPECS.md` y `TAREAS.md` | nuevo | **Opus** (una vez, salida corta) |
