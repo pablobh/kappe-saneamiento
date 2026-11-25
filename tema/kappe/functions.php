@@ -88,7 +88,6 @@ function kappe_load_scripts() {
 	wp_enqueue_script('bootstrap',  get_template_directory_uri(). '/js/bootstrap.js', array('jquery'), '3.0.1' );
 	wp_enqueue_script('nicescroll',  get_template_directory_uri().'/js/jquery.nicescroll.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('Validate',  get_template_directory_uri().'/js/jquery.validate.min.js', array('jquery'), '3.2', true);
-	wp_enqueue_script('retina', get_template_directory_uri().'/js/retina-1.1.0.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('hoverdir', get_template_directory_uri() .'/js/jquery.hoverdir.js', array('jquery'), '3.2', true);
 	
 	wp_enqueue_script('custom-scripts', get_template_directory_uri() .'/js/script.js', array('jquery'), '3.2', true);
