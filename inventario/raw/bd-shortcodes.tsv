@@ -1,0 +1,132 @@
+etiqueta	origen	usos	entradas	por_tipo	ids_ejemplo
+ebs_row	otro (plugin o núcleo)	6	6	page:6	2331,2631,2642,2784,2850,2852
+row	tema (library/functions/shortcodes/shortcode.php)	4	2	page:4	133,328
+ebs_thumbnail	otro (plugin o núcleo)	1	1	page:1	133
+gravityform	otro (plugin o núcleo)	1	1	page:1	161
+tabgroup	tema (library/functions/shortcodes/shortcode.php)	1	1	page:1	328
+access	otro (plugin o núcleo)	0	0		
+accordion	tema (library/functions/shortcodes/shortcode.php)	0	0		
+accordiongroup	tema (library/functions/shortcodes/shortcode.php)	0	0		
+alert	tema (library/functions/shortcodes/shortcode.php)	0	0		
+audio	tema (library/functions/shortcodes/shortcode.php)	0	0		
+button	tema (library/functions/shortcodes/shortcode.php)	0	0		
+caption	otro (plugin o núcleo)	0	0		
+caritem	tema (library/functions/shortcodes/shortcode.php)	0	0		
+carousel	tema (library/functions/shortcodes/shortcode.php)	0	0		
+clear	tema (library/functions/shortcodes/shortcode.php)	0	0		
+code_snippet	otro (plugin o núcleo)	0	0		
+code_snippet_source	otro (plugin o núcleo)	0	0		
+contact	tema (library/functions/shortcodes/shortcode.php)	0	0		
+dropbutton	tema (library/functions/shortcodes/shortcode.php)	0	0		
+dropbuttongroup	tema (library/functions/shortcodes/shortcode.php)	0	0		
+ebs_badge	otro (plugin o núcleo)	0	0		
+ebs_btngrptoolbar	otro (plugin o núcleo)	0	0		
+ebs_button	otro (plugin o núcleo)	0	0		
+ebs_buttongroup	otro (plugin o núcleo)	0	0		
+ebs_column	otro (plugin o núcleo)	0	0		
+ebs_dl	otro (plugin o núcleo)	0	0		
+ebs_dlitem	otro (plugin o núcleo)	0	0		
+ebs_dropdown	otro (plugin o núcleo)	0	0		
+ebs_dropdownbody	otro (plugin o núcleo)	0	0		
+ebs_dropdownhead	otro (plugin o núcleo)	0	0		
+ebs_dropdownitem	otro (plugin o núcleo)	0	0		
+ebs_icon	otro (plugin o núcleo)	0	0		
+ebs_iconheading	otro (plugin o núcleo)	0	0		
+ebs_image	otro (plugin o núcleo)	0	0		
+ebs_jumbotron	otro (plugin o núcleo)	0	0		
+ebs_label	otro (plugin o núcleo)	0	0		
+ebs_li	otro (plugin o núcleo)	0	0		
+ebs_list	otro (plugin o núcleo)	0	0		
+ebs_notification	otro (plugin o núcleo)	0	0		
+ebs_one_column	otro (plugin o núcleo)	0	0		
+ebs_one_fourth	otro (plugin o núcleo)	0	0		
+ebs_one_fourth_last	otro (plugin o núcleo)	0	0		
+ebs_one_fourth_second	otro (plugin o núcleo)	0	0		
+ebs_one_fourth_third	otro (plugin o núcleo)	0	0		
+ebs_one_half	otro (plugin o núcleo)	0	0		
+ebs_one_half_last	otro (plugin o núcleo)	0	0		
+ebs_one_half_second	otro (plugin o núcleo)	0	0		
+ebs_one_third	otro (plugin o núcleo)	0	0		
+ebs_one_third_last	otro (plugin o núcleo)	0	0		
+ebs_one_third_second	otro (plugin o núcleo)	0	0		
+ebs_panel	otro (plugin o núcleo)	0	0		
+ebs_panel-content	otro (plugin o núcleo)	0	0		
+ebs_panel-footer	otro (plugin o núcleo)	0	0		
+ebs_panel-header	otro (plugin o núcleo)	0	0		
+ebs_popover	otro (plugin o núcleo)	0	0		
+ebs_popovernew	otro (plugin o núcleo)	0	0		
+ebs_progressbar	otro (plugin o núcleo)	0	0		
+ebs_row_column	otro (plugin o núcleo)	0	0		
+ebs_servicebox	otro (plugin o núcleo)	0	0		
+ebs_slide	otro (plugin o núcleo)	0	0		
+ebs_slider	otro (plugin o núcleo)	0	0		
+ebs_tab	otro (plugin o núcleo)	0	0		
+ebs_table	otro (plugin o núcleo)	0	0		
+ebs_table_body	otro (plugin o núcleo)	0	0		
+ebs_table_head	otro (plugin o núcleo)	0	0		
+ebs_table_row	otro (plugin o núcleo)	0	0		
+ebs_tabs	otro (plugin o núcleo)	0	0		
+ebs_th_column	otro (plugin o núcleo)	0	0		
+ebs_three_fourth	otro (plugin o núcleo)	0	0		
+ebs_three_fourth_last	otro (plugin o núcleo)	0	0		
+ebs_toggle	otro (plugin o núcleo)	0	0		
+ebs_toggles	otro (plugin o núcleo)	0	0		
+ebs_tooltip	otro (plugin o núcleo)	0	0		
+ebs_two_third	otro (plugin o núcleo)	0	0		
+ebs_two_third_last	otro (plugin o núcleo)	0	0		
+ebs_well	otro (plugin o núcleo)	0	0		
+eleven_twelveth	tema (library/functions/shortcodes/shortcode.php)	0	0		
+embed	otro (plugin o núcleo)	0	0		
+fblock	tema (library/functions/shortcodes/shortcode.php)	0	0		
+feed	otro (plugin o núcleo)	0	0		
+five_sixth	tema (library/functions/shortcodes/shortcode.php)	0	0		
+five_twelveth	tema (library/functions/shortcodes/shortcode.php)	0	0		
+gallery	otro (plugin o núcleo)	0	0		
+gravityforms	otro (plugin o núcleo)	0	0		
+gravitypdf	otro (plugin o núcleo)	0	0		
+hornav	tema (library/functions/shortcodes/shortcode.php)	0	0		
+hornavgroup	tema (library/functions/shortcodes/shortcode.php)	0	0		
+is_user_logged_in	otro (plugin o núcleo)	0	0		
+list_posts	tema (library/functions/shortcodes/shortcode.php)	0	0		
+login-form	otro (plugin o núcleo)	0	0		
+members_access	otro (plugin o núcleo)	0	0		
+members_feed	otro (plugin o núcleo)	0	0		
+members_logged_in	otro (plugin o núcleo)	0	0		
+members_login_form	otro (plugin o núcleo)	0	0		
+members_not_logged_in	otro (plugin o núcleo)	0	0		
+one_fourth	tema (library/functions/shortcodes/shortcode.php)	0	0		
+one_half	tema (library/functions/shortcodes/shortcode.php)	0	0		
+one_sixth	tema (library/functions/shortcodes/shortcode.php)	0	0		
+one_third	tema (library/functions/shortcodes/shortcode.php)	0	0		
+one_twelveth	tema (library/functions/shortcodes/shortcode.php)	0	0		
+one_whole	tema (library/functions/shortcodes/shortcode.php)	0	0		
+oslider	tema (library/functions/shortcodes/shortcode.php)	0	0		
+oslideritem	tema (library/functions/shortcodes/shortcode.php)	0	0		
+playlist	otro (plugin o núcleo)	0	0		
+portlist	tema (library/functions/shortcodes/shortcode.php)	0	0		
+progressbar	tema (library/functions/shortcodes/shortcode.php)	0	0		
+reveal	tema (library/functions/shortcodes/shortcode.php)	0	0		
+rule	otro (plugin o núcleo)	0	0		
+seven_twelveth	tema (library/functions/shortcodes/shortcode.php)	0	0		
+shvideo	tema (library/functions/shortcodes/shortcode.php)	0	0		
+sideitem	tema (library/functions/shortcodes/shortcode.php)	0	0		
+sidenav	tema (library/functions/shortcodes/shortcode.php)	0	0		
+slider	tema (library/functions/shortcodes/shortcode.php)	0	0		
+slideritem	tema (library/functions/shortcodes/shortcode.php)	0	0		
+soc_button	tema (library/functions/shortcodes/shortcode.php)	0	0		
+social	tema (library/functions/shortcodes/shortcode.php)	0	0		
+tab	tema (library/functions/shortcodes/shortcode.php)	0	0		
+tblock	tema (library/functions/shortcodes/shortcode.php)	0	0		
+teammember	tema (library/functions/shortcodes/shortcode.php)	0	0		
+testimonial	tema (library/functions/shortcodes/shortcode.php)	0	0		
+testimonialgroup	tema (library/functions/shortcodes/shortcode.php)	0	0		
+three_fourth	tema (library/functions/shortcodes/shortcode.php)	0	0		
+toggle	tema (library/functions/shortcodes/shortcode.php)	0	0		
+togglegroup	tema (library/functions/shortcodes/shortcode.php)	0	0		
+tooltip	tema (library/functions/shortcodes/shortcode.php)	0	0		
+two_third	tema (library/functions/shortcodes/shortcode.php)	0	0		
+vernav	tema (library/functions/shortcodes/shortcode.php)	0	0		
+vernavgroup	tema (library/functions/shortcodes/shortcode.php)	0	0		
+video	tema (library/functions/shortcodes/shortcode.php)	0	0		
+wp_caption	otro (plugin o núcleo)	0	0		
+wpseo_breadcrumb	otro (plugin o núcleo)	0	0		

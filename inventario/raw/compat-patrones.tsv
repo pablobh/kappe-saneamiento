@@ -1,0 +1,26 @@
+archivo	linea	patron	texto
+functions.php	81	empty() con expresión	if (!empty($address && $map_api))
+library/class.phpmailer.php	1471	magic_quotes	set_magic_quotes_runtime(0);
+library/class.phpmailer.php	1475	magic_quotes	if (PHP_VERSION < 6) { set_magic_quotes_runtime($magic_quotes); }
+library/class.phpmailer.php	1645	each()	while( list(, $line) = each($lines) ) {
+library/admin-panel/table_process.php	5	constructor PHP 4 (método = clase)	function PricingWizard()
+library/admin-panel/table_process.php	99	llaves-offset $a{$i}	$row_{$i} = $form['row_'.$i];
+library/admin-panel/table_process.php	101	llaves-offset $a{$i}	$price_{$i} = $form['price_'.$i];
+library/admin-panel/table_process.php	103	llaves-offset $a{$i}	$buttoncaption_{$i} = $form['buttoncaption_'.$i];
+library/admin-panel/table_process.php	104	llaves-offset $a{$i}	$buttonurl_{$i} = $form['buttonurl_'.$i];
+library/admin-panel/table_process.php	105	llaves-offset $a{$i}	$badge_{$i} = $form['badge_'.$i];
+library/admin-panel/table_process.php	107	llaves-offset $a{$i}	if (strlen($row_{$i}) > 0)
+library/admin-panel/table_process.php	109	llaves-offset $a{$i}	$this->setValue('row_'.$i, $row_{$i});
+library/admin-panel/table_process.php	112	llaves-offset $a{$i}	if (strlen($price_{$i}) > 0)
+library/admin-panel/table_process.php	114	llaves-offset $a{$i}	$this->setValue('price_'.$i, $price_{$i});
+library/admin-panel/table_process.php	121	llaves-offset $a{$i}	if (strlen($buttoncaption_{$i}) > 0)
+library/admin-panel/table_process.php	123	llaves-offset $a{$i}	$this->setValue('buttoncaption_'.$i, $buttoncaption_{$i});
+library/admin-panel/table_process.php	130	llaves-offset $a{$i}	if (strlen($buttonurl_{$i}) > 0)
+library/admin-panel/table_process.php	132	llaves-offset $a{$i}	$this->setValue('buttonurl_'.$i, $buttonurl_{$i});
+library/admin-panel/table_process.php	139	llaves-offset $a{$i}	if (strlen($badge_{$i}) > 0)
+library/admin-panel/table_process.php	141	llaves-offset $a{$i}	$this->setValue('badge_'.$i, $badge_{$i});
+library/admin-panel/table_process.php	151	llaves-offset $a{$i}	$column_{$z} = $form['column_'.$z];
+library/admin-panel/table_process.php	153	llaves-offset $a{$i}	if (strlen($column_{$z}) > 0)
+library/admin-panel/table_process.php	155	llaves-offset $a{$i}	$this->setValue('column_'.$z, $column_{$z});
+library/admin-panel/table_wizard.php	65	constructor PHP 4 (método = clase)	function ZervWizard(&$container, $name)
+library/functions/widgets.php	443	utf8_encode/decode	if($encode_utf8) $msg = utf8_encode($msg);

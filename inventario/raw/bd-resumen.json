@@ -1,0 +1,195 @@
+{
+    "wordpress": "7.1.5",
+    "php_wp_cli": "8.5.13",
+    "tema_activo": {
+        "nombre": "Kappe",
+        "version": "2.1",
+        "carpeta": "kappe",
+        "plantilla": "kappe",
+        "es_hijo": false
+    },
+    "idioma_sitio": "es_CO",
+    "opcion_WPLANG": "es_CO",
+    "prefijo_tablas": "p1x3l4d0s_",
+    "plugins_activos": {
+        "1": "gravityforms",
+        "2": "classic-editor",
+        "3": "code-snippets",
+        "4": "disable-comments",
+        "5": "easy-bootstrap-shortcodes",
+        "7": "gravity-pdf",
+        "8": "members",
+        "9": "resmushit-image-optimizer",
+        "10": "svg-support",
+        "12": "wordpress-seo",
+        "14": "wp-mail-smtp"
+    },
+    "tipos_de_entrada": {
+        "post": {
+            "propio_del_tema": false,
+            "publicados": 2,
+            "borradores_y_otros": 0
+        },
+        "page": {
+            "propio_del_tema": false,
+            "publicados": 14,
+            "borradores_y_otros": 0
+        },
+        "attachment": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 276
+        },
+        "revision": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 39
+        },
+        "nav_menu_item": {
+            "propio_del_tema": false,
+            "publicados": 5,
+            "borradores_y_otros": 0
+        },
+        "custom_css": {
+            "propio_del_tema": false,
+            "publicados": 1,
+            "borradores_y_otros": 0
+        },
+        "customize_changeset": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 6
+        },
+        "oembed_cache": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 0
+        },
+        "user_request": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 0
+        },
+        "wp_block": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 0
+        },
+        "wp_template": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 0
+        },
+        "wp_template_part": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 0
+        },
+        "wp_global_styles": {
+            "propio_del_tema": false,
+            "publicados": 1,
+            "borradores_y_otros": 0
+        },
+        "wp_navigation": {
+            "propio_del_tema": false,
+            "publicados": 1,
+            "borradores_y_otros": 0
+        },
+        "wp_font_family": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 0
+        },
+        "wp_font_face": {
+            "propio_del_tema": false,
+            "publicados": 0,
+            "borradores_y_otros": 0
+        },
+        "portfolio": {
+            "propio_del_tema": true,
+            "publicados": 51,
+            "borradores_y_otros": 1
+        },
+        "weblusive_slider": {
+            "propio_del_tema": true,
+            "publicados": 1,
+            "borradores_y_otros": 0
+        }
+    },
+    "taxonomias": {
+        "category": {
+            "propia": false,
+            "terminos": 1,
+            "tipos": [
+                "post"
+            ]
+        },
+        "post_tag": {
+            "propia": false,
+            "terminos": 0,
+            "tipos": [
+                "post"
+            ]
+        },
+        "nav_menu": {
+            "propia": false,
+            "terminos": 1,
+            "tipos": [
+                "nav_menu_item"
+            ]
+        },
+        "link_category": {
+            "propia": false,
+            "terminos": 0,
+            "tipos": [
+                "link"
+            ]
+        },
+        "post_format": {
+            "propia": false,
+            "terminos": 0,
+            "tipos": [
+                "post"
+            ]
+        },
+        "wp_theme": {
+            "propia": false,
+            "terminos": 1,
+            "tipos": [
+                "wp_template",
+                "wp_template_part",
+                "wp_global_styles"
+            ]
+        },
+        "wp_template_part_area": {
+            "propia": false,
+            "terminos": 0,
+            "tipos": [
+                "wp_template_part"
+            ]
+        },
+        "wp_pattern_category": {
+            "propia": false,
+            "terminos": 0,
+            "tipos": [
+                "wp_block"
+            ]
+        },
+        "portfolio_category": {
+            "propia": true,
+            "terminos": 5,
+            "tipos": [
+                "portfolio"
+            ]
+        }
+    },
+    "menus": [
+        {
+            "nombre": "main",
+            "elementos": 5
+        }
+    ],
+    "ubicaciones_de_menu": {
+        "primary_nav": 189
+    }
+}

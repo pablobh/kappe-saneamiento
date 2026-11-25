@@ -1,0 +1,51 @@
+opcion	bytes	autoload	contenido_o_claves
+current_theme	5	yes	Kappe
+nav_menu_options	35	off	0=; auto_add=[array]
+page_for_posts	4	yes	2613
+page_on_front	3	yes	159
+permalink_structure	41	yes	/blog/%year%/%monthnum%/%day%/%postname%/
+show_on_front	4	yes	page
+sidebars_widgets	97	yes	wp_inactive_widgets=[array]; primary-widget-area=[array]; array_version=3
+stylesheet	5	yes	kappe
+template	5	yes	kappe
+theme_mods_kappe	361	on	0=; nav_menu_locations=[array]; custom_css_post_id=2803; sidebars_widgets=[array]
+theme_mods_kappe--	184	no	0=; nav_menu_locations=[array]; sidebars_widgets=[array]
+theme_mods_twentyfourteen	193	no	sidebars_widgets=[array]
+theme_mods_twentyseventeen	247	no	0=; nav_menu_locations=[array]; custom_css_post_id=-1; sidebars_widgets=[array]
+theme_mods_twentytwentyfour	702	off	0=; nav_menu_locations=[array]; wp_classic_sidebars=[array]; custom_css_post_id=-1; sidebars_widgets=[array]
+theme_mods_twentytwentythree	215	no	0=; nav_menu_locations=[array]; custom_css_post_id=-1; sidebars_widgets=[array]
+theme_mods_twentytwentytwo	184	no	0=; nav_menu_locations=[array]; sidebars_widgets=[array]
+weblusive_options	5346	yes	logo_setting=logo; logo=[68 caracteres]; favicon=[61 caracteres]; global_color=#34b7ae; disable_loader=true; footer_copyright=[183 caracteres]; footer_widgets=none; footer_code=[518 caracteres]; sidebar_pos=right; sidebar_size=col-md-6; background=[array]; nav_links_color_hover=#ffffff; nav_current_links_color=#ffffff; css=[772 caracteres]; typography_general=[array]; typography_site_title=[array]; typography_main_nav=[array]; typography_heading1=[array]; typography_heading2=[array]; typography_heading3=[array]; typography_heading4=[array]; typography_heading5=[array]; typography_widgets_title
+widget_alc-blogposts-widget	30	yes	_multiwidget=1
+widget_alc-flickr-widget	30	yes	_multiwidget=1
+widget_alc-postinfo-widget	30	yes	_multiwidget=1
+widget_alc-social-widget	437	yes	2=[array]; _multiwidget=1
+widget_alc-works-widget	30	yes	_multiwidget=1
+widget_alc_contact_form	30	yes	_multiwidget=1
+widget_archives	30	yes	_multiwidget=1
+widget_block	30	yes	_multiwidget=1
+widget_calendar	30	yes	_multiwidget=1
+widget_categories	30	yes	_multiwidget=1
+widget_custom_html	30	yes	_multiwidget=1
+widget_ebsp-widget	30	yes	_multiwidget=1
+widget_gform_widget	30	yes	_multiwidget=1
+widget_latest-tweets-widget	30	yes	_multiwidget=1
+widget_media_audio	30	yes	_multiwidget=1
+widget_media_gallery	30	yes	_multiwidget=1
+widget_media_image	30	yes	_multiwidget=1
+widget_media_video	30	yes	_multiwidget=1
+widget_members-widget-login	30	auto	_multiwidget=1
+widget_members-widget-users	30	auto	_multiwidget=1
+widget_meta	30	yes	_multiwidget=1
+widget_nav_menu	30	yes	_multiwidget=1
+widget_pages	30	yes	_multiwidget=1
+widget_recent-comments	30	yes	_multiwidget=1
+widget_recent-posts	30	yes	_multiwidget=1
+widget_rss	40	yes	1=[array]; _multiwidget=1
+widget_search	30	yes	_multiwidget=1
+widget_sg_wordpress_widget	30	yes	_multiwidget=1
+widget_shortcodes-ultimate	30	yes	_multiwidget=1
+widget_tag_cloud	30	yes	_multiwidget=1
+widget_text	30	yes	_multiwidget=1
+widget_tmls-widget	30	yes	_multiwidget=1
+widget_ulp_widget	30	yes	_multiwidget=1

@@ -1,0 +1,34 @@
+clave	tipo	longitud_o_n	valor
+background	array	6	[array de 6]
+contact_address	string	88	[oculto]
+contact_email	string	18	[oculto]
+contact_error	string	35	Hubo un error al enviar tu mensaje.
+contact_subject	string	18	Contacto 4to Pixel
+contact_success	string	90	[90 caracteres]
+css	string	772	[772 caracteres]
+dashboard_logo	string	68	[68 caracteres]
+disable_loader	string	4	true
+favicon	string	61	[61 caracteres]
+footer_code	string	518	[518 caracteres]
+footer_copyright	string	183	[183 caracteres]
+footer_widgets	string	4	none
+global_color	string	7	#34b7ae
+logo	string	68	[68 caracteres]
+logo_setting	string	4	logo
+nav_current_links_color	string	7	#ffffff
+nav_links_color_hover	string	7	#ffffff
+sidebar_pos	string	5	right
+sidebar_size	string	8	col-md-6
+typography_footer_widgets_title	array	1	[array de 1]
+typography_general	array	2	[array de 2]
+typography_heading1	array	2	[array de 2]
+typography_heading2	array	1	[array de 1]
+typography_heading3	array	3	[array de 3]
+typography_heading4	array	1	[array de 1]
+typography_heading5	array	1	[array de 1]
+typography_main_nav	array	1	[array de 1]
+typography_site_title	array	1	[array de 1]
+typography_widgets_title	array	1	[array de 1]
+uc_launchdate	string	10	04/20/2014
+uc_maintitle	string	15	En construcción
+uc_progress	string	3	50%

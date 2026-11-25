@@ -1,0 +1,14 @@
+# Reglas de estado por archivo (las usa 10-archivos.py). Columnas separadas por TAB:
+#   regex sobre la ruta relativa a tema/kappe  ·  estado  ·  tarea  ·  nota
+# Gana la primera regla que coincida. Lo que no coincide queda "se conserva".
+# Las reglas salen de PLAN-3-ETAPAS.md (E2.A1, E2.B1, E2.C2, E2.D1, E2.D6); si SPECS dice otra cosa, se corrige aquí.
+^library/class\.phpmailer\.php$	se elimina	E2.A1	PHPMailer
+^library/sendmail\.php$	se elimina	E2.A1	envío de correo sin validar (widget de contacto)
+^contact-form\.php$	se elimina	E2.A1	formulario de contacto; confirmar en la lectura
+^library/admin-panel/(pricing-tables|table_wizard|table_process)\.php$	se elimina	E2.A1	Pricing Tables
+^library/admin-panel/notifier/	se elimina	E2.A1	notificador de actualizaciones
+^ajax-load-more\.php$	se elimina	E2.B1	no tocar antes de E2.B1 (puente wp-load.php en local)
+^library/includes/(OAuth|twitteroauth)\.php$	se elimina	E2.C2	Twitter/OAuth
+^addons/flickr/	por decidir	E2.C2	Flickr: solo si el inventario confirma que no se usa
+^js/retina	se elimina	E2.D1	retina.js
+^js/(modernizr|jquery\.migrate|jquery\.nicescroll)	por decidir	E2.D6	Modernizr, nicescroll y Migrate: carga condicional o quitar

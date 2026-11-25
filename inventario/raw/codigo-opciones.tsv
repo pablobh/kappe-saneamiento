@@ -1,0 +1,194 @@
+archivo	linea	nombre	detalle
+archive.php	3	sidebar_archive	weblusive_get_option
+archive.php	4	sidebar_pos	weblusive_get_option
+archive.php	7	sidebar_size	weblusive_get_option
+blog-template.php	9	sidebar_size	weblusive_get_option
+blog-template.php	37	posts_per_page	get_option
+comments.php	18	page_comments	get_option
+comments.php	42	comment_registration	get_option
+comments.php	44	siteurl	get_option
+comments.php	48	siteurl	get_option
+comments.php	53	siteurl	get_option
+contact-template.php	6	sidebar_size	weblusive_get_option
+contact-template.php	13	contact_error	weblusive_get_option
+contact-template.php	14	contact_success	weblusive_get_option
+contact-template.php	15	contact_subject	weblusive_get_option
+contact-template.php	16	contact_email	weblusive_get_option
+contact-template.php	18	contact_address	weblusive_get_option
+footer.php	1	layout_type	weblusive_get_option
+footer.php	3	info_box	weblusive_get_option
+footer.php	7	info_box	weblusive_get_option
+footer.php	11	disable_loader	weblusive_get_option
+functions.php	79	google_api	weblusive_get_option
+functions.php	80	contact_address	weblusive_get_option
+functions.php	126	weblusive_get_option( $value	weblusive_get_option → $value
+functions.php	181	posts_per_page	get_option
+functions.php	208	weblusive_get_option( $name	weblusive_get_option → $name
+functions.php	209	weblusive_options	get_option
+functions.php	233	footer_widgets	weblusive_get_option
+functions.php	283	sidebars	weblusive_get_option
+functions.php	301	dashboard_logo	weblusive_get_option
+functions.php	302	dashboard_logo	weblusive_get_option
+functions.php	312	gravatar	weblusive_get_option
+functions.php	314	gravatar	weblusive_get_option
+header.php	13	favicon	weblusive_get_option
+header.php	22	header_code	weblusive_get_option
+header.php	28	layout_type	weblusive_get_option
+header.php	32	logo	weblusive_get_option
+header.php	33	logo_setting	weblusive_get_option
+header.php	98	footer_widgets	weblusive_get_option
+header.php	107	footer_copyright	weblusive_get_option
+header.php	111	layout_type	weblusive_get_option
+loop.php	4	blog_show_date	weblusive_get_option
+loop.php	5	blog_show_comments	weblusive_get_option
+loop.php	6	blog_show_category	weblusive_get_option
+loop.php	7	blog_show_rmtext	weblusive_get_option
+page.php	7	sidebar_size	weblusive_get_option
+portfolio_template.php	7	sidebar_size	weblusive_get_option
+portfolio_template2.php	7	sidebar_size	weblusive_get_option
+search.php	3	sidebar_archive	weblusive_get_option
+search.php	4	sidebar_pos	weblusive_get_option
+search.php	7	sidebar_size	weblusive_get_option
+sidebar.php	9	sidebar_page	weblusive_get_option
+sidebar.php	24	sidebar_post	weblusive_get_option
+sidebar.php	34	sidebar_portfolio	weblusive_get_option
+sidebar.php	44	sidebar_cat_	weblusive_get_option
+sidebar.php	45	sidebar_archive	weblusive_get_option
+sidebar.php	56	sidebar_archive	weblusive_get_option
+single-portfolio.php	5	sidebar_portfolio	weblusive_get_option
+single-portfolio.php	7	sidebar_pos	weblusive_get_option
+single-portfolio.php	10	sidebar_size	weblusive_get_option
+single.php	5	sidebar_post	weblusive_get_option
+single.php	7	sidebar_pos	weblusive_get_option
+single.php	10	sidebar_size	weblusive_get_option
+single.php	15	blog_show_date	weblusive_get_option
+single.php	16	blog_show_comments	weblusive_get_option
+single.php	17	blog_show_category	weblusive_get_option
+under-construction.php	4	uc_launchdate	weblusive_get_option
+under-construction.php	5	uc_launchdate	weblusive_get_option
+under-construction.php	42	uc_maintitle	weblusive_get_option
+under-construction.php	44	uc_maintitle	weblusive_get_option
+under-construction.php	47	uc_text	weblusive_get_option
+under-construction.php	49	uc_text	weblusive_get_option
+under-construction.php	52	uc_progress	weblusive_get_option
+under-construction.php	56	uc_progress	weblusive_get_option
+woocommerce.php	5	woocommerce_shop_page_id	get_option
+woocommerce.php	9	products_per_row	weblusive_get_option
+woocommerce.php	13	sidebar_layout_type	weblusive_get_option
+woocommerce.php	15	hide_titles	weblusive_get_option
+woocommerce.php	16	hide_breadcrumbs	weblusive_get_option
+addons/wp-pagenavi.php	196	pagenavi_options	add_option
+css/dynamic-styles.php	16	disable_loader	weblusive_get_option
+css/dynamic-styles.php	17	global_color	weblusive_get_option
+css/dynamic-styles.php	27	global_color	weblusive_get_option
+css/dynamic-styles.php	34	global_color	weblusive_get_option
+css/dynamic-styles.php	37	global_color	weblusive_get_option
+css/dynamic-styles.php	40	global_color	weblusive_get_option
+css/dynamic-styles.php	44	global_color	weblusive_get_option
+css/dynamic-styles.php	47	global_color	weblusive_get_option
+css/dynamic-styles.php	49	global_color	weblusive_get_option
+css/dynamic-styles.php	53	global_color	weblusive_get_option
+css/dynamic-styles.php	56	background	weblusive_get_option
+css/dynamic-styles.php	58	background_full	weblusive_get_option
+css/dynamic-styles.php	75	links_color	weblusive_get_option
+css/dynamic-styles.php	77	links_color	weblusive_get_option
+css/dynamic-styles.php	78	links_decoration	weblusive_get_option
+css/dynamic-styles.php	81	links_color_hover	weblusive_get_option
+css/dynamic-styles.php	83	links_color_hover	weblusive_get_option
+css/dynamic-styles.php	84	links_decoration_hover	weblusive_get_option
+css/dynamic-styles.php	90	topbar_background	weblusive_get_option
+css/dynamic-styles.php	96	topbar_color	weblusive_get_option
+css/dynamic-styles.php	97	topbar_color	weblusive_get_option
+css/dynamic-styles.php	100	topbar_links_color	weblusive_get_option
+css/dynamic-styles.php	101	topbar_links_color	weblusive_get_option
+css/dynamic-styles.php	103	topbar_links_color_hover	weblusive_get_option
+css/dynamic-styles.php	104	topbar_links_color_hover	weblusive_get_option
+css/dynamic-styles.php	109	header_background	weblusive_get_option
+css/dynamic-styles.php	113	sub_nav_background	weblusive_get_option
+css/dynamic-styles.php	114	sub_nav_background	weblusive_get_option
+css/dynamic-styles.php	116	sub_nav_color	weblusive_get_option
+css/dynamic-styles.php	117	sub_nav_color	weblusive_get_option
+css/dynamic-styles.php	119	nav_links_color	weblusive_get_option
+css/dynamic-styles.php	121	nav_links_color	weblusive_get_option
+css/dynamic-styles.php	122	nav_shadow_color	weblusive_get_option
+css/dynamic-styles.php	125	nav_links_color_hover	weblusive_get_option
+css/dynamic-styles.php	127	nav_links_color_hover	weblusive_get_option
+css/dynamic-styles.php	128	nav_shadow_color_hover	weblusive_get_option
+css/dynamic-styles.php	131	nav_current_links_color	weblusive_get_option
+css/dynamic-styles.php	132	nav_current_bg	weblusive_get_option
+css/dynamic-styles.php	133	nav_current_bg	weblusive_get_option
+css/dynamic-styles.php	135	nav_current_links_color	weblusive_get_option
+css/dynamic-styles.php	136	nav_current_shadow_color	weblusive_get_option
+css/dynamic-styles.php	137	nav_current_bg	weblusive_get_option
+css/dynamic-styles.php	140	nav_separator	weblusive_get_option
+css/dynamic-styles.php	142	nav_separator	weblusive_get_option
+css/dynamic-styles.php	144	nav_separator	weblusive_get_option
+css/dynamic-styles.php	146	main_content_bg	weblusive_get_option
+css/dynamic-styles.php	150	promo_bg	weblusive_get_option
+css/dynamic-styles.php	153	footer_background	weblusive_get_option
+css/dynamic-styles.php	156	footer_title_color	weblusive_get_option
+css/dynamic-styles.php	157	footer_title_color	weblusive_get_option
+css/dynamic-styles.php	160	footer_links_color	weblusive_get_option
+css/dynamic-styles.php	161	footer_links_color	weblusive_get_option
+css/dynamic-styles.php	164	footer_links_color_hover	weblusive_get_option
+css/dynamic-styles.php	165	footer_links_color_hover	weblusive_get_option
+css/dynamic-styles.php	168	css	weblusive_get_option
+css/dynamic-styles.php	169	css_tablets	weblusive_get_option
+css/dynamic-styles.php	171	css_tablets	weblusive_get_option
+css/dynamic-styles.php	174	css_wide_phones	weblusive_get_option
+css/dynamic-styles.php	176	css_wide_phones	weblusive_get_option
+css/dynamic-styles.php	179	css_phones	weblusive_get_option
+css/dynamic-styles.php	181	css_phones	weblusive_get_option
+css/dynamic-styles.php	185	weblusive_get_option( $value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	138	update_option( $option	update_option → $option
+library/admin-panel/admin-functions.php	141	delete_option($option	delete_option → $option
+library/admin-panel/admin-functions.php	267	weblusive_get_option( $value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	282	weblusive_get_option( $value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	288	weblusive_get_option( $value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	293	weblusive_get_option($value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	303	weblusive_get_option( $value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	313	weblusive_get_option( $value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	321	weblusive_get_option( $value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	327	weblusive_get_option($value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	330	weblusive_get_option( $value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	331	weblusive_get_option( $value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	340	weblusive_get_option($value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	347	weblusive_get_option($value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	360	weblusive_get_option($value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	426	weblusive_get_option($value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	427	weblusive_get_option($value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	431	weblusive_get_option($value	weblusive_get_option → $value
+library/admin-panel/admin-functions.php	451	weblusive_get_option($value	weblusive_get_option → $value
+library/admin-panel/admin-ui.php	117	header_code	weblusive_get_option
+library/admin-panel/admin-ui.php	124	info_box	weblusive_get_option
+library/admin-panel/admin-ui.php	166	footer_code	weblusive_get_option
+library/admin-panel/admin-ui.php	179	sidebar_pos	weblusive_get_option
+library/admin-panel/admin-ui.php	198	sidebar_size	weblusive_get_option
+library/admin-panel/admin-ui.php	224	sidebars	weblusive_get_option
+library/admin-panel/admin-ui.php	469	css	weblusive_get_option
+library/admin-panel/admin-ui.php	473	css_tablets	weblusive_get_option
+library/admin-panel/admin-ui.php	477	css_wide_phones	weblusive_get_option
+library/admin-panel/admin-ui.php	481	css_phones	weblusive_get_option
+library/admin-panel/admin-ui.php	727	get_option( $option	get_option → $option
+library/admin-panel/admin-ui.php	728	get_option( $option	get_option → $option
+library/admin-panel/google-fonts-function.php	7	typography_latin_extended	weblusive_get_option
+library/admin-panel/google-fonts-function.php	8	typography_cyrillic_extended	weblusive_get_option
+library/admin-panel/google-fonts-function.php	9	typography_greek_extended	weblusive_get_option
+library/admin-panel/google-fonts-function.php	12	typography_latin_extended	weblusive_get_option
+library/admin-panel/google-fonts-function.php	14	typography_cyrillic	weblusive_get_option
+library/admin-panel/google-fonts-function.php	16	typography_cyrillic_extended	weblusive_get_option
+library/admin-panel/google-fonts-function.php	18	typography_greek	weblusive_get_option
+library/admin-panel/google-fonts-function.php	20	typography_greek_extended	weblusive_get_option
+library/admin-panel/post-options.php	174	sidebars	weblusive_get_option
+library/admin-panel/post-options.php	275	sidebars	weblusive_get_option
+library/admin-panel/notifier/update-notifier.php	103	get_option( $db_cache_field_last_updated	get_option → $db_cache_field_last_updated
+library/admin-panel/notifier/update-notifier.php	121	update_option( $db_cache_field	update_option → $db_cache_field
+library/admin-panel/notifier/update-notifier.php	122	update_option( $db_cache_field_last_updated	update_option → $db_cache_field_last_updated
+library/admin-panel/notifier/update-notifier.php	125	get_option( $db_cache_field	get_option → $db_cache_field
+library/admin-panel/notifier/update-notifier.php	129	get_option( $db_cache_field	get_option → $db_cache_field
+library/functions/widgets.php	406	get_transient($transName	get_transient → $transName
+library/functions/widgets.php	418	get_transient($transName	get_transient → $transName
+library/functions/widgets.php	421	set_transient($transName	set_transient → $transName
+library/includes/page-head.php	25	post_featured	weblusive_get_option
+library/includes/page-head.php	48	slit_slider_speed	weblusive_get_option
+library/includes/page-head.php	49	slit_slider_time	weblusive_get_option

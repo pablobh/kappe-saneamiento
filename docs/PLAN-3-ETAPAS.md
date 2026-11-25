@@ -62,7 +62,7 @@ La Fase 0 ya está hecha (archivos expuestos borrados, Cloudflare con rate limit
 | ☑ | E1.2 | Repo Git (commit 1 = tema 1.6 de producción; commit 2 = base 2.1 + `es_ES`) y `CAMBIOS-PRODUCCION.md` (hecho 24-nov) | T1.2 | Sonnet |
 | ☑ | E1.3 | Revisar las diferencias producción-vs-2.1 pendientes: `script.js`, `prettyPhoto.js`, `addons/paginajax`, `es_ES.po` (hecho 24-nov: sin bloqueos) | ESTADO #4 | Sonnet |
 | ☑ | E1.4 | Confirmar la causa de la caída de la 2.1 (`table_process.php:99`) (hecho 24-nov: sintaxis `$row_{$i}` inválida en PHP 8; solo falla al abrir la página admin "Pricing Tables") | T1.3 | Sonnet |
-| ☐ | E1.5a | Scripts de extracción (paso 1 de `INVENTARIO.md`) | T1.4 | Sonnet |
+| ☑ | E1.5a | Scripts de extracción (paso 1 de `INVENTARIO.md`) (hecho 24-nov: `inventario/scripts/ejecutar-todo.sh` → `inventario/raw/`) | T1.4 | Sonnet |
 | ☐ | E1.5b | Lectura única y `INVENTARIO.md` (pasos 2 y 3) | T1.4 | Sonnet |
 | ☐ | E1.6 | Compatibilidad 1.6→2.1 con capturas a 1440 px y 390 px. Si algo no es compatible, parar y avisar a Pablo | T1.5 | Sonnet; **Opus** solo si aparece una incompatibilidad |
 | ☐ | E1.7 | Lighthouse de línea base (móvil y escritorio, 6 páginas, sin caché de página). En curso: capturas hechas, Lighthouse corriendo | T1.6 | Haiku |

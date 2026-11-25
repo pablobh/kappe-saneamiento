@@ -1,0 +1,48 @@
+archivo	linea	nombre	detalle
+blog-template.php	10	_weblusive_sidebar_pos	
+contact-template.php	8	_weblusive_sidebar_pos	
+header.php	68	_portfolio_type	get_post_meta
+header.php	77	_page_portfolio_cat	get_post_meta
+header.php	87	_page_portfolio_cat	get_post_meta
+loop.php	16	_blog_mediatype	
+loop.php	17	_blog_video	
+loop.php	18	_blog_videoap	
+page.php	9	_weblusive_sidebar_pos	
+portfolio_template.php	9	_weblusive_sidebar_pos	
+portfolio_template.php	14	_portfolio_type	get_post_meta
+portfolio_template.php	16	_wp_page_template	get_post_meta
+portfolio_template.php	25	_page_portfolio_num_items_page	get_post_meta
+portfolio_template.php	27	_page_portfolio_num_items_page	get_post_meta
+portfolio_template.php	51	_page_portfolio_cat	get_post_meta
+portfolio_template2.php	9	_weblusive_sidebar_pos	
+portfolio_template2.php	14	_portfolio_type	get_post_meta
+portfolio_template2.php	16	_wp_page_template	get_post_meta
+portfolio_template2.php	25	_page_portfolio_num_items_page	get_post_meta
+portfolio_template2.php	27	_page_portfolio_num_items_page	get_post_meta
+portfolio_template2.php	51	_page_portfolio_cat	get_post_meta
+sidebar.php	6	_weblusive_sidebar_pos	
+sidebar.php	8	_weblusive_sidebar_post	
+sidebar.php	21	_weblusive_sidebar_pos	
+sidebar.php	23	_weblusive_sidebar_post	
+single.php	33	_blog_mediatype	
+single.php	34	_blog_video	
+single.php	35	_blog_videoap	
+single.php	66	_wp_attachment_image_alt	get_post_meta
+taxonomy-portfolio_category.php	18	_weblusive_sidebar_pos	
+under-construction.php	33	_weblusive_sidebar_pos	
+woocommerce.php	8	_weblusive_sidebar_post	
+woocommerce.php	11	_weblusive_sidebar_pos	
+woocommerce.php	18	_weblusive_hide_innerheading	
+library/admin-panel/custom-slider.php	131	custom_slider	update_post_meta
+library/admin-panel/custom-slider.php	135	custom_slider	delete_post_meta
+library/admin-panel/post-options.php	12	_weblusive_sidebar_pos	
+library/admin-panel/post-options.php	106	_weblusive_sidebar_pos	
+library/admin-panel/post-options.php	241	_weblusive_sidebar_pos	
+library/includes/page-head.php	4	_weblusive_post_head	
+library/includes/page-head.php	7	_weblusive_post_head	
+library/includes/page-head.php	8	_weblusive_promotext	
+library/includes/page-head.php	9	_weblusive_promotext	
+library/includes/page-head.php	25	_weblusive_post_head	
+library/includes/page-head.php	33	_weblusive_post_head	
+library/includes/page-head.php	46	_weblusive_post_head	
+library/includes/page-head.php	54	_weblusive_post_slider	
