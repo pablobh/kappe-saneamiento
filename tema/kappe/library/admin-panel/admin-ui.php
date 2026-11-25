@@ -94,16 +94,6 @@ $save='
 				);
 				?>
 			</div>
-			<div class="weblusivepanel-item" id="bg_image_settings">
-				<h3>Website Loader</h3>
-				<?php
-					weblusive_options(
-						array(	"name" => "Disable loader",
-								"id" => "disable_loader",
-								"type" => "checkbox"));
-				?>
-
-			</div>
 		</div>
 
 		<div id="tab2" class="tabs-wrap">
