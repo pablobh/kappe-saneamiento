@@ -264,6 +264,7 @@ jQuery(function($) {
 			var data = {
 				action: 'portfolio_update_post_order',
 				postType: $(this).attr('data-post-type'),
+				nonce: $(this).attr('data-nonce'),
 				order: theOrder
 			};
 

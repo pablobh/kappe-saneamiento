@@ -90,7 +90,7 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
 | ☑ | E2.A3 | (antes E2.C2) Eliminar Twitter/OAuth. **Decisión 24-nov:** el sitio no usa widgets, así que `widgets.php` **no se carga** (como en producción) y con él quedan fuera Flickr (incluido su `jflickrfeed` encolado) y el widget de contacto | T2.6 | Sonnet | 0,3 (hecho 24-nov) |
 | | | **B · Seguridad** (rama `componente/b-seguridad`) | | | |
 | ☑ | E2.B1 | Eliminar `ajax-load-more.php`, su llamada en `js/script.js` y el botón "Cargar más"; reemplazar por la paginación nativa de WordPress (`paginate_links()` con `paged`) en `blog-template.php`. Decidido 24-nov: el blog no se usa, así que no se endurece. Al terminar, borrar el puente `~/Projects/wp-load.php` | T2.2 | Sonnet | 1 (hecho 24-nov) |
-| ☐ | E2.B2 | Meta boxes: nonce, capacidades, autosave; `save_slide()` no borra metas. **E1.10:** también `portfolio_update_post_order` (`post-types.php`) con nonce y `current_user_can`, y el nonce en su llamada de `main.js` | T2.4 | **Opus** | 1,5–2 |
+| ☑ | E2.B2 | Meta boxes: nonce, capacidades, autosave; `save_slide()` no borra metas. **E1.10:** también `portfolio_update_post_order` (`post-types.php`) con nonce y `current_user_can`, y el nonce en su llamada de `main.js` | T2.4 | **Opus** | 1,5–2 (hecho 24-nov) |
 | ☐ | E2.B3 | Importar/exportar opciones en JSON con `current_user_can`. **E1.10:** también `current_user_can` en `weblusive_save_ajax` y en "reset"; conservar el formato guardado (`htmlspecialchars`, SPECS §5) | T2.3 | **Opus** (decisión de Pablo: seguridad y datos guardados) | 1 |
 | ☐ | E2.B4 | Consultas SQL de `helper-functions.php` a APIs de WP (tras A1 quedan solo `get_page_ID_by_page_template` y `getPageContent`) | T2.5 | Sonnet | 0,3–0,5 |
 | ☐ | E2.B5 | Escapar el título de prettyPhoto; iframes de `single.php` por `https` y `youtube-nocookie.com` | T2.9 | Sonnet | 0,5 |
@@ -138,5 +138,6 @@ Se retoma con Pablo una vez desplegado el tema saneado. Modelo sugerido: Sonnet,
  
 - ☐ **Cloudflare:** decidir `xmlrpc.php` (Pablo cree que no se usa: bloquear con regla personalizada y observar); registros DNS "DNS only" que exponen la IP de origen; Bot Fight Mode vs protección anti-bots de DreamHost; Wordfence vs Cloudflare (S.5), midiendo el TTFB real en producción con y sin Wordfence.
 - ☐ **SEO:** `/works/` caso por caso con datos de Search Console (S.1); sitemap de Yoast y `robots.txt` (S.2); 6 enlaces 404 y 3 redirecciones (S.3); Yoast → The SEO Framework con respaldo y comparación antes/después (S.4).
+- ☐ **Recomendada (código, sin prisa):** refactorizar `library/admin-panel/post-options.php` para quitar el código **triplicado** de las cajas "Post/Page/Portfolio Options" (cabecera, slider, texto promocional y barra lateral repetidos en `post_options()`, `page_options()` y `portfolio_options()`) en funciones comunes, sin cambiar nombres de metas (SPECS §5) ni el HTML del formulario. No es seguridad; se aplazó en E2.B2 (24-nov). Modelo: Sonnet. Probar guardando una página, un proyecto y una entrada y comparando sus metas antes/después.
 - Recordar **purgar la caché de Cloudflare** tras cada cambio de HTML.
  

@@ -36,8 +36,8 @@ function weblusive_slider_init(){
 
 function weblusive_slider_slides(){
 	global $post;
-	$custom = get_post_custom($post->ID);
-	$slider = isset ($custom["custom_slider"]) ? unserialize( $custom["custom_slider"][0]) : '';
+	$slider = get_post_meta( $post->ID, 'custom_slider', true );
+	wp_nonce_field( 'weblusive_save_slide', 'weblusive_slide_nonce' );
   
 	wp_enqueue_script( 'weblusive-admin-slider' );  
 	wp_print_scripts('media-upload');
@@ -105,10 +105,10 @@ function weblusive_slider_slides(){
 			<div class="widget-content option-item">
 				<p class="hint-title">Main parameters</p>
 				<div class="slider-img"><?php echo wp_get_attachment_image( $slide['id'] , 'thumbnail' );  ?></div>
-				<label for="custom_slider[<?php echo $i ?>][caption]"><span style="float:left" >Slide text :</span><textarea name="custom_slider[<?php echo $i ?>][caption]" id="custom_slider[<?php echo $i ?>][caption]"><?php echo stripslashes($slide['caption']) ; ?></textarea></label>
+				<label for="custom_slider[<?php echo $i ?>][caption]"><span style="float:left" >Slide text :</span><textarea name="custom_slider[<?php echo $i ?>][caption]" id="custom_slider[<?php echo $i ?>][caption]"><?php echo esc_textarea( $slide['caption'] ) ; ?></textarea></label>
 				
 				
-				<input id="custom_slider[<?php echo $i ?>][id]" name="custom_slider[<?php echo $i ?>][id]" value="<?php  echo $slide['id']  ?>" type="hidden" />
+				<input id="custom_slider[<?php echo $i ?>][id]" name="custom_slider[<?php echo $i ?>][id]" value="<?php  echo absint( $slide['id'] )  ?>" type="hidden" />
 				<a class="del-cat"></a>
 			</div>
 		</li>
@@ -123,17 +123,36 @@ function weblusive_slider_slides(){
  
 
 
-add_action('save_post', 'save_slide');
-function save_slide(){
-  global $post;
-  
-  	if( isset($_POST['custom_slider']) && $_POST['custom_slider'] != "" ){
-		update_post_meta($post->ID, 'custom_slider' , $_POST['custom_slider']);		
+// E2.B2: solo al guardar sliders, con nonce y capacidad. La meta solo se borra cuando llega el
+// formulario de la caja sin diapositivas (el usuario las quitó todas), nunca en autosave,
+// edición rápida o guardados desde otro sitio.
+add_action('save_post_weblusive_slider', 'save_slide');
+function save_slide( $post_id ){
+	if ( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE )
+		return;
+	if ( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) )
+		return;
+	if ( ! isset( $_POST['weblusive_slide_nonce'] ) || ! wp_verify_nonce( sanitize_key( wp_unslash( $_POST['weblusive_slide_nonce'] ) ), 'weblusive_save_slide' ) )
+		return;
+	if ( ! current_user_can( 'edit_post', $post_id ) )
+		return;
+
+	$slides = array();
+	if ( isset( $_POST['custom_slider'] ) && is_array( $_POST['custom_slider'] ) ) {
+		foreach ( wp_unslash( $_POST['custom_slider'] ) as $key => $slide ) {
+			if ( ! is_array( $slide ) || empty( $slide['id'] ) )
+				continue;
+			$slides[ absint( $key ) ] = array(
+				'caption' => isset( $slide['caption'] ) ? wp_kses_post( $slide['caption'] ) : '',
+				'id'      => (string) absint( $slide['id'] ),
+			);
+		}
 	}
-	else{ 
-		if (isset($post->ID))
-		delete_post_meta($post->ID, 'custom_slider' );
-	}
+
+	if ( $slides )
+		update_post_meta( $post_id, 'custom_slider', wp_slash( $slides ) );
+	else
+		delete_post_meta( $post_id, 'custom_slider' );
 }
 
 
@@ -161,9 +180,8 @@ function weblusive_slider_custom_columns($column){
 			while ( $custom_slider->have_posts() ) {
 				$number =0;
 				$custom_slider->the_post();
-				$custom = get_post_custom($post->ID);
-				if( !empty($custom["custom_slider"][0])){
-					$slider = unserialize( $custom["custom_slider"][0] );
+				$slider = get_post_meta( $post->ID, 'custom_slider', true );
+				if( !empty($slider) && is_array($slider) ){
 					echo $number = count($slider);
 				}
 				else echo 0;

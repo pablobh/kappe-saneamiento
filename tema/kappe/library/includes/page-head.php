@@ -55,8 +55,8 @@ if(isset( $get_meta['_weblusive_post_head'][0]) && $get_meta['_weblusive_post_he
 		$custom_slider = new WP_Query( $custom_slider_args );
 		
 		while ( $custom_slider->have_posts() ) : $custom_slider->the_post();
-			$custom = get_post_custom($post->ID);
-			$slider = isset ($custom["custom_slider"]) ? unserialize( $custom["custom_slider"][0]) : '';
+			$slider = get_post_meta( $post->ID, 'custom_slider', true );
+			if ( ! is_array( $slider ) ) $slider = array();
 			$number = count($slider);
 				
 		if( $slider ):?>
@@ -65,7 +65,7 @@ if(isset( $get_meta['_weblusive_post_head'][0]) && $get_meta['_weblusive_post_he
                             <ul class="slides">
 					<?php foreach( $slider as $slide ): ?>
                                             <li><img src="<?php $image =  wp_get_attachment_image_src( $slide['id'], 'full'); echo $image[0] ?>" alt="<?php echo $slide['id'] ?>"/>
-                                                <div class="flex-caption"><?php if( !empty( $slide['caption'] ) ):?><?php echo stripslashes($slide['caption']) ; ?><?php endif; ?></div>
+                                                <div class="flex-caption"><?php if( !empty( $slide['caption'] ) ):?><?php echo wp_kses_post( $slide['caption'] ) ; ?><?php endif; ?></div>
                                             </li>
                    			<?php endforeach; ?>
 			</ul>
