@@ -63,7 +63,7 @@ La Fase 0 ya está hecha (archivos expuestos borrados, Cloudflare con rate limit
 | ☑ | E1.3 | Revisar las diferencias producción-vs-2.1 pendientes: `script.js`, `prettyPhoto.js`, `addons/paginajax`, `es_ES.po` (hecho 24-nov: sin bloqueos) | ESTADO #4 | Sonnet |
 | ☑ | E1.4 | Confirmar la causa de la caída de la 2.1 (`table_process.php:99`) (hecho 24-nov: sintaxis `$row_{$i}` inválida en PHP 8; solo falla al abrir la página admin "Pricing Tables") | T1.3 | Sonnet |
 | ☑ | E1.5a | Scripts de extracción (paso 1 de `INVENTARIO.md`) (hecho 24-nov: `inventario/scripts/ejecutar-todo.sh` → `inventario/raw/`) | T1.4 | Sonnet |
-| ☐ | E1.5b | Lectura única y `INVENTARIO.md` (pasos 2 y 3) | T1.4 | Sonnet |
+| ☑ | E1.5b | Lectura única y `INVENTARIO.md` (pasos 2 y 3) (hecho 24-nov: `docs/INVENTARIO.md`; `CLAUDE.md` actualizado) | T1.4 | Sonnet |
 | ☐ | E1.6 | Compatibilidad 1.6→2.1 con capturas a 1440 px y 390 px. Si algo no es compatible, parar y avisar a Pablo | T1.5 | Sonnet; **Opus** solo si aparece una incompatibilidad |
 | ☐ | E1.7 | Lighthouse de línea base (móvil y escritorio, 6 páginas, sin caché de página). En curso: capturas hechas, Lighthouse corriendo | T1.6 | Haiku |
 | ✗ | E1.8 | ~~Staging medible en DreamHost~~ **Cancelada 24-nov:** no habrá copias del sitio en DreamHost; el staging es solo local. El TTFB real y el efecto de Wordfence se miden después del despliegue | T1.7 | — |
@@ -81,7 +81,7 @@ Orden: A → B → C → D → E. D2 y D4 van después de C1 porque dependen de 
 | ☐ | ID | Tarea | Antes | Modelo |
 |---|---|---|---|---|
 | | | **A · Código muerto** (rama `componente/a-codigo-muerto`) | | |
-| ☐ | E2.A1 | Quitar `sendmail`, `contact-form`, PHPMailer, notificador, pricing tables, `table_wizard`, archivos sueltos, el `include` de `pricing-tables.php` y el submenú "Pricing Tables" | T2.1, T2.6 | Sonnet |
+| ☐ | E2.A1 | Quitar `sendmail`, `contact-form`, PHPMailer, notificador, pricing tables, `table_wizard`, archivos sueltos, el `include` de `pricing-tables.php` y el submenú "Pricing Tables". **Decisión 24-nov:** también `contact-template.php`, `portfolio_template2.php`, `under-construction.php` y `woocommerce.php` (ninguna página las usa; el contacto es Gravity Forms con la plantilla `default`) y lo que solo ellas usaban (`gmap3`, `jquery.countdown`, su encolado en `functions.php`, las pestañas "Contact settings" y "Under construct." del panel; **se acepta que sus opciones guardadas `contact_*`, `uc_*` y `google_api` se borren**), más las librerías que ningún archivo referencia (`js/jquery.min.js`, `js/jquery.bxslider.js`, `css/font-awesome.css`, `css/magnific-popup.css` y los archivos sobrantes de `js/jplayer/`) | T2.1, T2.6 | Sonnet |
 | ☐ | E2.A2 | Constructor del breadcrumb (`__construct`) | T2.8 | Haiku |
 | | | **B · Seguridad** (rama `componente/b-seguridad`) | | |
 | ☐ | E2.B1 | Eliminar `ajax-load-more.php`, su llamada en `js/script.js` y el botón "Cargar más"; reemplazar por la paginación nativa de WordPress (`paginate_links()` con `paged`) en `blog-template.php`. Decidido 24-nov: el blog no se usa, así que no se endurece. Al terminar, borrar el puente `~/Projects/wp-load.php` | T2.2 | Sonnet |
@@ -91,14 +91,14 @@ Orden: A → B → C → D → E. D2 y D4 van después de C1 porque dependen de 
 | ☐ | E2.B5 | Escapar el título de prettyPhoto; iframes de `single.php` por `https` y `youtube-nocookie.com` | T2.9 | Sonnet |
 | | | **C · Compatibilidad PHP/WordPress** (rama `componente/c-compatibilidad`) | | |
 | ☐ | E2.C1 | `functions.php`: hooks (`after_setup_theme`, `widgets_init`), text domain `kappe`, doble `style.css`, Google Maps por `https` | T2.7 | **Opus** |
-| ☐ | E2.C2 | Eliminar Twitter/OAuth y, si E1.5 lo confirma, Flickr y el widget de contacto | T2.6 | Sonnet |
+| ☐ | E2.C2 | Eliminar Twitter/OAuth. **Decisión 24-nov:** el sitio no usa widgets, así que `widgets.php` **no se carga** (como en producción) y con él quedan fuera Flickr (incluido su `jflickrfeed` encolado) y el widget de contacto | T2.6 | Sonnet |
 | | | **D · Rendimiento** (rama `componente/d-rendimiento`) | | |
 | ☐ | E2.D1 | Eliminar `retina.js` | T3.1 | Haiku |
-| ☐ | E2.D2 | Reemplazar `dynamic-styles.php` por CSS en línea con transient; quitar `!important`; integrar los colores de créditos (#F5F8E3 y #34B7AE) | T3.2 | **Opus** |
+| ☐ | E2.D2 | Reemplazar `dynamic-styles.php` por CSS en línea con transient; quitar `!important`; integrar los colores de créditos (#F5F8E3 y #34B7AE) **directamente en los estilos del tema** (decisión 24-nov). **Se integra todo** el CSS que hoy vive en la BD: el de la opción `css` del panel y el del CSS adicional del Personalizador (colores de créditos, `.inner-content`, `header .logo-box`, `.escala-horizontal .gfield_radio` de Gravity Forms, `flow-root`, menú lateral fijo); ambos se retiran de la BD en E3.5 | T3.2 | **Opus** |
 | ☐ | E2.D3 | Quitar `opacity: 0` y el preloader GIF | T3.3 | Sonnet |
 | ☐ | E2.D4 | Altura del menú lateral solo con CSS (`100dvh`, `flow-root`) | T3.4 | **Opus** |
 | ☐ | E2.D5 | Fuentes: solo los pesos usados y `display=swap` | T3.5 | Haiku |
-| ☐ | E2.D6 | Carga condicional y `defer`; quitar Modernizr, nicescroll y Migrate 1.0 | T3.6 | Sonnet |
+| ☐ | E2.D6 | Carga condicional y `defer`; quitar Modernizr, nicescroll y Migrate 1.0 (decidido 24-nov; hay que corregir `.load()` y `.size()` en `script.js`; sin reescribir `script.js` en JS puro salvo lo necesario; no añadir jQuery nuevo) | T3.6 | Sonnet |
 | ☐ | E2.D7 | `eager` en la primera fila y `fetchpriority="high"` en la primera imagen | T3.7 | Haiku |
 | | | **E · SEO del lado del tema** (rama `componente/e-seo-html`) | | |
 | ☐ | E2.E1 | Un solo `<h1>`; `title-tag`; `alt` del portafolio; tarjetas con `<a href>` real | T3B.1, T3B.3, T3B.5, T3B.6 | Sonnet |

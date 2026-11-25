@@ -4,8 +4,8 @@ ajax-load-more.php	1891	57	.php	propio	se elimina	E2.B1	no tocar antes de E2.B1 
 archive.php	1450	35	.php	propio	se conserva		
 blog-template.php	1817	47	.php	propio	se conserva		
 comments.php	5151	82	.php	propio	se conserva		
-contact-form.php	2396	74	.php	propio	se elimina	E2.A1	formulario de contacto; confirmar en la lectura
-contact-template.php	5455	145	.php	propio	se conserva		
+contact-form.php	2396	74	.php	propio	se elimina	E2.A1	formulario de contacto del tema; el sitio usa Gravity Forms
+contact-template.php	5455	145	.php	propio	se elimina	E2.A1	plantillas sin uso en la BD (decisión 24-nov)
 footer.php	686	19	.php	propio	se conserva		
 functions.php	19554	470	.php	propio	se conserva		
 header.php	5068	114	.php	propio	se conserva		
@@ -13,7 +13,7 @@ index.php	61	5	.php	propio	se conserva
 loop.php	9532	177	.php	propio	se conserva		
 page.php	1333	34	.php	propio	se conserva		
 portfolio_template.php	7456	170	.php	propio	se conserva		
-portfolio_template2.php	6624	152	.php	propio	se conserva		
+portfolio_template2.php	6624	152	.php	propio	se elimina	E2.A1	plantillas sin uso en la BD (decisión 24-nov)
 readme.txt	1664	44	.txt	propio	se conserva		
 responsive.css	3209	174	.css	propio	se conserva		
 screenshot.png	287001		.png	imagen/fuente	se conserva		
@@ -24,10 +24,10 @@ single-portfolio.php	1611	41	.php	propio	se conserva
 single.php	4903	93	.php	propio	se conserva		
 style.css	64633	2705	.css	propio	se conserva		
 taxonomy-portfolio_category.php	4898	116	.php	propio	se conserva		
-under-construction.php	2701	84	.php	propio	se conserva		
-woocommerce.php	1960	43	.php	propio	se conserva		
+under-construction.php	2701	84	.php	propio	se elimina	E2.A1	plantillas sin uso en la BD (decisión 24-nov)
+woocommerce.php	1960	43	.php	propio	se elimina	E2.A1	plantillas sin uso en la BD (decisión 24-nov)
 addons/wp-pagenavi.php	7635	199	.php	tercero	se conserva		
-addons/flickr/jflickrfeed.min.js	1731	16	.js	tercero	por decidir	E2.C2	Flickr: solo si el inventario confirma que no se usa
+addons/flickr/jflickrfeed.min.js	1731	16	.js	tercero	se elimina	E2.C2	Flickr: sin widgets.php nadie lo usa (decisión 24-nov)
 addons/fontawesome/css/font-awesome-ie7.css	42513	1203	.css	tercero	se conserva		
 addons/fontawesome/css/font-awesome-ie7.min.css	38166	384	.css	tercero	se conserva		
 addons/fontawesome/css/font-awesome.css	22996	1338	.css	tercero	se conserva		
@@ -43,12 +43,12 @@ addons/fontawesome/fonts/fontawesome-webfont.svg	202561		.svg	imagen/fuente	se c
 addons/fontawesome/fonts/fontawesome-webfont.ttf	80652		.ttf	imagen/fuente	se conserva		
 addons/fontawesome/fonts/fontawesome-webfont.woff	44432		.woff	imagen/fuente	se conserva		
 css/bootstrap.css	126696	6805	.css	tercero	se conserva		
-css/dynamic-styles.php	13607	201	.php	tercero	se conserva		
+css/dynamic-styles.php	13607	201	.php	propio	se conserva		
 css/flexslider.css	4239	155	.css	tercero	se conserva		
-css/font-awesome.css	22983	1339	.css	tercero	se conserva		
+css/font-awesome.css	22983	1339	.css	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
 css/ie.css	59	4	.css	tercero	se conserva		
 css/jquery.bxslider.css	3808	197	.css	tercero	se conserva		
-css/magnific-popup.css	8052	376	.css	tercero	se conserva		
+css/magnific-popup.css	8052	376	.css	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
 css/prettyPhoto.css	20057	170	.css	tercero	se conserva		
 css/images/bx_loader.gif	8581		.gif	imagen/fuente	se conserva		
 css/images/bxslider-arrow.png	3190		.png	imagen/fuente	se conserva		
@@ -106,45 +106,45 @@ images/prettyPhoto/light_square/default_thumbnail.gif	227		.gif	imagen/fuente	se
 images/prettyPhoto/light_square/loader.gif	2545		.gif	imagen/fuente	se conserva		
 images/prettyPhoto/light_square/sprite.png	3507		.png	imagen/fuente	se conserva		
 js/bootstrap.js	60457	1999	.js	tercero	se conserva		
-js/gmap3.min.js	28687	39	.js	tercero	se conserva		
-js/jquery.bxslider.js	50775	1316	.js	tercero	se conserva		
+js/gmap3.min.js	28687	39	.js	tercero	se elimina	E2.A1	solo los usaban contact-template.php y under-construction.php (decisión 24-nov)
+js/jquery.bxslider.js	50775	1316	.js	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
 js/jquery.bxslider.min.js	19368	10	.js	tercero	se conserva		
-js/jquery.countdown.js	4778	128	.js	tercero	se conserva		
+js/jquery.countdown.js	4778	128	.js	tercero	se elimina	E2.A1	solo los usaban contact-template.php y under-construction.php (decisión 24-nov)
 js/jquery.flexslider.js	41641	896	.js	tercero	se conserva		
 js/jquery.hoverdir.js	5527	220	.js	tercero	se conserva		
 js/jquery.imagesloaded.min.js	1045	3	.js	tercero	se conserva		
 js/jquery.isotope.min.js	37712	8	.js	tercero	se conserva		
-js/jquery.migrate.js	16193	498	.js	tercero	por decidir	E2.D6	Modernizr, nicescroll y Migrate: carga condicional o quitar
-js/jquery.min.js	93111	6	.js	tercero	se conserva		
-js/jquery.nicescroll.min.js	113530	3252	.js	tercero	por decidir	E2.D6	Modernizr, nicescroll y Migrate: carga condicional o quitar
+js/jquery.migrate.js	16193	498	.js	tercero	se elimina	E2.D6	Modernizr, nicescroll y Migrate (decisión 24-nov)
+js/jquery.min.js	93111	6	.js	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jquery.nicescroll.min.js	113530	3252	.js	tercero	se elimina	E2.D6	Modernizr, nicescroll y Migrate (decisión 24-nov)
 js/jquery.prettyPhoto.js	21528	7	.js	tercero	se conserva		
 js/jquery.quovolver.js	14339	348	.js	tercero	se conserva		
 js/jquery.validate.min.js	21496	4	.js	tercero	se conserva		
-js/modernizr.custom.97074.js	8218	4	.js	tercero	por decidir	E2.D6	Modernizr, nicescroll y Migrate: carga condicional o quitar
+js/modernizr.custom.97074.js	8218	4	.js	tercero	se elimina	E2.D6	Modernizr, nicescroll y Migrate (decisión 24-nov)
 js/retina-1.1.0.min.js	3002	10	.js	tercero	se elimina	E2.D1	retina.js
 js/script.js	15853	525	.js	propio	se conserva		
 js/jplayer/Jplayer.swf	8452	32	.swf	tercero	se conserva		
-js/jplayer/circle.player.js	8240	243	.js	tercero	se conserva		
-js/jplayer/jplayer.playlist.min.js	8606	30	.js	tercero	se conserva		
-js/jplayer/jquery.grab.js	5595	201	.js	tercero	se conserva		
-js/jplayer/jquery.jplayer.inspector.js	16496	331	.js	tercero	se conserva		
+js/jplayer/circle.player.js	8240	243	.js	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/jplayer.playlist.min.js	8606	30	.js	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/jquery.grab.js	5595	201	.js	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/jquery.jplayer.inspector.js	16496	331	.js	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
 js/jplayer/jquery.jplayer.min.js	42970	97	.js	tercero	se conserva		
 js/jplayer/jquery.transform.js	13833	532	.js	tercero	se conserva		
-js/jplayer/mod.csstransforms.min.js	2093	2	.js	tercero	se conserva		
-js/jplayer/skin/blue.monday/jplayer.blue.jpg	44375		.jpg	imagen/fuente	se conserva		
-js/jplayer/skin/blue.monday/jplayer.blue.monday.css	16396	691	.css	tercero	se conserva		
-js/jplayer/skin/blue.monday/jplayer.blue.monday.jpg	30028		.jpg	imagen/fuente	se conserva		
-js/jplayer/skin/blue.monday/jplayer.blue.monday.png	7442		.png	imagen/fuente	se conserva		
-js/jplayer/skin/blue.monday/jplayer.blue.monday.seeking.gif	3284		.gif	imagen/fuente	se conserva		
-js/jplayer/skin/blue.monday/jplayer.blue.monday.video.play.png	11800		.png	imagen/fuente	se conserva		
-js/jplayer/skin/blue.monday/jplayer.blue.monday.video.png	11800		.png	imagen/fuente	se conserva		
-js/jplayer/skin/blue.monday/jplayer.blue.monday_old.css	12044	629	.css	tercero	se conserva		
-js/jplayer/skin/circle.skin/bgr.jpg	10757		.jpg	imagen/fuente	se conserva		
-js/jplayer/skin/circle.skin/buffer.png	6208		.png	imagen/fuente	se conserva		
-js/jplayer/skin/circle.skin/circle.player.css	2417	132	.css	tercero	se conserva		
-js/jplayer/skin/circle.skin/controls.jpg	10553		.jpg	imagen/fuente	se conserva		
-js/jplayer/skin/circle.skin/progress.png	7939		.png	imagen/fuente	se conserva		
-js/jplayer/skin/circle.skin/progress_sprite.jpg	79571		.jpg	imagen/fuente	se conserva		
+js/jplayer/mod.csstransforms.min.js	2093	2	.js	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/blue.monday/jplayer.blue.jpg	44375		.jpg	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/blue.monday/jplayer.blue.monday.css	16396	691	.css	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/blue.monday/jplayer.blue.monday.jpg	30028		.jpg	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/blue.monday/jplayer.blue.monday.png	7442		.png	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/blue.monday/jplayer.blue.monday.seeking.gif	3284		.gif	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/blue.monday/jplayer.blue.monday.video.play.png	11800		.png	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/blue.monday/jplayer.blue.monday.video.png	11800		.png	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/blue.monday/jplayer.blue.monday_old.css	12044	629	.css	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/circle.skin/bgr.jpg	10757		.jpg	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/circle.skin/buffer.png	6208		.png	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/circle.skin/circle.player.css	2417	132	.css	tercero	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/circle.skin/controls.jpg	10553		.jpg	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/circle.skin/progress.png	7939		.png	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
+js/jplayer/skin/circle.skin/progress_sprite.jpg	79571		.jpg	imagen/fuente	se elimina	E2.A1	librería sin ninguna referencia en el tema (decisión 24-nov)
 js/jplayer/skin/pink.flag/jplayer.pink.flag.css	12825	644	.css	tercero	se conserva		
 js/jplayer/skin/pink.flag/jplayer.pink.flag.jpg	25945		.jpg	imagen/fuente	se conserva		
 js/jplayer/skin/pink.flag/jplayer.pink.flag.seeking.gif	17316		.gif	imagen/fuente	se conserva		
@@ -152,8 +152,8 @@ js/jplayer/skin/pink.flag/jplayer.pink.flag.video.play.png	8858		.png	imagen/fue
 js/jplayer/skin/pink.flag/jplayer.pink.flag_old.jpg	25405		.jpg	imagen/fuente	se conserva		
 languages/en_US.mo	273		.mo	mo	se conserva		
 languages/en_US.po	9151	551	.po	propio	se conserva		
-languages/es_ES.mo	2747		.mo	mo	se conserva		
-languages/es_ES.po	9540	556	.po	propio	se conserva		
+languages/es_CO.mo	2747		.mo	mo	se conserva		
+languages/es_CO.po	9540	556	.po	propio	se conserva		
 library/class.phpmailer.php	76866	2320	.php	tercero	se elimina	E2.A1	PHPMailer
 library/sendmail.php	835	15	.php	propio	se elimina	E2.A1	envío de correo sin validar (widget de contacto)
 library/admin-panel/admin-functions.php	26611	534	.php	propio	se conserva		
@@ -233,7 +233,7 @@ library/admin-panel/notifier/index.php	0	0	.php	propio	se elimina	E2.A1	notifica
 library/admin-panel/notifier/update-notifier.php	7112	144	.php	propio	se elimina	E2.A1	notificador de actualizaciones
 library/functions/helper-functions.php	11213	340	.php	propio	se conserva		
 library/functions/post-types.php	5481	175	.php	propio	se conserva		
-library/functions/widgets.php	37736	864	.php	propio	se conserva		
+library/functions/widgets.php	37736	864	.php	propio	no se carga	E2.C2	el sitio no usa widgets; producción nunca lo cargó (decisión 24-nov)
 library/functions/shortcodes/shortcode.css	2097	68	.css	propio	se conserva		
 library/functions/shortcodes/shortcode.js	10175	303	.js	propio	se conserva		
 library/functions/shortcodes/shortcode.php	47255	1484	.php	propio	se conserva		

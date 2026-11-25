@@ -11,8 +11,11 @@ Saneamiento corto del tema Kappe 1.6 de 4topixel.com. Trabajamos en español y s
   Nunca toques producción ni te conectes por SSH al servidor.
 - Confirma conmigo cada cambio que no sea pequeño antes de hacerlo. Si una tarea depende de una
   decisión pendiente (SPECS §9), detente y pregunta.
-- No leas el tema completo. Lee `docs/INVENTARIO.md` (cuando exista) y abre solo los archivos de
-  la tarea. Si descubres un dato nuevo, actualiza su entrada.
+- No leas el tema completo. Lee `docs/INVENTARIO.md` (la sección 10 "Índice por tarea" dice qué
+  archivos abrir para cada ID, y cada archivo tiene su entrada con riesgos y tareas) y abre solo
+  los archivos de la tarea. Si descubres un dato nuevo, actualiza su entrada. Los volcados que
+  respaldan el inventario están en `inventario/raw/` y se regeneran con
+  `inventario/scripts/ejecutar-todo.sh` (solo lectura; necesita el sitio encendido en Local).
 - No renombres nada de lo que SPECS §5 lista como datos guardados.
 - Conserva los colores de créditos (#F5F8E3 texto, #34B7AE enlaces) y no cambies tamaños de fuente.
 - El tema vive en `tema/kappe/` (enlazado a LocalWP). `respaldos/` no se sube a Git.
@@ -42,3 +45,10 @@ o si toca seguridad o datos guardados. Haiku solo en las tareas marcadas. Cambia
 - La carpeta del tema se llama `kappe` también en producción (se sobrescribe en su sitio tras el respaldo).
 - Al desplegar, los archivos eliminados en la versión saneada se borran del servidor con `rsync --delete`, siempre con simulación previa (`-n -i`) revisada por Pablo.
 - Staging solo en local: no se crean copias del sitio en DreamHost.
+- Los colores de créditos y los demás ajustes que hoy viven en la BD (opción `css` del panel y CSS adicional del Personalizador) se integran **directamente en los estilos del tema**.
+- El sitio no usa widgets: `widgets.php` no se carga (como en producción).
+- Se eliminan las plantillas que ninguna página usa: `contact-template.php`, `portfolio_template2.php`, `under-construction.php`, `woocommerce.php` (el contacto es Gravity Forms con la plantilla `default`).
+- Las traducciones del tema se llaman `es_CO.po/.mo` (el sitio está en `es_CO`; con `es_ES` no se cargaban).
+- Se quita jQuery Migrate y las librerías que no se usan (las que ningún archivo referencia); no añadir jQuery nuevo. No se reescribe `script.js` en JavaScript puro salvo lo que haga falta al quitar Migrate.
+- Todo el CSS que hoy vive en la BD (opción `css` del panel y CSS adicional del Personalizador, incluido Gravity Forms `.escala-horizontal`, `flow-root` y el menú lateral fijo) se integra en el tema; al desplegar se retiran de la BD.
+- Al quitar las pestañas "Contact settings" y "Under construct." del panel se acepta que se borren sus opciones guardadas (`contact_*`, `uc_*`, `google_api`): ninguna plantilla las usa.

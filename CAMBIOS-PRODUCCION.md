@@ -9,7 +9,7 @@ Diferencias entre el tema que corre en producción (tag `prod-1.6`) y la base de
 - 106 archivos aparecen distintos con `git diff` normal, pero **83 son solo fin de línea**: la 1.6 usa LF y la 2.1 usa CRLF.
 - Ignorando eso (`git diff --ignore-cr-at-eol`) quedan **23 archivos** con cambios reales: 2.431 líneas añadidas y 3.342 quitadas, casi todo por tres archivos (`class.phpmailer.php` +2.320, `jquery.nicescroll.OLD.min.js` −3.252 y `style.css`).
 - Para ver diffs reales: `git diff --ignore-cr-at-eol prod-1.6 base-2.1`.
-- `languages/es_ES.po`, `es_ES.mo` y `en_US.*`: **iguales** entre los dos tags (solo CRLF).
+- `languages/es_ES.po`, `es_ES.mo` y `en_US.*`: **iguales** entre los dos tags (solo CRLF). *(Nota 24-nov: en la rama `desarrollo` los `es_ES.*` se renombraron a `es_CO.*`; los tags no cambian.)*
 - `library/admin-panel/table_process.php` (donde cae la 2.1): sin cambios de contenido entre tags (solo CRLF).
 - `addons/paginajax/`: no existe en ninguno de los dos tags (en producción hay una carpeta vacía que Git no guarda).
 

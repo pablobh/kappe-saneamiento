@@ -32,7 +32,7 @@ TERCEROS = [
     r"^js/(?!script\.js$)",                       # librerías JS (jQuery, Bootstrap, Isotope, prettyPhoto, jPlayer…)
     r"^library/admin-panel/js/(colorpicker|jquery\.ui\.slider)\.js$",
     r"^addons/(fontawesome|flickr)/",
-    r"^css/",                                     # CSS de librerías (Bootstrap, etc.)
+    r"^css/(?!dynamic-styles\.php$)",           # CSS de librerías (Bootstrap, etc.); dynamic-styles.php es propio
     r"^library/class\.phpmailer\.php$",
     r"^library/includes/(OAuth|twitteroauth)\.php$",
     r"^library/admin-panel/google-fonts\.php$",   # lista de Google Fonts
