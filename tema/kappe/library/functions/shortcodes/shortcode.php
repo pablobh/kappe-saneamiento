@@ -613,14 +613,12 @@ function alc_video($atts, $content=null) {
 			'autoplay' => '0'
 		), $atts)
 	);
-	if ( $site == "youtube" ) { $src = 'http://www.youtube.com/embed/'.$id.'?autoplay='.$autoplay; }
-	else if ( $site == "vimeo" ) { $src = 'http://player.vimeo.com/video/'.$id.'?autoplay='.$autoplay; }
-	else if ( $site == "dailymotion" ) { $src = 'http://www.dailymotion.com/embed/video/'.$id.'?autoplay='.$autoplay; }
-	else if ( $site == "veoh" ) { $src = 'http://www.veoh.com/static/swf/veoh/SPL.swf?videoAutoPlay='.$autoplay.'&permalinkId='.$id; }
-	else if ( $site == "bliptv" ) { $src = 'http://a.blip.tv/scripts/shoggplayer.html#file=http://blip.tv/rss/flash/'.$id; }
-	else if ( $site == "viddler" ) { $src = 'http://www.viddler.com/embed/'.$id.'e/?f=1&offset=0&autoplay='.$autoplay; }
+	$src = '';
+	if ( $site == "youtube" ) { $src = 'https://www.youtube-nocookie.com/embed/'.$id.'?autoplay='.$autoplay; }
+	else if ( $site == "vimeo" ) { $src = 'https://player.vimeo.com/video/'.$id.'?autoplay='.$autoplay; }
+	else if ( $site == "dailymotion" ) { $src = 'https://www.dailymotion.com/embed/video/'.$id.'?autoplay='.$autoplay; }
 	
-	if ( $id != '' ) {
+	if ( $id != '' && $src != '' ) {
 		return '<div class="flex-video"><iframe width="'.$width.'" height="'.$height.'" src="'.$src.'" class="vid iframe-'.$site.'"></iframe></div>';
 	}
 }
@@ -1231,7 +1229,7 @@ function alc_list_posts( $atts )
 						if(!empty($thumbnail) && !isset($postmeta['_post_video'])):
 							$return.='<a href="'.get_permalink( $ps->ID ).'" class="post-image">'.$thumbnail.'</a>';
 							elseif (isset($postmeta['_post_video'])):
-							$return.='<iframe src="http://player.vimeo.com/video/'.$postmeta['_post_video'][0].'" width="270" height="180" class="post-image"></iframe>';
+							$return.='<iframe src="https://player.vimeo.com/video/'.$postmeta['_post_video'][0].'" width="270" height="180" class="post-image"></iframe>';
 						else: 
 							$return.='
 							<a href="'.get_permalink( $ps->ID ).'" class="post-image">
@@ -1265,7 +1263,7 @@ function alc_list_posts( $atts )
 				if(!empty($thumbnail) && !isset($postmeta['_post_video'])):
 				$return.='<a href="'.get_permalink( $ps->ID ).'" class="post-image">'.$thumbnail.'</a>';
 				elseif (isset($postmeta['_post_video'])):
-				$return.='<iframe src="http://player.vimeo.com/video/'.$postmeta['_post_video'][0].'" width="270"  class="post-image"></iframe>';
+				$return.='<iframe src="https://player.vimeo.com/video/'.$postmeta['_post_video'][0].'" width="270"  class="post-image"></iframe>';
 				else: 
 				$return.='<a href="'.get_permalink( $ps->ID ).'" class="post-image">
 				<img src = "http://placehold.it/155x112" alt="'.__('No image', 'Kappe').'" />

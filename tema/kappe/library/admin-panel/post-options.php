@@ -122,9 +122,6 @@ function post_options(){
 						"youtube" => "Youtube video" ,
 						"vimeo" => "Vimeo video",
 						"dailymotion" => "Dailymotion video",
-						"veoh" => "Veoh video",
-						"bliptv" => "blipTV video",
-						"viddler" => "Viddler video",
 						"" => "None of the above"
 					))
 				);
@@ -389,7 +386,7 @@ function weblusive_post_options_allowed(){
 		'_weblusive_post_head'   => array( '', 'none', 'slider', 'promotext', 'thumb', 'lightbox' ),
 		'_portfolio_type'        => array( '0', '1' ),
 		'_blog_videoap'          => array( '0', '1' ),
-		'_blog_mediatype'        => array( 'image', 'slider', 'youtube', 'vimeo', 'dailymotion', 'veoh', 'bliptv', 'viddler', '' ),
+		'_blog_mediatype'        => array( 'image', 'slider', 'youtube', 'vimeo', 'dailymotion', '' ),
 	);
 }
 

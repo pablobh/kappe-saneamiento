@@ -935,9 +935,6 @@ if( $page == 'panel' ){
 			<option value="youtube">Youtube</option>
 			<option value="vimeo">Vimeo</option>
 			<option value="dailymotion">Dailymotion</option>
-			<option value="bliptv">BlipTV</option>
-			<option value="veoh">Veoh</option>
-			<option value="viddler">Viddler</option>
 		</select>
 	</p>
 	<p>
