@@ -22,11 +22,8 @@ $incPath 	=  get_template_directory() . '/library/includes/';
 require_once ($funcPath . 'helper-functions.php');
 
 require_once ($incPath . 'the_breadcrumb.php');
-require_once ($incPath . 'OAuth.php');
-require_once ($incPath . 'twitteroauth.php');
 require_once ($incPath . 'portfolio_walker.php');
 require_once ($funcPath . 'post-types.php');
-require_once ($funcPath . 'widgets.php');
 require_once ($funcPath . '/shortcodes/shortcode.php');
 
 include (get_template_directory() . '/library/admin-panel/admin-ui.php');
@@ -65,7 +62,6 @@ function kappe_load_scripts() {
 	wp_enqueue_script('testimonial-script', get_template_directory_uri().'/js/jquery.quovolver.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('bootstrap',  get_template_directory_uri(). '/js/bootstrap.js', array('jquery'), '3.0.1' );
 	wp_enqueue_script('nicescroll',  get_template_directory_uri().'/js/jquery.nicescroll.min.js', array('jquery'), '3.2', true);
-	wp_enqueue_script('flickr', get_template_directory_uri().'/addons/flickr/jflickrfeed.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('Validate',  get_template_directory_uri().'/js/jquery.validate.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('retina', get_template_directory_uri().'/js/retina-1.1.0.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('hoverdir', get_template_directory_uri() .'/js/jquery.hoverdir.js', array('jquery'), '3.2', true);
