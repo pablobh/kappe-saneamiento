@@ -8,7 +8,6 @@ $size = weblusive_get_option('sidebar_size');
 $sidebar_size = (isset($size) && !empty ($size)) ? $size : 'col-md-6';
 $layout_size = ($sidebar_pos === 'full') ? 'col-md-12' : 'col-md-6';
 if ($sidebar_size === 'col-md-3' && $sidebar_pos !== 'full') $layout_size = 'col-md-9';
-$get_meta = get_post_custom($post->ID);
 
 ?>
 <div id="content">

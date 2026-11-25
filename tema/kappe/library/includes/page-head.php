@@ -63,8 +63,10 @@ if(isset( $get_meta['_weblusive_post_head'][0]) && $get_meta['_weblusive_post_he
 			<div id="slider" class="slider sl-slider-wrapper">
                             <div class="flexslider">
                             <ul class="slides">
-					<?php foreach( $slider as $slide ): ?>
-                                            <li><img src="<?php $image =  wp_get_attachment_image_src( $slide['id'], 'full'); echo $image[0] ?>" alt="<?php echo $slide['id'] ?>"/>
+					<?php foreach( $slider as $slide ):
+						$image = wp_get_attachment_image_src( $slide['id'], 'full' );
+						if ( ! $image ) continue; // adjunto borrado: se omite la diapositiva ?>
+                                            <li><img src="<?php echo esc_url( $image[0] ) ?>" alt="<?php echo $slide['id'] ?>"/>
                                                 <div class="flex-caption"><?php if( !empty( $slide['caption'] ) ):?><?php echo wp_kses_post( $slide['caption'] ) ; ?><?php endif; ?></div>
                                             </li>
                    			<?php endforeach; ?>

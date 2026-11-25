@@ -5,7 +5,7 @@ get_header();
 $sidebar = weblusive_get_option('sidebar_portfolio');
 
 $sidebar_pos =  weblusive_get_option('sidebar_pos');
-if (!$sidebar) $sidebarPos = 'full';
+if (!$sidebar) $sidebar_pos = 'full';
 
 $size = weblusive_get_option('sidebar_size');
 $sidebar_size = (isset($size) && !empty ($sidebar)) ? $size : 'col-md-6';

@@ -1,5 +1,5 @@
 <?php get_header();
-get_template_part('portfolio_header'); 
+
 	//global $paged;
  	$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) ); 
 	
@@ -11,12 +11,6 @@ get_template_part('portfolio_header');
 	} else {
 		$paged = 1;
 	}
-	
-	$pageId = $_SESSION['Kappe_page_id'];
-	if (!$pageId) $pageId = get_page_ID_by_page_template('portfolio-template.php');
-	$get_meta = get_post_custom($pageId);
-	$weblusive_sidebar_pos = $get_meta["_weblusive_sidebar_pos"][0];
-	
 	
 	$itemsize = 'column-three';	
 	$itemlayout = 'column4';	
@@ -35,9 +29,9 @@ get_template_part('portfolio_header');
 					$wp_query->the_post();
 					$custom = get_post_custom($post->ID);
 					// Get the portfolio item categories
+					$cat_slugs = '';
 					$cats = wp_get_object_terms($post->ID, 'portfolio_category');
-					if ($cats):
-						$cat_slugs = '';
+					if ($cats && ! is_wp_error($cats)):
 						foreach( $cats as $cat ) {$cat_slugs .= $cat->slug . " ";}
 					endif;
 					$link = ''; $thumbnail = get_the_post_thumbnail($post->ID, $thumbsize);
@@ -82,7 +76,7 @@ get_template_part('portfolio_header');
 											'post_status'    => null,
 											'exclude' => get_post_thumbnail_id()
 										);														
-										$link = $full_image[0];
+										$link = $full_image ? $full_image[0] : '';
 									?>
 									<a href="<?php echo $link ?>" class="zoom-image" data-rel="prettyPhoto[ppgal<?php echo $post->ID?>]" title="<?php echo esc_attr(get_the_title()) ?>"><i class="fa fa-search"></i></a>
 									<?php 

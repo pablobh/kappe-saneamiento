@@ -96,7 +96,7 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
 | ☑ | E2.B5 | Escapar el título de prettyPhoto; iframes de `single.php` por `https` y `youtube-nocookie.com` | T2.9 | Sonnet | 0,5 (hecho 25-nov) |
 | | | **C · Compatibilidad PHP/WordPress** (rama `componente/c-compatibilidad`) | | | |
 | ☑ | E2.C1 | `functions.php`: hooks (`after_setup_theme`, `widgets_init`), text domain `kappe`, doble `style.css`, Google Maps por `https`; `redirect_docs()` y `weblusive_admin_head()` fuera de `weblusive_add_admin()`. **No cambiar los IDs de las barras laterales** que WP genera hoy (comprobarlos antes con WP-CLI). **Decisión 25-nov:** se quita todo lo de IE de `header.php` (html5shiv, `css/ie.css`, `<html>` condicional de IE 8) | T2.7 | **Opus** | 1,5 (hecho 25-nov) |
-| ☐ | E2.C3 | (nuevo, E1.10) Avisos de PHP 8 en plantillas: `taxonomy-portfolio_category.php` (`$get_meta[...][0]` sin `isset`, referencias rotas), `$post->ID` fuera del bucle en `archive.php` y `search.php`, `$sidebarPos` en `single-portfolio.php`; apoyarse en phpcs | T2.10 | Sonnet | 0,5–1 |
+| ☑ | E2.C3 | (nuevo, E1.10) Avisos de PHP 8 en plantillas: `taxonomy-portfolio_category.php` (`$get_meta[...][0]` sin `isset`, referencias rotas), `$post->ID` fuera del bucle en `archive.php` y `search.php`, `$sidebarPos` en `single-portfolio.php`; apoyarse en phpcs | T2.10 | Sonnet | 0,5–1 (hecho 25-nov) |
 | | | **D · Rendimiento** (rama `componente/d-rendimiento`) | | | |
 | ☐ | E2.D1 | Eliminar `retina.js` | T3.1 | Haiku | 0,1 |
 | ☐ | E2.D3 | Quitar `opacity: 0` y el preloader GIF (va antes de D2 para comparar colores sin preloader) | T3.3 | Sonnet | 0,5 |
