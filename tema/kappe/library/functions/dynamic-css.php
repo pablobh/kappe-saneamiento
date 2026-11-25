@@ -1,7 +1,15 @@
-<?php  header("Content-type: text/css; charset: UTF-8"); 
-$parse_uri = explode( 'wp-content', $_SERVER['SCRIPT_FILENAME'] );
-require_once( $parse_uri[0] . 'wp-load.php' );
- 
+<?php
+/*-----------------------------------------------------------------------------------*/
+# Estilos dinámicos del panel (E2.D2)
+# Antes: css/dynamic-styles.php, que se pedía por URL y cargaba wp-load.php en cada
+# visita. Ahora el mismo CSS se genera aquí, se guarda en un transient y sale en línea
+# (wp_add_inline_style) en el mismo punto de la cascada. Los !important del panel se
+# conservan a propósito (decisión de Pablo, 25-nov-2026).
+/*-----------------------------------------------------------------------------------*/
+
+// Súbelo si cambia la plantilla de abajo: invalida el CSS guardado.
+define( 'KAPPE_DYNAMIC_CSS_VER', 1 );
+
 /*-----------------------------------------------------------------------------------*/
 # Get Font Name
 /*-----------------------------------------------------------------------------------*/
@@ -12,6 +20,31 @@ function weblusive_get_font ( $got_font ) {
 		return $font_name;
 	}
 }
+
+// CSS guardado en caché; se regenera si falta o es de otra versión.
+function kappe_get_dynamic_css() {
+	$cached = get_transient( 'kappe_dynamic_css' );
+	if ( is_array( $cached ) && isset( $cached['v'], $cached['css'] ) && KAPPE_DYNAMIC_CSS_VER === $cached['v'] ) {
+		return $cached['css'];
+	}
+	$css = kappe_build_dynamic_css();
+	set_transient( 'kappe_dynamic_css', array( 'v' => KAPPE_DYNAMIC_CSS_VER, 'css' => $css ), DAY_IN_SECONDS );
+	return $css;
+}
+
+// Borra la caché cuando cambian las opciones del panel (guardar, importar) o el tema.
+function kappe_flush_dynamic_css() {
+	delete_transient( 'kappe_dynamic_css' );
+}
+add_action( 'add_option_weblusive_options', 'kappe_flush_dynamic_css' );
+add_action( 'update_option_weblusive_options', 'kappe_flush_dynamic_css' );
+add_action( 'delete_option_weblusive_options', 'kappe_flush_dynamic_css' );
+add_action( 'after_switch_theme', 'kappe_flush_dynamic_css' );
+
+// Genera el CSS (misma salida que el antiguo css/dynamic-styles.php).
+function kappe_build_dynamic_css() {
+	global $custom_typography;
+	ob_start();
 ?>
 <?php $maincolor = weblusive_get_option('global_color'); if($maincolor):?>
 a.comment-reply-link, header .menu-box,#contact-form input[type="submit"], .comment-form input[type="submit"],.btn-Kappe,ul.tab-links li:hover, ul.tab-links li.active,
@@ -198,3 +231,8 @@ echo "\n".$selector."{\n"; ?>
 <?php endif;
 endforeach; ?>
 
+<?php
+	$css = ob_get_clean();
+	// Dentro de <style>: que nada del panel pueda cerrar la etiqueta.
+	return str_ireplace( '</style', '<\/style', $css );
+}

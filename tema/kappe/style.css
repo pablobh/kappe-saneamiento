@@ -2671,3 +2671,35 @@ header{position:relative}
 ul.menu > li > a:after, ul.drop-down > li > a:after{display:none}
 }
 */
+
+/*-------------------------------------------------*/
+/* =  Ajustes de 4topixel (antes en la BD, E2.D2)
+/*    Venían de la opción "css" del panel y del CSS adicional
+/*    del Personalizador; se retiran de la BD al desplegar (E3.5).
+/*    flow-root y el menú lateral fijo siguen en el Personalizador (E2.D4).
+/*-------------------------------------------------*/
+
+.inner-content .row-fluid { background-color: transparent; }
+.inner-content p { line-height: 27px; }
+.inner-content h1 { margin-bottom: 25px; }
+.inner-content hr { border-color: #34b7ae; border-style: dotted; }
+.inner-content { color: #424242; }
+header .logo-box { background-color: #f5f8e3; }
+
+/* Gravity Forms: opciones de la escala en horizontal */
+.escala-horizontal .gfield_radio { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+
+/* Créditos del pie: texto y enlace accesibles.
+   El !important hace falta: la tipografía general del panel pone p { color … !important } */
+header .copyright-box .copyright { color: #F5F8E3 !important; }
+header .copyright-box .copyright a {
+    color: #34B7AE;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+header .copyright-box .copyright a:hover,
+header .copyright-box .copyright a:focus { color: #FFFFFF; }
+header .copyright-box .copyright a:focus-visible {
+    outline: 2px solid #34B7AE;
+    outline-offset: 2px;
+}

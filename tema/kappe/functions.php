@@ -45,6 +45,7 @@ $funcPath 	=  get_template_directory() . '/library/functions/';
 $incPath 	=  get_template_directory() . '/library/includes/';
 
 require_once ($funcPath . 'helper-functions.php');
+require_once ($funcPath . 'dynamic-css.php');
 
 require_once ($incPath . 'the_breadcrumb.php');
 require_once ($incPath . 'portfolio_walker.php');
@@ -68,7 +69,10 @@ function kappe_load_styles() {
 	wp_enqueue_style('bx-slider-styles',  get_template_directory_uri().'/css/jquery.bxslider.css');
 	wp_enqueue_style('font-awesome',  get_template_directory_uri().'/addons/fontawesome/css/font-awesome.min.css');
 	wp_enqueue_style('jplayer-styles',  get_template_directory_uri().'/js/jplayer/skin/pink.flag/jplayer.pink.flag.css',false,'3.0.1','all');
-	wp_enqueue_style('dynamic-styles',  get_template_directory_uri().'/css/dynamic-styles.php');
+	// Estilos del panel en línea, en el mismo punto de la cascada (E2.D2)
+	wp_register_style('dynamic-styles', false);
+	wp_enqueue_style('dynamic-styles');
+	wp_add_inline_style('dynamic-styles', kappe_get_dynamic_css());
 	wp_enqueue_style('pretty-photo',  get_template_directory_uri().'/css/prettyPhoto.css');
 }                
 
@@ -106,6 +110,7 @@ add_action( 'wp_enqueue_scripts', 'Kappe_fonts' );
 /*-----------------------------------------------------------------------------------*/
 # Typography Elements Array
 /*-----------------------------------------------------------------------------------*/
+global $custom_typography; // global también si functions.php se carga dentro de una función (WP-CLI)
 $custom_typography = array(
 	"body, .post-content, .full-page, .contact-info, .project-post-content, .about-section p, p, li, td"   =>	"typography_general",
 	"p.slogan"                                              =>	"typography_site_title",

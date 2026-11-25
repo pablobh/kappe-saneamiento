@@ -206,9 +206,9 @@ function HexToRGB($hex) {
 		$color = array();
 		
 		if(strlen($hex) == 3) {
-			$color['r'] = hexdec(substr($hex, 0, 1) . $r);
-			$color['g'] = hexdec(substr($hex, 1, 1) . $g);
-			$color['b'] = hexdec(substr($hex, 2, 1) . $b);
+			$color['r'] = hexdec(str_repeat(substr($hex, 0, 1), 2));
+			$color['g'] = hexdec(str_repeat(substr($hex, 1, 1), 2));
+			$color['b'] = hexdec(str_repeat(substr($hex, 2, 1), 2));
 		}
 		else if(strlen($hex) == 6) {
 			$color['r'] = hexdec(substr($hex, 0, 2));
