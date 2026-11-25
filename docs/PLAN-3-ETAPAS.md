@@ -59,7 +59,7 @@ La Fase 0 ya está hecha (archivos expuestos borrados, Cloudflare con rate limit
 | ☐ | ID | Tarea | Antes | Modelo |
 |---|---|---|---|---|
 | ☐ | E1.1 | LocalWP con BD y uploads de producción, PHP 8.4 y 8.5 (PHP 8.4 listo y verificado el 24-nov: `wp-content`, tema y WP-CLI coinciden con producción; falta PHP 8.5) | T1.1 | Sonnet |
-| ☐ | E1.2 | Repo Git (commit 1 = tema 1.6 de producción; commit 2 = base 2.1 + `es_ES`) y `CAMBIOS-PRODUCCION.md` (repo y GitHub listos; falta `CAMBIOS-PRODUCCION.md`) | T1.2 | Sonnet |
+| ☑ | E1.2 | Repo Git (commit 1 = tema 1.6 de producción; commit 2 = base 2.1 + `es_ES`) y `CAMBIOS-PRODUCCION.md` (hecho 24-nov) | T1.2 | Sonnet |
 | ☐ | E1.3 | Revisar las diferencias producción-vs-2.1 pendientes: `script.js`, `prettyPhoto.js`, `addons/paginajax`, `es_ES.po` | ESTADO #4 | Sonnet |
 | ☐ | E1.4 | Confirmar la causa de la caída de la 2.1 (`table_process.php:99`) | T1.3 | Sonnet |
 | ☐ | E1.5a | Scripts de extracción (paso 1 de `INVENTARIO.md`) | T1.4 | Sonnet |

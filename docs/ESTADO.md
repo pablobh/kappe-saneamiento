@@ -20,6 +20,7 @@
   - Copia local en LocalWP: sitio `4topixel` (https://4topixel.local, PHP 8.4), con la BD y `wp-content` de producción. Desactivados en local: wordfence, wp-cloudflare-page-cache, google-site-kit y worker. Prefijo de tablas `p1x3l4d0s_`. La verificación con WP-CLI coincide con producción (mismo contenido); local sirve la 2.1 y producción la 1.6. Quedan 12 tablas `wp_*` sobrantes de la instalación vacía de Local (opcional borrarlas).
   - Línea base con la 1.6 en curso (worktree `~/Projects/kappe-prod16` y enlace de Local apuntando a él): capturas hechas; Lighthouse corriendo. Al terminar, volver el enlace a `~/Projects/kappe-saneamiento/tema/kappe`.
   - Hallazgo: `ajax-load-more.php` carga `../../../wp-load.php` con ruta relativa y el enlace simbólico la rompe. Solución solo local: puente `~/Projects/wp-load.php` (se borra al terminar E2.B1).
+- **E1.2 cerrada (24-nov):** `CAMBIOS-PRODUCCION.md` en la raíz. De 106 archivos distintos entre `prod-1.6` y `base-2.1`, 83 son solo fin de línea (1.6 en LF, 2.1 en CRLF); quedan 23 con cambios reales (`git diff --ignore-cr-at-eol`). `es_ES.po` y `table_process.php` no cambian de contenido.
 
 ## Decisiones del 24-nov
 - **El despliegue final lo hace Pablo.** Claude solo desarrolla y prueba en local y entrega el paquete con instrucciones (E3.5).
