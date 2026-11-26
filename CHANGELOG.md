@@ -63,3 +63,13 @@ Pablo lo revisa en la Puerta 2.
 - Qué debe probar Pablo: la portada con la barra de scroll nativa; la portada y el menú a 768 px y con pantalla baja (menú con scroll); el lightbox de YouTube del portafolio; las fuentes sin cambios visibles.
 - Pruebas hechas en local: `php -l` 8.2/8.4/8.5 y `node --check` OK; PHPCompatibilityWP 8.2- sin errores; `/`, `/blog/`, `/nuestro-equipo/`, `/servicios/`, `/contactanos/`, `/trabaja-con-nosotros/` y `/politica-de-privacidad/` dan 200; estilos calculados iguales a 1440 y 390 px (en 768 px el menú queda fijo, es el cambio buscado); el log de PHP sigue en 778 líneas, sin avisos nuevos.
 - Cómo deshacerlo: revertir los commits de la lista anterior, en orden inverso.
+
+### E2.E · SEO y HTML (2026-11-26) · rama `componente/e-seo-html`
+- Qué cambió:
+  - E2.E1: `<h1>` oculto (`kappe_h1()`, clase `.kappe-h1`) en portafolio, blog, archivo, búsqueda y categoría del portafolio (los `<h1>` del contenido de las páginas no se tocan); `add_theme_support('title-tag')` y fuera el `<title>` manual; `alt` de las tarjetas del portafolio (el del adjunto o, si está vacío, el título del proyecto); título de cada tarjeta como enlace real al proyecto; `alt` del blog arreglado. Sin `srcset`/`sizes` en las miniaturas (se decide en E3.4 según Lighthouse).
+  - E2.E2: viewport sin `maximum-scale=1`; `wp_body_open()` tras `<body>`.
+  - E2.E3 (opción mínima): `.tab-content` de `#a3a3a3` a `#6f6f6f`, enlaces `tel:` del contenido a `#2a6496`, y fuera dos `outline:none` (campo de búsqueda y cierre del lightbox). **Sin tocar, a decidir:** blanco sobre turquesa `#34B7AE` en el menú (2,46), hover de las tarjetas (2,1), `h1` turquesa (2,24) y submenú (2,87); propuesta `#1E7F78`.
+- Archivos tocados: `header.php`, `style.css`, `portfolio_template.php`, `taxonomy-portfolio_category.php`, `blog-template.php`, `archive.php`, `search.php`, `loop.php`, `library/functions/helper-functions.php`, `functions.php`. Commits `da7d6e0` (E1), `a8a969b` (E2) y el de E3.
+- Qué debe probar Pablo: un solo `<h1>` por página; el título de las pestañas del navegador (Yoast sigue gestionándolo); las tarjetas del portafolio (el título es enlace, mismo aspecto); el texto de `/servicios/` y el teléfono de `/contactanos/` con los colores nuevos; el foco con Tab en el menú, la búsqueda y el lightbox.
+- Pruebas hechas en local: `php -l` 8.x y PHPCompatibilityWP 8.2- sin errores (E1/E2); 9 URL dan 200 sin avisos; estilos calculados iguales a 1440, 768 y 390 px salvo el `alt` del blog (mejora pedida); contraste medido con Playwright; log de PHP sin líneas nuevas (831).
+- Cómo deshacerlo: revertir los commits de la lista anterior, en orden inverso.

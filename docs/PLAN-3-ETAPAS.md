@@ -108,7 +108,7 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
 | | | **E · SEO del lado del tema** (rama `componente/e-seo-html`) | | | |
 | ☑ | E2.E1 | (hecho 26-nov: `<h1>` oculto `kappe_h1()` en portafolio, blog, archivo, búsqueda y categoría; los `<h1>` del contenido de las páginas no se tocan, decisión de Pablo; `title-tag`; `alt` del portafolio; título de tarjeta con enlace real; `alt` del blog arreglado; sin `srcset`: no hay otro tamaño con la misma proporción) Un solo `<h1>`; `title-tag`; `alt` del portafolio; tarjetas con `<a href>` real; corregir el `alt` literal `'.__('No image', 'Kappe').'` de las tarjetas del blog (hallazgo de E1.6) | T3B.1, T3B.3, T3B.5, T3B.6 | Sonnet | 1–1,5 |
 | ☑ | E2.E2 | (hecho 26-nov: viewport sin `maximum-scale=1`; `wp_body_open()` tras `<body>` en `header.php`, con `function_exists`; `lang` ya resuelto en E2.C1) Viewport sin `maximum-scale=1`; `wp_body_open()`; `lang` (ya resuelto en E2.C1: el `lang="en"` fijo era de la rama de IE 8, que se quitó) | T3B.2, T3B.4 | Haiku | 0,2 |
-| ☐ | E2.E3 | Contraste AA y foco visible | T3B.7 | Sonnet | 0,5–1 |
+| ☑ | E2.E3 | (hecho 26-nov, opción mínima: teléfono `#2a6496`, `.tab-content` `#6f6f6f`, quitados 2 `outline:none`; turquesas pendientes de decisión, ver ESTADO) Contraste AA y foco visible | T3B.7 | Sonnet | 0,5–1 |
 
 **Fuera del saneamiento (decidido en E1.10):** `post_type_link` (`strpos` al revés; arreglarlo podría cambiar las URL `/works/`), `my_option_posts_per_page` (se mantienen las 4 por página en categorías del portafolio), cargar el panel solo en el admin (~0,7 ms, riesgo con el CPT `weblusive_slider`), shortcodes sin uso y el escapado de sus atributos (SPECS §1; los botones de TinyMCE se quedan) y `comments.php` (comentarios desactivados).
 

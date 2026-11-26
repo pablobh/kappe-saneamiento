@@ -810,10 +810,6 @@ ul {
     -ms-transform: scale(1.0);
 }
 
-.mfp-zoom-out-cur .mfp-image-holder .mfp-close {
-    outline: none;
-}
-
 .blog-page-link {
     display: block;
     margin: 13px auto;
@@ -1955,7 +1951,6 @@ a.comment-reply-link:hover{
     padding: 15px 20px;
     border: 1px solid #e9e9e9;
     width: 100%;
-    outline: none;
 }
 
 .search-widget input[type="search"]:focus {
@@ -2133,7 +2128,7 @@ transition: all 0.17s ease-in-out;
 .square{border-radius:  0;}
 .btn i{margin-right: 5px;}
 .tab-content{
-    color: #a3a3a3;
+    color: #6f6f6f;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -2728,3 +2723,6 @@ header .copyright-box .copyright a:focus-visible {
 	font: inherit;
 	text-decoration: none;
 }
+
+/* E2.E3: contraste AA (enlace del teléfono y texto de pestañas); foco visible en búsqueda y cierre del lightbox */
+.inner-content a[href^="tel:"] { color: #2a6496; }
