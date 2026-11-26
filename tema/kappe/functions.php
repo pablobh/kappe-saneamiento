@@ -102,7 +102,7 @@ add_action( 'wp_enqueue_scripts', 'kappe_load_scripts' );
 // Load Google Fonts
 function Kappe_fonts() {
     $protocol = is_ssl() ? 'https' : 'http';
-    wp_enqueue_style( 'Kappe-opensans', "$protocol://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic" );
+    wp_enqueue_style( 'Kappe-opensans', "$protocol://fonts.googleapis.com/css?family=Roboto:300,300italic,400,500,500italic,700,700italic&display=swap" );
     }
 add_action( 'wp_enqueue_scripts', 'Kappe_fonts' );
 
