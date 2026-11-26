@@ -112,45 +112,6 @@ var sliderBanner = $('#banner .bxslider');
 	}
 	
 	
-	/*-------------------------------------------------*/
-	/* =  header height fix
-	/*-------------------------------------------------*/
-	
-	/*var bodyHeight = $(window).outerHeight();
-	var containerHeight = $('.inner-content').outerHeight();
-	var headerHeight = $('header').outerHeight();
-	
-	if( headerHeight > containerHeight ) {
-		$('#map').css('height', headerHeight);
-	} else {
-		$('header').css('height', containerHeight);
-		$('#map').css('height', containerHeight);
-	}*/
-	var content = $('#content');
-	content.imagesLoaded( function(){
-		var bodyHeight = $(window).outerHeight(),
-		containerHeight = $('.inner-content').outerHeight(),
-		headerHeight = $('header');
-
-		if( bodyHeight > containerHeight ) {
-			headerHeight.css('height',bodyHeight);
-		} else {
-			headerHeight.css('height',containerHeight);	
-		}
-	});
-
-	winDow.bind('resize', function(){
-		var bodyHeight = $(window).outerHeight(),
-		containerHeight = $('.inner-content').outerHeight(),
-		headerHeight = $('header');
-
-		if( bodyHeight > containerHeight ) {
-			headerHeight.css('height',bodyHeight);
-		} else {
-			headerHeight.css('height',containerHeight);	
-		}
-	});
-
 	/* ---------------------------------------------------------------------- */
 	/*	nice scroll
 	/* ---------------------------------------------------------------------- */
