@@ -33,6 +33,7 @@ else
 $loop = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => $items_per_page[0])); 
 ?>
 <div id="content">
+<?php kappe_h1(); ?>
 
 <?php if ( post_password_required() ) {
  
@@ -90,15 +91,15 @@ $loop = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => $item
                             <?php if (!empty($thumbnail)): ?>
 								<?php
 									// Primera fila (4 columnas en escritorio): carga inmediata; la primera imagen, con prioridad alta (LCP).
-									$img_attr = array('class' => 'cover', 'loading' => $wp_query->current_post < 4 ? 'eager' : 'lazy');
+									$img_attr = array('class' => 'cover', 'alt' => kappe_thumb_alt(), 'loading' => $wp_query->current_post < 4 ? 'eager' : 'lazy');
 									if ($wp_query->current_post === 0) { $img_attr['fetchpriority'] = 'high'; }
 									the_post_thumbnail($thumbsize, $img_attr); ?>
 							<?php else :?>
-								 <img src="http://placehold.it/405x311" alt="<?php _e ('No preview image', 'SDSU') ?>" />
+								 <img src="http://placehold.it/405x311" alt="<?php echo esc_attr( get_the_title() ) ?>" />
 							<?php endif?>
                             <div class="hover-box">
 								<div class="project-title">
-									<h2><?php the_title() ?></h2>                                    
+									<h2><a class="kappe-card-link" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>                                    
 									<span><?php echo $cat_names; ?></span>
 								</div>
 								<ul class="project-links">

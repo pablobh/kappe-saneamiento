@@ -10,6 +10,7 @@ $layout_size = ($sidebar_pos === 'full') ? 'col-md-12' : 'col-md-6';
 if ($sidebar_size === 'col-md-3' && $sidebar_pos !== 'full') $layout_size = 'col-md-9';
 ?>
 <div id="content">
+<?php kappe_h1( wp_strip_all_tags( get_the_archive_title() ) ); ?>
     <div class="inner-content blog-content">
 		<?php if ($sidebar_pos == 'left' && $sidebar):?><aside class="<?php echo $sidebar_size?> spart left-side" id="sidebar"><?php get_sidebar($sidebar); ?></aside><?php endif; ?>
 		<div class="<?php echo $layout_size ?>">

@@ -810,10 +810,6 @@ ul {
     -ms-transform: scale(1.0);
 }
 
-.mfp-zoom-out-cur .mfp-image-holder .mfp-close {
-    outline: none;
-}
-
 .blog-page-link {
     display: block;
     margin: 13px auto;
@@ -1955,7 +1951,6 @@ a.comment-reply-link:hover{
     padding: 15px 20px;
     border: 1px solid #e9e9e9;
     width: 100%;
-    outline: none;
 }
 
 .search-widget input[type="search"]:focus {
@@ -2133,7 +2128,7 @@ transition: all 0.17s ease-in-out;
 .square{border-radius:  0;}
 .btn i{margin-right: 5px;}
 .tab-content{
-    color: #a3a3a3;
+    color: #6f6f6f;
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -2707,3 +2702,27 @@ header .copyright-box .copyright a:focus-visible {
     outline: 2px solid #34B7AE;
     outline-offset: 2px;
 }
+
+/* E2.E1: <h1> solo para lectores de pantalla y enlace del título en las tarjetas del portafolio */
+.kappe-h1 {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+.project-title h2 a.kappe-card-link,
+.project-title h2 a.kappe-card-link:hover,
+.project-title h2 a.kappe-card-link:focus {
+	color: inherit;
+	font: inherit;
+	text-decoration: none;
+}
+
+/* E2.E3: contraste AA (enlace del teléfono y texto de pestañas); foco visible en búsqueda y cierre del lightbox */
+.inner-content a[href^="tel:"] { color: #2a6496; }

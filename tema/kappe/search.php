@@ -11,6 +11,7 @@ if ($sidebar_size === 'col-md-3' && $sidebar_pos !== 'full') $layout_size = 'col
 
 ?>
 <div id="content">
+<?php kappe_h1( sprintf( __( 'Search Results for: %s' ), get_search_query() ) ); ?>
     <div class="inner-content blog-content">
 		<?php if ($sidebar_pos == 'left'):?><aside class="<?php echo $sidebar_size?> spart left-side" id="sidebar"><?php get_sidebar($sidebar); ?></aside><?php endif; ?>
 			<div class="<?php echo $layout_size ?>">
