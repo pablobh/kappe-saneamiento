@@ -68,7 +68,6 @@ function kappe_load_styles() {
 	wp_enqueue_style('flex-slider-styles',  get_template_directory_uri().'/css/flexslider.css');
 	wp_enqueue_style('bx-slider-styles',  get_template_directory_uri().'/css/jquery.bxslider.css');
 	wp_enqueue_style('font-awesome',  get_template_directory_uri().'/addons/fontawesome/css/font-awesome.min.css');
-	wp_enqueue_style('jplayer-styles',  get_template_directory_uri().'/js/jplayer/skin/pink.flag/jplayer.pink.flag.css',false,'3.0.1','all');
 	// Estilos del panel en línea, en el mismo punto de la cascada (E2.D2)
 	wp_register_style('dynamic-styles', false);
 	wp_enqueue_style('dynamic-styles');
@@ -78,20 +77,15 @@ function kappe_load_styles() {
 
 function kappe_load_scripts() { 		
 	wp_enqueue_script('jquery');
-	wp_enqueue_script('migrate',  get_template_directory_uri(). '/js/jquery.migrate.js', array('jquery'), '3.2', true);
-	wp_enqueue_script('modernizer',  get_template_directory_uri(). '/js/modernizr.custom.97074.js');
 	
 	
 	wp_enqueue_script('imgload-script', get_template_directory_uri().'/js/jquery.imagesloaded.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('isotope', get_template_directory_uri() .'/js/jquery.isotope.min.js', array('jquery'), '3.2', true);
-	wp_enqueue_script('jplayer-audio',  get_template_directory_uri().'/js/jplayer/jquery.jplayer.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('prettyp', get_template_directory_uri().'/js/jquery.prettyPhoto.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('flex-slider', get_template_directory_uri().'/js/jquery.flexslider.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('bx-slider', get_template_directory_uri().'/js/jquery.bxslider.min.js', array('jquery'), '3.2', true);
 	wp_enqueue_script('testimonial-script', get_template_directory_uri().'/js/jquery.quovolver.js', array('jquery'), '3.2', true);
-	wp_enqueue_script('bootstrap',  get_template_directory_uri(). '/js/bootstrap.js', array('jquery'), '3.0.1' );
-	wp_enqueue_script('nicescroll',  get_template_directory_uri().'/js/jquery.nicescroll.min.js', array('jquery'), '3.2', true);
-	wp_enqueue_script('Validate',  get_template_directory_uri().'/js/jquery.validate.min.js', array('jquery'), '3.2', true);
+	wp_enqueue_script('bootstrap',  get_template_directory_uri(). '/js/bootstrap.js', array('jquery'), '3.0.1', array('in_footer' => true, 'strategy' => 'defer') );
 	wp_enqueue_script('hoverdir', get_template_directory_uri() .'/js/jquery.hoverdir.js', array('jquery'), '3.2', true);
 	
 	wp_enqueue_script('custom-scripts', get_template_directory_uri() .'/js/script.js', array('jquery'), '3.2', true);

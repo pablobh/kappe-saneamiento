@@ -869,14 +869,6 @@ ul {
 }
 
 
-.nicescroll-rails {
-    z-index: 999999!important;
-}
-.nicescroll-rails div{
-    background: #1ab5b3;
-}
-
-
 .project-title {
     padding: 22px 25px;
 }

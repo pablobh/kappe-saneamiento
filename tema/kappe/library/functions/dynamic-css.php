@@ -8,7 +8,7 @@
 /*-----------------------------------------------------------------------------------*/
 
 // Súbelo si cambia la plantilla de abajo: invalida el CSS guardado.
-define( 'KAPPE_DYNAMIC_CSS_VER', 1 );
+define( 'KAPPE_DYNAMIC_CSS_VER', 2 );
 
 /*-----------------------------------------------------------------------------------*/
 # Get Font Name
@@ -49,7 +49,7 @@ function kappe_build_dynamic_css() {
 <?php $maincolor = weblusive_get_option('global_color'); if($maincolor):?>
 a.comment-reply-link, header .menu-box,#contact-form input[type="submit"], .comment-form input[type="submit"],.btn-Kappe,ul.tab-links li:hover, ul.tab-links li.active,
 .team-hover,.client-test h3, .blog-page-link,#wp-calendar caption, .bx-controls-direction a:hover, .toggle-trigger.open,
-.nicescroll-rails div, #contactFormWidget .col-md-12 input[type='submit'], #banner .bx-wrapper, .sticky .post-content,
+#contactFormWidget .col-md-12 input[type='submit'], #banner .bx-wrapper, .sticky .post-content,
 ul.tab-links li:hover, ul.tab-links li a.active, 
 ul.menu li.active a, ul.menu li.current-menu-item a:after, ul.menu li.current-menu-parent > a:after, 
 ul.menu > li > a:hover:after, ul.drop-down li > a:hover:after, ul.menu li.active a:after,

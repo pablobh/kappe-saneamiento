@@ -145,26 +145,6 @@
 				ed.windowManager.open({file : url + '/ui.php?page=video',width : 600 ,	height : 260 ,	inline : 1});
 			});
 
-			//Add Audio
-			ed.addButton('Audio', {
-				title : 'Add self-hosted audio',
-				cmd : 'alc_audio',
-				image : url + '/images/audio.png'
-			});
-			ed.addCommand('alc_audio', function() {
-				ed.windowManager.open({file : url + '/ui.php?page=audio',width : 600 ,	height : 260 ,	inline : 1});
-			});
-                        
-                        //Add Self Hosted Video
-			ed.addButton('Shvideo', {
-				title : 'Add self-hosted video',
-				cmd : 'alc_shvideo',
-				image : url + '/images/shvideo.png'
-			});
-			ed.addCommand('alc_shvideo', function() {
-				ed.windowManager.open({file : url + '/ui.php?page=shvideo',width : 600 ,	height : 260 ,	inline : 1});
-			});
-                        
 			//Add Slider
 			ed.addButton('Slider', {
 				title : 'Add Slider',

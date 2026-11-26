@@ -36,7 +36,7 @@
 			// transition properties
 			this.transitionProp = 'all ' + this.options.speed + 'ms ' + this.options.easing;
 			// support for CSS transitions
-			this.support = Modernizr.csstransitions;
+			this.support = true; // todos los navegadores actuales soportan transiciones CSS (antes: Modernizr.csstransitions)
 			// load the events
 			this._loadEvents();
 
@@ -144,7 +144,7 @@
 			return { from : fromStyle, to : toStyle };
 					
 		},
-		// apply a transition or fallback to jquery animate based on Modernizr.csstransitions support
+		// apply a transition or fallback to jquery animate based on support
 		_applyAnimation : function( el, styleCSS, speed ) {
 
 			$.fn.applyStyle = this.support ? $.fn.css : $.fn.animate;

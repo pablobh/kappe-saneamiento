@@ -113,20 +113,6 @@ var sliderBanner = $('#banner .bxslider');
 	
 	
 	/* ---------------------------------------------------------------------- */
-	/*	nice scroll
-	/* ---------------------------------------------------------------------- */
-
-	try {
-		var HTMLcontainer = $("html");
-		HTMLcontainer.niceScroll({
-			//autohidemode : false
-			//cursorcolor:"#2fbab9"
-		});
-	} catch(err) {
-
-	}
-
-	/* ---------------------------------------------------------------------- */
 	/*	info box toggle
 	/* ---------------------------------------------------------------------- */
 
@@ -183,7 +169,7 @@ var sliderBanner = $('#banner .bxslider');
 	/*-------------------------------------------------*/
 	try{
 		var testimUl = $('.testimonial ul');
-               if($('.testimonial ul li').size()>1){
+               if($('.testimonial ul li').length>1){
 		testimUl.quovolver({
 			transitionSpeed:300,
 			autoPlay:true
