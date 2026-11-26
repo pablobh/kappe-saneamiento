@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="alternate" type="application/rss+xml" title="RSS2.0" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -17,6 +17,7 @@
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php if ( function_exists( 'wp_body_open' ) ) { wp_body_open(); } ?>
 <div id="container">
 	<?php if (!is_page_template('under-construction.php')):?>	
 		<?php if(weblusive_get_option('layout_type')=='boxed'):?><div id="boxed"><?php endif?>
