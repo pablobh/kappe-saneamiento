@@ -97,22 +97,6 @@ var sliderBanner = $('#banner .bxslider');
 	});
 
 	/*-------------------------------------------------*/
-	/* =  preloader function
-	/*-------------------------------------------------*/
-	var body = $('body');
-	body.addClass('active');
-
-	winDow.load( function(){
-		var mainDiv = $('#container'),
-			preloader = $('.preloader');
-
-			preloader.fadeOut(400, function(){
-				mainDiv.delay(400).addClass('active');
-				body.delay(400).css('background', '#b4b7b8');
-			});
-	});
-
-	/*-------------------------------------------------*/
 	/* =  flexslider
 	/*-------------------------------------------------*/
 	try {
@@ -128,59 +112,6 @@ var sliderBanner = $('#banner .bxslider');
 	}
 	
 	
-	/*-------------------------------------------------*/
-	/* =  header height fix
-	/*-------------------------------------------------*/
-	
-	/*var bodyHeight = $(window).outerHeight();
-	var containerHeight = $('.inner-content').outerHeight();
-	var headerHeight = $('header').outerHeight();
-	
-	if( headerHeight > containerHeight ) {
-		$('#map').css('height', headerHeight);
-	} else {
-		$('header').css('height', containerHeight);
-		$('#map').css('height', containerHeight);
-	}*/
-	var content = $('#content');
-	content.imagesLoaded( function(){
-		var bodyHeight = $(window).outerHeight(),
-		containerHeight = $('.inner-content').outerHeight(),
-		headerHeight = $('header');
-
-		if( bodyHeight > containerHeight ) {
-			headerHeight.css('height',bodyHeight);
-		} else {
-			headerHeight.css('height',containerHeight);	
-		}
-	});
-
-	winDow.bind('resize', function(){
-		var bodyHeight = $(window).outerHeight(),
-		containerHeight = $('.inner-content').outerHeight(),
-		headerHeight = $('header');
-
-		if( bodyHeight > containerHeight ) {
-			headerHeight.css('height',bodyHeight);
-		} else {
-			headerHeight.css('height',containerHeight);	
-		}
-	});
-
-	/* ---------------------------------------------------------------------- */
-	/*	nice scroll
-	/* ---------------------------------------------------------------------- */
-
-	try {
-		var HTMLcontainer = $("html");
-		HTMLcontainer.niceScroll({
-			//autohidemode : false
-			//cursorcolor:"#2fbab9"
-		});
-	} catch(err) {
-
-	}
-
 	/* ---------------------------------------------------------------------- */
 	/*	info box toggle
 	/* ---------------------------------------------------------------------- */
@@ -238,7 +169,7 @@ var sliderBanner = $('#banner .bxslider');
 	/*-------------------------------------------------*/
 	try{
 		var testimUl = $('.testimonial ul');
-               if($('.testimonial ul li').size()>1){
+               if($('.testimonial ul li').length>1){
 		testimUl.quovolver({
 			transitionSpeed:300,
 			autoPlay:true

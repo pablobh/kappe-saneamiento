@@ -49,3 +49,17 @@ Pablo lo revisa en la Puerta 2.
 - Qué debe probar Pablo: que los textos del tema sigan en español (p. ej. "(Editar)"), el menú principal y las páginas del admin del tema.
 - Pruebas hechas en local: foto WP-CLI antes/después idéntica (barras, tamaños de imagen, soportes y menús); lint 8.2/8.4/8.5 y PHPCompatibilityWP 8.2- sin errores; portada, servicios, blog, búsqueda y proyecto 2467 dan 200 sin avisos; panel, escritorio, "Sort items" y edición de un proyecto dan 200 sin avisos; log de PHP sin líneas nuevas.
 - Cómo deshacerlo: revertir el commit de E2.C1.
+
+### E2.D · Rendimiento (2026-11-26) · rama `componente/d-rendimiento`
+- Qué cambió:
+  - E2.D1: eliminado `retina.js` (encolado y archivo).
+  - E2.D3: fuera `opacity: 0` y el preloader (CSS, JS, `footer.php` y el GIF); la opción `disable_loader` sale del panel.
+  - E2.D2: estilos del panel en línea con caché (transient `kappe_dynamic_css`); el CSS que vivía en la BD (colores de créditos, `.inner-content`, `header .logo-box`, `.escala-horizontal` de Gravity Forms) pasa a `style.css`. Los `!important` del panel se conservan (decisión de Pablo).
+  - E2.D4: altura del menú lateral solo con CSS (`100dvh`, `flow-root`, menú fijo desde 768 px); fuera el JS que fijaba la altura del `header`.
+  - E2.D5: Roboto solo con los pesos usados (300, 300i, 400, 500, 500i, 700, 700i) y `display=swap`.
+  - E2.D6: fuera Migrate 1.0 del tema, Modernizr, nicescroll (la barra de scroll pasa a ser la nativa), jQuery Validate y jPlayer con `[audio]` y `[shvideo]`; Bootstrap con `defer`; `.size()` pasa a `.length`.
+  - E2.D7: `loading="eager"` en las 4 primeras tarjetas del portafolio y `fetchpriority="high"` en la primera; `fetchpriority="high"` en la primera diapositiva de `page-head.php`.
+- Archivos tocados: `functions.php`, `style.css`, `js/script.js`, `library/functions/dynamic-css.php`, `footer.php`, `library/admin-panel/admin-ui.php`, `library/includes/page-head.php`, `portfolio_template.php`, `js/jquery.hoverdir.js`, y se eliminan `js/retina-1.1.0.min.js`, `images/preloader.gif`, `js/jplayer/`, `js/jquery.migrate.js` y Modernizr. Commits: `b64daa4` (D1), `a02036b` y `ab18de8` (D3), `8804cbf` (D2), `aba652d` (D4), `b424999` (D5), `319c829` (D6); D7 en el commit `E2.D7`.
+- Qué debe probar Pablo: la portada con la barra de scroll nativa; la portada y el menú a 768 px y con pantalla baja (menú con scroll); el lightbox de YouTube del portafolio; las fuentes sin cambios visibles.
+- Pruebas hechas en local: `php -l` 8.2/8.4/8.5 y `node --check` OK; PHPCompatibilityWP 8.2- sin errores; `/`, `/blog/`, `/nuestro-equipo/`, `/servicios/`, `/contactanos/`, `/trabaja-con-nosotros/` y `/politica-de-privacidad/` dan 200; estilos calculados iguales a 1440 y 390 px (en 768 px el menú queda fijo, es el cambio buscado); el log de PHP sigue en 778 líneas, sin avisos nuevos.
+- Cómo deshacerlo: revertir los commits de la lista anterior, en orden inverso.

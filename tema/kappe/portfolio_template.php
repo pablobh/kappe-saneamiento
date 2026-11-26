@@ -88,7 +88,11 @@ $loop = new WP_Query(array('post_type' => 'portfolio', 'posts_per_page' => $item
 									
 									<div class="project-post <?php echo $cat_slugs; ?>">
                             <?php if (!empty($thumbnail)): ?>
-								<?php the_post_thumbnail($thumbsize, array('class' => 'cover')); ?>
+								<?php
+									// Primera fila (4 columnas en escritorio): carga inmediata; la primera imagen, con prioridad alta (LCP).
+									$img_attr = array('class' => 'cover', 'loading' => $wp_query->current_post < 4 ? 'eager' : 'lazy');
+									if ($wp_query->current_post === 0) { $img_attr['fetchpriority'] = 'high'; }
+									the_post_thumbnail($thumbsize, $img_attr); ?>
 							<?php else :?>
 								 <img src="http://placehold.it/405x311" alt="<?php _e ('No preview image', 'SDSU') ?>" />
 							<?php endif?>
