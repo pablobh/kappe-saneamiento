@@ -144,7 +144,7 @@ $showrmtext = weblusive_get_option('blog_show_rmtext');
 				if(!empty($thumbnail)) : ?>
 					<?php the_post_thumbnail('blog-list'); ?>
                 <?php else : ?>
-					<img src = "http://placehold.it/300x193" alt="'.__('No image', 'kappe').'" />
+					<img src = "http://placehold.it/300x193" alt="<?php echo esc_attr__( 'No image', 'kappe' ) ?>" />
 				<?php endif; ?>
                 <div class="post-content">
                     <h2><a href="<?php the_permalink()?>"><?php the_title()?></a></h2>

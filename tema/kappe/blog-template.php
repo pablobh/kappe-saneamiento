@@ -34,6 +34,7 @@ $blog_query = new WP_Query( array(
 
 <!--Container-->
 <div id="content">
+<?php kappe_h1( get_the_title( get_queried_object_id() ) ); ?>
 	 <?php get_template_part( 'library/includes/page-head' ); ?>
     <div class="inner-content blog-content">
        
@@ -74,4 +75,4 @@ $blog_query = new WP_Query( array(
     </div>
 </div>
 
-<?php get_footer(); ?>
+<?php get_footer(); ?>

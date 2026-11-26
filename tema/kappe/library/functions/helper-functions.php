@@ -243,4 +243,24 @@ function Kappe_comment($comment, $args, $depth) {
 
 /*****************************************/
 
+/**
+ * <h1> oculto (solo lectores de pantalla y buscadores) para las plantillas
+ * que no imprimen ninguno. No cambia el aspecto de la página.
+ */
+function kappe_h1( $text = '' ) {
+	if ( $text === '' ) {
+		$text = is_front_page() ? get_bloginfo( 'name' ) : single_post_title( '', false );
+	}
+	echo '<h1 class="kappe-h1">' . esc_html( $text ) . '</h1>' . "\n";
+}
+
+/**
+ * Texto alternativo de la miniatura de una entrada: el del adjunto y, si está vacío, el título.
+ */
+function kappe_thumb_alt( $post_id = 0 ) {
+	$post_id = $post_id ? $post_id : get_the_ID();
+	$alt     = trim( (string) get_post_meta( get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true ) );
+	return $alt !== '' ? $alt : get_the_title( $post_id );
+}
+
 ?>

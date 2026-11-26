@@ -20,6 +20,7 @@
 ?>
 
 <div id="content">
+<?php kappe_h1( single_term_title( '', false ) ); ?>
 	<div class="inner-content  blog-content">
         <div class="portfolio-page portfolio-box">	
 			<?php
@@ -39,13 +40,13 @@
 						
 					<div class="project-post <?php echo $cat_slugs; ?>">
 						<?php if (!empty($thumbnail)): ?>
-							<?php the_post_thumbnail($thumbsize, array('class' => 'cover')); ?>
+							<?php the_post_thumbnail($thumbsize, array('class' => 'cover', 'alt' => kappe_thumb_alt())); ?>
 						<?php else :?>
-							 <img src="http://placehold.it/405x311" alt="<?php _e ('No preview image', 'kappe') ?>" />
+							 <img src="http://placehold.it/405x311" alt="<?php echo esc_attr( get_the_title() ) ?>" />
 						<?php endif?>
 						<div class="hover-box">
 							<div class="project-title">
-								<h2><?php the_title() ?></h2>                                    
+								<h2><a class="kappe-card-link" href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>                                    
 								<span><?php echo $cat_slugs; ?></span>
 								<?php if( !empty ( $custom['_portfolio_video'][0] ) ) : $link = $custom['_portfolio_video'][0]; ?>
 									<a href="<?php echo $link ?>" class="zoom video" data-rel="prettyPhoto" title="<?php echo esc_attr(get_the_title()) ?>"><i class="fa fa-film"></i></a>
