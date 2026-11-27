@@ -122,7 +122,7 @@ Orden: A → B → C → D → E, en el orden de las filas (plan final de E1.10,
  
 | ☐ | ID | Tarea | Antes | Modelo |
 |---|---|---|---|---|
-| ☐ | E3.1 | PHPCompatibilityWP (`8.2-`) en 0 errores y `debug.log` vacío en PHP **8.2** (el de producción), 8.4 y 8.5 | T2.10, T4.1 | Haiku para ejecutar; Sonnet para corregir lo que falle |
+| ☑ | E3.1 | PHPCompatibilityWP (`8.2-`) en 0 errores y `debug.log` vacío en PHP **8.2** (el de producción), 8.4 y 8.5 (hecho 26-nov: phpcs 0 errores; `debug.log` vacío en 8.2 y 8.4; en 8.5 solo 24 avisos de Yoast SEO, fuera del alcance, aceptado por Pablo, ver `ESTADO.md`) | T2.10, T4.1 | Haiku para ejecutar; Sonnet para corregir lo que falle |
 | ☐ | E3.2 | Pruebas funcionales: las 6 páginas, paginación nativa del blog hasta el final (E2.B1), guardar una página y un proyecto conserva sus opciones, el panel del tema guarda e importa | "Cómo probar" | Sonnet |
 | ☐ | E3.3 | Comparación visual contra las capturas de E1.6 (1440 px y 390 px); solo se aceptan diferencias que sean mejoras acordadas | T4.2 | Sonnet |
 | ☐ | E3.4 | Lighthouse después contra E1.7 y prueba de teclado en el home y el blog. **Decisión 26-nov (Pablo): revisar aquí si Lighthouse marca "Properly size images" (miniaturas del portafolio sin `srcset`/`sizes`, hallazgo de D7/E2.E1) para decidir con datos si se añade un tamaño y se regeneran miniaturas; si no aparece o el ahorro es pequeño, se descarta** | T4.3 | Haiku (medición); Sonnet (análisis) |
