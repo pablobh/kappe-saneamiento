@@ -73,3 +73,9 @@ Pablo lo revisa en la Puerta 2.
 - Qué debe probar Pablo: un solo `<h1>` por página; el título de las pestañas del navegador (Yoast sigue gestionándolo); las tarjetas del portafolio (el título es enlace, mismo aspecto); el texto de `/servicios/` y el teléfono de `/contactanos/` con los colores nuevos; el foco con Tab en el menú, la búsqueda y el lightbox.
 - Pruebas hechas en local: `php -l` 8.x y PHPCompatibilityWP 8.2- sin errores (E1/E2); 9 URL dan 200 sin avisos; estilos calculados iguales a 1440, 768 y 390 px salvo el `alt` del blog (mejora pedida); contraste medido con Playwright; log de PHP sin líneas nuevas (831).
 - Cómo deshacerlo: revertir los commits de la lista anterior, en orden inverso.
+
+### E3 · Pruebas y paquete de despliegue (2026-11-27) · rama `etapa-3/pruebas`
+- Qué cambió: E3.1–E3.4 (phpcs 8.2-, pruebas funcionales, comparación visual, Lighthouse y teclado; `portfolio-large` con `srcset`/`sizes`, traducción de la paginación); E3.5: `style.css` `Version: 3.0` e instrucciones en `despliegue/INSTRUCCIONES.md`.
+- Archivos tocados: `tema/kappe/style.css`, `tema/kappe/functions.php`, `tema/kappe/languages/es_CO.{po,mo}`, `despliegue/INSTRUCCIONES.md`, `pruebas/`.
+- Qué debe probar Pablo: leer las instrucciones, hacer la simulación de `rsync` y revisar la lista de borrados.
+- Cómo deshacerlo: restaurar el respaldo (instrucciones, paso 10) o el tag `prod-1.6`.

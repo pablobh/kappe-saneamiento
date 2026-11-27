@@ -554,3 +554,13 @@ msgstr ""
 #: widgets.php:175
 msgid "Youtube:"
 msgstr ""
+
+#. Text in function
+#: blog-template.php:61
+msgid "Previous"
+msgstr "Anterior"
+
+#. Text in function
+#: blog-template.php:62
+msgid "Next"
+msgstr "Siguiente"

@@ -5,7 +5,7 @@ $catid = get_query_var('cat');
 /* $cat = &get_category($catid); */
 $cat = get_category($catid);
 
-$get_meta = get_post_custom($post->ID);
+$get_meta = get_post_custom( get_queried_object_id() ); // página del blog, no la entrada del listado
 $size = weblusive_get_option('sidebar_size');
 $sidebar_pos = isset( $get_meta['_weblusive_sidebar_pos'][0]) ? $get_meta["_weblusive_sidebar_pos"][0] : 'full';
 $sidebar_size = (isset($size) && !empty ($size)) ? $size : 'col-md-6';

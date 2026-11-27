@@ -31,11 +31,25 @@ function kappe_setup() {
 
 	// Thumbnail sizes
 	add_image_size( 'portfolio', 405, 311, true );
-	add_image_size( 'portfolio-single', 654, 469, true );
+	// Misma proporción que 'portfolio' (405:311) y más ancho: WordPress lo ofrece en el srcset para móviles y pantallas de alta densidad.
+	// 720x553 y no el doble exacto (810x622): casi todas las fuentes miden 900x600 o menos y no se pueden ampliar.
+	// 'portfolio-single' (654x469) y 'blog-thumb-3' (270x180) se quitaron: nada los usaba.
+	add_image_size( 'portfolio-large', 720, 553, true );
 	add_image_size( 'blog-list', 294, 9999, true );
 	add_image_size( 'blog-thumb', 75, 75, true );
-	add_image_size( 'blog-thumb-3', 270, 180, true );
 }
+
+/**
+ * `sizes` de las miniaturas del portafolio: una columna (ancho de pantalla) en móvil y ~405 px desde ahí.
+ * Sin esto WordPress declara `(max-width: 405px) 100vw, 405px` y en un móvil de 412 px elige la imagen pequeña.
+ */
+function kappe_portfolio_sizes( $sizes, $size ) {
+	if ( is_array( $size ) && 405 === (int) $size[0] && 311 === (int) $size[1] ) {
+		return '(max-width: 600px) 100vw, 405px';
+	}
+	return $sizes;
+}
+add_filter( 'wp_calculate_image_sizes', 'kappe_portfolio_sizes', 10, 2 );
 
 
 /********************* DEFINE MAIN PATHS ********************/
