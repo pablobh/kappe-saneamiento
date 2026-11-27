@@ -6,3 +6,4 @@ pruebas/capturas/despues/
 node_modules/
 pruebas/lighthouse/**/*.report.html
 pruebas/lighthouse/**/*.report.json
+pruebas/capturas/e3/
