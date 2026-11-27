@@ -42,3 +42,11 @@ Version 1.6 List of changes:
 ----------------------------
 Minor fixes and improvements
 Updated prettyphoto to fix the XSS vulnerability bug.
+
+
+Version 3.0 List of changes:
+----------------------------
+Sanitized, updated and optimized by Pablo Bustamante. Compatible with PHP 8.2 - 8.5.
+Security: nonces and capability checks in meta boxes, theme panel and portfolio ordering; removed unserialize, raw SQL and the ajax-load-more endpoint (blog uses native pagination).
+Cleanup: removed dead code and unused libraries (Migrate, Modernizr, nicescroll, jPlayer, retina.js, Google Maps, Twitter/Flickr, contact form and pricing tables); fixed PHP 8 warnings.
+Performance and SEO: dynamic CSS inline with cache, lighter fonts, responsive portfolio thumbnails (srcset), lazy loading, h1 headings, accessibility fixes. Translations renamed to es_CO.
