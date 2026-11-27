@@ -1,0 +1,13 @@
+pagina;formato;rendimiento 1.6;rendimiento saneada;accesibilidad 1.6;accesibilidad saneada;mejores practicas 1.6;mejores practicas saneada;seo 1.6;seo saneada;LCP ms 1.6;LCP ms saneada;CLS 1.6;CLS saneada;imagen tamano 1.6;imagen tamano saneada
+home;escritorio;100;100;80;90;100;100;66;66;693;724;0.000;0.006;1/1/1;1/1/1
+blog;escritorio;93;100;87;97;73;73;58;58;1265;541;0.116;0.035;1/1/1;1/1/1
+servicios;escritorio;96;100;80;90;100;100;66;66;1311;558;0.007;0.005;1/1/1;1/1/1
+nuestro-equipo;escritorio;97;100;80;90;77;77;66;66;1232;559;0.000;0.007;1/1/1;1/1/1
+contactanos;escritorio;96;100;88;93;96;96;66;66;1274;619;0.000;0.000;1/1/1;1/1/1
+trabaja-con-nosotros;escritorio;96;100;75;84;77;77;58;58;1298;644;0.000;0.000;1/1/1;1/1/1
+home;movil;95;95;78;89;92;96;66;66;2657;2711;0.000;0.000;0/0/0;0/0/0
+blog;movil;90;98;76;88;69;69;58;58;3483;1811;0.000;0.000;0/0/0;0/0/0
+servicios;movil;91;98;78;89;92;96;66;66;3307;1811;0.000;0.000;0/0/0;0/0/0
+nuestro-equipo;movil;86;98;75;87;69;73;66;66;4032;1812;0.000;0.000;0/0/0;0/0/0
+contactanos;movil;87;98;88;93;92;92;66;66;3770;1994;0.000;0.000;0/0/0;0/0/0
+trabaja-con-nosotros;movil;90;98;68;80;69;73;58;58;3303;1813;0.000;0.000;0/0/0;0/0/0

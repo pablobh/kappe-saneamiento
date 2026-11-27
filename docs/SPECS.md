@@ -140,7 +140,7 @@ Estos identificadores están en la base de datos. **No se renombran**:
 - Metas: `_weblusive_sidebar_pos`, `_page_portfolio_cat`, `_page_portfolio_num_items_page`, `_portfolio_type`, `_weblusive_sidebar_post`, `_weblusive_post_head`, `_weblusive_post_slider`, `_weblusive_promotext`, `_portfolio_no_lightbox`, `_portfolio_inner_lightbox`, `_portfolio_link`, `_portfolio_video`, `_portfolio_featured`, `_blog_videoap`, `_blog_video`, `_blog_mediatype` y `custom_slider`.
 - CPT `portfolio` (slug `works`) y taxonomía `portfolio_category`. **Las URLs `/works/...` no cambian** durante el saneamiento (ver §6).
 - Ubicación de menú `primary_nav`; sidebars `primary-widget-area`, `footer-sidebar-1…4` y los personalizados.
-- Tamaños de imagen `portfolio`, `portfolio-single`, `blog-list`, `blog-thumb`, `blog-thumb-3`.
+- Tamaños de imagen `portfolio`, `blog-list`, `blog-thumb`. (27-nov, decisión de Pablo: se quitan `portfolio-single` y `blog-thumb-3`, sin usos, y se añade `portfolio-large` 720×553 para el `srcset` del portafolio.)
 - Nombres de las plantillas de página (se guardan en `_wp_page_template`).
 - Shortcodes en el contenido: como mínimo `tabgroup`, `tab`, `teammember`. Si se elimina uno que esté en la BD, dejar un *fallback* que devuelva `do_shortcode( $content )`.
 - `slugify()` **se usa** (filtro del portafolio en `portfolio_template.php` y `portfolio_walker.php`): no se elimina; si se renombra, la salida debe ser idéntica.
